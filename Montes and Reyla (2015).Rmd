@@ -1,5 +1,5 @@
 ---
-title: "Have innovations in ICT changed the game for mobility and migration?"
+title: "Have ICT changed the game for mobility and migration?"
 subtitle: "Working Paper. Please don't cite"
 author: "Ayra Rowena Reyla and Ana Cecilia Montes"
 date: "11 November 2015"
@@ -11,11 +11,7 @@ theme: united
 toc: yes
 toc_depth: 3
 ---
-
-
-
 \newpage
-
 ---
 
 ```{r setup, include=FALSE}
@@ -59,38 +55,198 @@ It is benificial for countries or governments to undestand the causes and the dr
 # 5 Methodology
 ## 5.1 Data Selection
 
-In order to examine the flows of migration, we intend to use data on trends in _International Migrant Stock_ produced by the United Nations. The data contains information from 232 countries and provides the number of migrants by destination and country of origin for four periods of time; 1990, 2000, 2010, and 2013. Moreover, to account for technology diffusion we will use _World Bank indicators_ on the number of Internet users and the number of cellular mobile subscriptions for each country. 
+In order to examine the flows of migration, this analysis uses data from the _International Migrant Stock_ produced by the United Nations. The data contains information from 232 countries and provides the number of migrants by destination and country of origin for four periods of time; 1990, 2000, 2010, and 2013. Moreover, to account for technology diffusion we will use _World Bank indicators_ on the number of Internet users and the number of cellular mobile subscriptions for each country. 
 
 The _International Migrant Stock Total_ indicates the number of people born in a country other than the country in which they currently reside in, this includes refugees as well. The data set estimates the international migrant stock at a particular time and are mainly collect from population censuses. 
 Also, the data set presents the estimates of : (1) international migrant stock at mid-year; (2) total population at mid-year (thousands); (3) international migrant stock as a percentage of the total population; (4) annual rate of change of migrant stock (percentage); and (5) estimated number of refugees. The estimates are based on official statistics on the foreign-born or the foreign population. 
 
 This analysis will focus on the estimates for the years 1990, 2000, 2010 and 2013. 
 
-Additionally, in order to conduct a more thorough analysis we will include a number of aggregate metadata collected from _The World Bank indicators_. There are many other determinants of migration, that is why this analysis chooses to include a wide variety of World Bank indicators. The chosen indicators are used to measure certain push factors. 
+Additionally, in order to conduct a more thorough analysis we will include a number of aggregate data collected from _The World Bank indicators_. There are many other determinants of migration, that is why this analysis chooses to include a wide variety of World Bank indicators. The chosen indicators are used to measure certain push factors. 
 
 To measure economic and demographic determinants this analysis includes the _fertility rate_ indicator. Indicators such as _poverty_ and _unemployment_ have been removed from the analysis, as there are many missing values in the data set. 
 
-To account for political factors the this analysis used  _World Bank Governance indicators_, which includes _government effectiveness_, _regulatory quality_, _rule of law_, and _voice and accountability_. We have omitted _intentional homocides_, _political stability_, and _control of corruption_ indicators because there was a lack of observations in the data set to conduct a complete analysis. 
 
 ##5.2 Emperical Strategy
 
-To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes panel data regression, fixed effects and random effects.  
+#Emperical Methods
 
-#Inferential Statistics
+To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes **panel data regression using the within and between estimators, and a random effects model**.  
+
+#Descriptive Statistics
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+#install.packages('WDI')
+#install.packages('tidyr')
+#install.packages('rio')
+#install.packages('countrycode')
+#install.packages("RJOSONIO")  
+#install.packages ("ggplot2")
+#install.packages("rworldmap")
+#install.packages("sp")
+#install.packages("joinCountryData2Map")
+#install.packages("plm")
+#install.packages("Formula")
+#install.packages("pglm")
+
+# Loading packages
+library("maptools")
+library("countrycode")
+library("RJSONIO")
+library("WDI")
+library("tidyr")
+library("rio")
+library("ggplot2")
+library("rworldmap")
+library("sp")
+library('Formula')
+library('plm')
+library('pglm')
+
+# Setting directory
+#setwd('/Users/AnaCe/Desktop/Assignment3MontesReyla')
+setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Assignment3MontesReyla/Assignment3MontesReyla')
+
+#loading data set
+Merged <- read.csv(file="MontesandReyla")
+
+#Set data as panel data
+Merged <- plm.data(Merged, index=c("iso2c", "year"))
+
+# sub dataframes by year
+merged90 <-subset(Merged, year==1990)
+merged00 <-subset(Merged, year==2000)
+merged10 <-subset(Merged, year==2010)
+merged13 <-subset(Merged, year==2013)
+
+```
+
+## Dependent Variables
+
+Our dependent variable is the total migrant stock at mid-year by country of origin, which we retrieved from the United Nations Population division. 
+
+Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count data. It is also very rightly skewed, because there is a large amount countries that both have low emigration and low population. 
 
 
+```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
+hist(Merged$emigration2, xlab = "Thousands of emigrants", main = "Figure 1. Histogram for Emigration ", xlim=range(0:14170))
+## Summary
+summary(Merged$emigration2, na.rm = TRUE)
+```
 
 
+Figure 2 expresses emigration in per capita terms in order to account for population differences between countries. The shape of the distribution has not as not made a strong visual change, which means that emigration is quite low in a large number of countries. 
+
+Among all the years, the country with the largest emigration per capita is the West Bank and Gaza. One can infer that the conflict in this region over time has affected the population movements drastically. The country with the lowest emigration per capita is Western Sahara. Even though there is a strong conflict in the region, free mobility in and out of the country is heavily guarded and limited by a 2,700 kilometer sand wall, also known as the Moroccan Wall. This can account for the lack of emigration throughout the region. 
 
 
-#Figures
+```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
+hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
+## Summary
+summary(Merged$emigrationpercap, na.rm = TRUE)
+``` 
+
+### Patterns of Emmigration
+The following figures illustrate the evolution of the per capita emigration stock totals for each country in the years 1990, 2000, 2010 and 2013. 
+
+Observing the figures indicates the important population movements, particularly in Africa. For example, between the years of 1990-2000, Mozambique  and Burkina Faso has reduced the number of people exiting the country. Also, Chad has experienced similar pasterns, but not the the extent to which the previous examples faced. When comparing 2010 and 2013, there is not a visually observable difference. This can possibly be attributed to the stabilization of migration patterns. 
+
+While Africa has experienced a decrease in emigration, Latin America has the opposite pattern. For example, countries such as Mexico, Colombia, Educator, Peru, Bolivia, and Guatemala have experience a large increase in total emigration during the last decade. 
+
+In Europe, the situation is quite mixed since many factors, such as the creation of European Union (EU) and the enlargement of EU over the years could have played a large role the heterogeneity of the migration patterns in the past decade. There is migration movement, but there is no overall pattern of movements within the EU region.
 
 
+<center>
+```{r merged90, tidy=TRUE, warning=FALSE, comment="Note:", error=FALSE, echo=FALSE, cache=FALSE}
+# Graphs
+# 1990
+sPDF <- joinCountryData2Map( merged90
+                             ,joinCode = "ISO2"
+                             ,nameJoinColumn = "iso2c")
+Emi90 <- mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', 
+                        mapTitle= 'Figure 3. Number of emigrants per capita 1990', 
+                        colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"), 
+                        borderCol='black', missingCountryCol="beige")
 
 
+# 2000
+sPDFII <- joinCountryData2Map( merged00
+                             ,joinCode = "ISO2"
+                             ,nameJoinColumn = "iso2c")
+mapCountryData(sPDFII, nameColumnToPlot='emigrationpercap', mapTitle= 'Figure 4 Number of emigrants per capita 2000',
+               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               borderCol='black', missingCountryCol="beige")
+
+# 2010
+sPDFIII <- joinCountryData2Map( merged10
+                                ,joinCode = "ISO2"
+                                ,nameJoinColumn = "iso2c")
+mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Figure 5. Number of emigrants per capita 2010',
+               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               borderCol='black', missingCountryCol="beige")
+
+# 2013
+sPDFIV <- joinCountryData2Map( merged13
+                               ,joinCode = "ISO2"
+                               ,nameJoinColumn = "iso2c")
+mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Figure 6. Number of emigrants per capita 2013',
+               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               borderCol='black', missingCountryCol="beige")
+
+```
+
+#Independent Variables
+
+This analysis makes use of many variables, to control for determinates that effect the dependent variable.
+Below is the calculated summary statistics for the independent variables.
+
+###GDP Per Capita
+```{r, echo=FALSE, tidy=TRUE, comment=NA}
+summary(Merged$GDPPerCapita, na.rm = TRUE)
+```
+###Total Population
+```{r, echo=FALSE, tidy=TRUE, comment=NA}
+summary(Merged$TotalPopulation, na.rm = TRUE)
+```
+###Fertility Rate
+```{r, echo=FALSE, tidy=TRUE, comment=NA}
+summary(Merged$FertilityRate, na.rm = TRUE)
+```
 
 
-# 6 Limitations
+###Cellphone Users
+```{r, echo=FALSE, tidy=TRUE, comment=NA}
+summary(Merged$CellphoneUsers, na.rm = TRUE)
+```
+###Internet Users
+```{r, echo=FALSE, tidy=TRUE, comment=NA}
+summary(Merged$InternetUsers, na.rm = TRUE)
+```
+###Correlation between independent variables
+```{r, echo=FALSE, tidy=TRUE, comment=NA}
+cor.test(Merged$InternetUsers, Merged$CellphoneUsers, na.rm = TRUE)
+```
+Since a high correlation between internet users and cellphone users can be observed from the correlation test above, this analysis used the variables seperately. 
+
+
+#Results
+
+Panel regression using within estimators and separate random effect estimators are used when analyzing the research question at hand. 
+
+_Table 1_ illustrates the regression results of a *panel regression*. The results show that cellphone usage is significant to explain the change in immigration inside a country. Additionally, the within estimations indicates that cellphone users do not explain the migration pattern across countries. 
+
+Furthermore, the comparison between the same countries within the same year indicate that the more cellphone users in a country, the more migration occurs. Coincidentally, when comparing between countries, there is no effect on the cellphone users. 
+
+It's the effect within the country and the year that is significant. The more technology is introduced in the country, the more it will incentive or "push" immigration in the country. This suggests that the differences across the countries are not a relevant factor to explain immigration across countries. 
+
+
+#Limitations and Further Research
+
+The next step to this analysis will be to estimate our dependent variable using a *Poisson* distribution. 
+We intend to combine combine panel data techniques with count data. 
+
 
 One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the resarch because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
 
