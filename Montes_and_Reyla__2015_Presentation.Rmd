@@ -3,13 +3,17 @@ title: "Have ICT changed the game for mobility and migration?"
 author: "Ayra Rowena Reyla and Ana Cecilia Montes"
 date: "4 de diciembre de 2015"
 number_sections: yes
-highlight: zenburn
-output: beamer_presentation:
-        theme: "CambridgeUS"
-        fonttheme: "structurebold"
+output:
+  beamer_presentation:
+    colortheme: whale
+    fonttheme: serif
+    theme: Boadilla
+    fig_width: 6
+    fig_height: 4.5
+    fig_caption: false
+  ioslides_presentation: null
 ---
 
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
