@@ -127,11 +127,12 @@ merged13 <-subset(Merged, year==2013)
 
 Our dependent variable is the total migrant stock at mid-year by country of origin, which we retrieved from the United Nations Population division. 
 
-Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count data. It is also very rightly skewed, because there is a large amount countries that both have low emigration and low population. 
+Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count data. Migration flow data is also higly skewed, because there is a large amount countries that both have low emigration and low population, while theres other large population outflows. Figure 2 displays the depended variable in natural logaritm.
 
 
 ```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
 hist(Merged$emigration2, xlab = "Thousands of emigrants", main = "Figure 1. Histogram for Emigration ", xlim=range(0:14170))
+
 ## Summary
 summary(Merged$emigration2, na.rm = TRUE)
 ```
@@ -215,7 +216,6 @@ summary(Merged$TotalPopulation, na.rm = TRUE)
 summary(Merged$FertilityRate, na.rm = TRUE)
 ```
 
-
 ###Cellphone Users
 ```{r, echo=FALSE, tidy=TRUE, comment=NA}
 summary(Merged$CellphoneUsers, na.rm = TRUE)
@@ -228,8 +228,8 @@ summary(Merged$InternetUsers, na.rm = TRUE)
 ```{r, echo=FALSE, tidy=TRUE, comment=NA}
 cor.test(Merged$InternetUsers, Merged$CellphoneUsers, na.rm = TRUE)
 ```
-Since a high correlation between internet users and cellphone users can be observed from the correlation test above, this analysis used the variables seperately. 
 
+Since a high correlation between internet users and cellphone users can be observed from the correlation test above, this analysis used the variables seperately. 
 
 #Results
 

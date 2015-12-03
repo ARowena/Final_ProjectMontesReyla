@@ -3,7 +3,7 @@
 ########################################################################################
 
 # 0. Clearing the workspace
-rm(list = ls())
+rm(list = ls(all=TRUE))
 
 # 1. Installing and loading packages
 
@@ -17,10 +17,11 @@ rm(list = ls())
 #install.packages("sp")
 #install.packages("joinCountryData2Map")
 #install.packages("kable")
-install.packages("plm")
-install.packages("Formula")
-install.packages("pglm")
-install.packages("stargazer")
+#install.packages("plm")
+#install.packages("Formula")
+#install.packages("pglm")
+#install.packages("stargazer")
+#install.packages("migest")
 
 
 library("ggmap")
@@ -37,9 +38,10 @@ library('Formula')
 library('plm')
 library('pglm')
 library('stargazer')
+library("migest")
 
 #2. Setting directory
-setwd('/Users/AnaCe/Desktop/')
+setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
 #setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Assignment3MontesReyla/Assignment3MontesReyla')
 
 ########################################################################################
@@ -93,6 +95,7 @@ WDI_indi <- WDI_indi[!is.na(WDI_indi$iso2c),]
 Merged <- merge(emigrationtotal, WDI_indi, by = c('iso2c','year'))
 summary(Merged)
 
+
 # 8. Cleaning the data
 Merged <- plyr::rename(Merged, c("IT.CEL.SETS.P2" = "CellphoneUsers"))
 Merged <- plyr::rename(Merged, c("IT.NET.USER.P2" = "InternetUsers"))
@@ -108,6 +111,11 @@ Merged <- plyr::rename(Merged, c("RQ.EST" = "RegulatoryQuality"))
 Merged <- plyr::rename(Merged, c("RL.EST" = "RuleOfLaw"))
 Merged <- plyr::rename(Merged, c("VA.EST" = " VoiceAndAccountability"))
 Merged <- plyr::rename(Merged, c("SP.DYN.TFRT.IN" = "FertilityRate"))
+
+
+# Dropping rows where all variables are missing
+
+Merged <- Merged[which(rowSums(!is.na(dataset[, wbdata])) > 0), ]
 
 # Counting missing information in the Independent Variables
 
@@ -156,8 +164,11 @@ Merged$emigration <- as.numeric(Merged$emigration)
 Merged <-subset.data.frame(Merged, select = -Country)
 
 # 9. Generating variables
-Merged$emigration2 = Merged$emigration/1000
-Merged$emigrationpercap = Merged$emigration/Merged$TotalPopulation
+Merged$emigration2 = Merged$emigration/100000
+Merged$emigrationpercap = Merged$emigration/Merged$TotalPopulation*100000
+Merged$logemigrationpercap = log(Merged$emigrationpercap)
+Merged$logemigration = log(Merged$emigration)
+
 
 # sub dataframes by year
 merged90 <-subset(Merged, year==1990)
@@ -210,8 +221,10 @@ mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of
 
 
 ## Historgram
-hist(Merged$emigration2, xlab = "Thousands of emigrants", main = "Histogram", xlim=range(0:14170))
+hist(Merged$emigration2, xlab = "Thousands of emigrants", main = "Histogram")
 hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Histogram")
+hist(Merged$logemigrationpercap, xlab = "Emigrants per capita (log)", main = "Histogram")
+hist(Merged$logemigration, xlab = "Number of Emigrants (log)", main = "Histogram")
 
 ## Summary
 summary(Merged$emigration2, na.rm = TRUE)
@@ -286,8 +299,24 @@ Between_1 <- plm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita +
 summary(Between_1)
 
 # Panel regression, random effects
-#Random_1 <- plm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
+Random_1 <- plm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
 #summary(Random_1)
+
+Random_1 <- plm(emigration2 ~ CellphoneUsers + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
+
+
+# using log
+
+Within_12 <- plm(logemigration ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "within")
+summary(Within_12)
+
+Between_12 <- plm(logemigration ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "between")
+summary(Between_12)
+
+Random_12 <- plm(logemigration ~ CellphoneUsers + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
+summary(Random_1)
+
+
 
 ##Internet Users
 # Poisson Regression
@@ -305,6 +334,9 @@ summary(Between_2)
 # Panel regression, random effects
 #Random_2 <- plm(emigration2 ~ InternetUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
 #summary(Random_2)
+
+
+
 
 # Creating table output 
 stargazer(Poisson_1, Within_1, Between_1,
@@ -324,21 +356,59 @@ stargazer(Poisson_2, Within_2, Between_2,
           omit.stat = c("f", "ser"),
           notes = "This regression output shows the results using Internet users as a proxy of 
           comunication technology")
-####################################################################################
 
-# Immigration
+
+
+#########################################################################################################
+######################## Migration total: Dataset with both Origin and Destination ######################
+#########################################################################################################
+
+# Loading data and reshaping
 tables <-c(2, 5, 8, 11)
 for (i in tables)   {
-  Migration<- import("UN_MigrantStockByOriginAndDestination_2013T10.xls", 
+  Migration2<- import("UN_MigrantStockByOriginAndDestination_2013T1.xls", 
                      format = "xls", sheet =i)
-}
-Migration<- import("UN_MigrantStockByOriginAndDestination_2013T10.xls", 
-                   format = "xls", sheet =11)
+  Migration2 <-Migration2[-c(1:14, 17:22, 23, 44, 54, 62, 68, 86, 87, 93, 101, 113, 123, 142, 143, 154, 168, 185, 195, 196, 223, 232, 247, 253, 254, 257, 263, 271),]
+  Migration2 <-Migration2[, -c(1, 3:9)]
+  nombres <-Migration2[1,]
+  colnames(Migration2) <- c(nombres)
+  Migration2 <-Migration2[-c(1,2),]
+  emigration2 <- gather(Migration2, Origin, emigration, 2:233)
+  colnames(emigration2) <- c("Destination","Origin", "Emigration")
+  assign(paste0("emigration", i), emigration2)
+  }
+
+emigrationtotal2 <- cbind(emigration11, emigration8, emigration5, emigration2)
+emigrationtotal2 <-emigrationtotal2[,c(1,2, 3, 6, 9, 12)]
+emigrationtotal2 <- gather(emigrationtotal2, year, emigration, 3:6)
+emigrationtotal2$year <- as.character(emigrationtotal2$year)
+emigrationtotal2$year[emigrationtotal2$year=="Emigration"] <- "2013"
+emigrationtotal2$year[emigrationtotal2$year=="Emigration.1"] <- "2010"
+emigrationtotal2$year[emigrationtotal2$year=="Emigration.2"] <- "2000"
+emigrationtotal2$year[emigrationtotal2$year=="Emigration.3"] <- "1990"
+ls()
+rm(list = c("emigration11", "emigration2", "emigration5", "emigration8", 
+            "i", "tables", "nombres"))
 
 
-emigration<- Migration[c(15,16),]
-emigration<- t(emigration)
-emigration<-as.data.frame(emigration)
-emigration<- emigration[c(10:241),]
-colnames(emigration) <- c("Country","Emigration")
-assign(paste0("emigration", i), emigration)
+## Code for countries
+### Country of origin
+emigrationtotal2$iso2c <- countrycode (emigrationtotal2$Origin, origin = 'country.name', 
+                                      destination = 'iso2c', warn = TRUE)
+colnames(emigrationtotal2) <- c("Destination","Origin", "year", "emigration","iso2cOri" )
+
+### Country of destination
+emigrationtotal2$iso2c <- countrycode (emigrationtotal2$Destination, origin = 'country.name', 
+                                       destination = 'iso2c', warn = TRUE)
+colnames(emigrationtotal2) <- c("Destination","Origin", "year", "emigration","iso2cOri", "iso2cDest")
+
+# Deleting missing values
+emigrationtotal2 <- emigrationtotal2[!is.na(emigrationtotal2$emigration),]
+
+# Saving File
+write.csv(Merged, file="MontesandReylaTotal")
+
+
+
+#### WDI
+WDI_indi2 <- WDI_indi[which(rowSums(!is.na(WDI_indi[, wbdata])) > 0), ]
