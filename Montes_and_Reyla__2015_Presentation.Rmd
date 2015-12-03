@@ -1,5 +1,5 @@
 ---
-title: "Have Internet, Communication Technologies changed the game for mobility and migration?"
+title: "Information and Communication Technologies and Migration"
 author: "A. Reyla and A. Montes"
 date: "4 December 2015"
 number_sections: yes
@@ -28,18 +28,29 @@ knitr::opts_chunk$set(echo = FALSE)
 - Results
 - Conclusion & Limitations
 
-## Research Question 
-**How?**
+## Research Question & Motivation
 
-## Theoretical Framework
-
+**Research Questions? Has the increase use of technologies, such as the Internet and mobile phones affected the flows of emigration?**
 
 
 -  Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)
 
-## Methodology
-## Descriptive Statistics 
+## Theoretical Framework: Push Factors
 
+
+![Figure1](http://i65.tinypic.com/16ge740.png) 
+
+
+
+## Theoretical Framework: Pull Factors
+
+![Figure2](http://i68.tinypic.com/1174q42.jpg) 
+
+
+## Methodology
+
+
+## Descriptive Statistics 
 
 
 
