@@ -1,12 +1,12 @@
 ---
-title: "Have ICT changed the game for mobility and migration?"
-author: "Ayra Rowena Reyla and Ana Cecilia Montes"
-date: "4 de diciembre de 2015"
+title: "Have Internet, Communication Technologies changed the game for mobility and migration?"
+author: "A. Reyla and A. Montes"
+date: "4 December 2015"
 number_sections: yes
 output:
   beamer_presentation:
-    colortheme: whale
-    fonttheme: serif
+    colortheme: beaver
+    fonttheme: structurebold
     theme: Boadilla
     fig_width: 6
     fig_height: 4.5
@@ -29,16 +29,20 @@ knitr::opts_chunk$set(echo = FALSE)
 - Conclusion & Limitations
 
 ## Research Question 
+**How?**
+
 ## Theoretical Framework
+
+
 
 -  Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)
 
 ## Methodology
 ## Descriptive Statistics 
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
+
+
+
 
 ## Slide with Plot
 
