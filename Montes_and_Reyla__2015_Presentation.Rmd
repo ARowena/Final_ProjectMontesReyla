@@ -38,13 +38,13 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Theoretical Framework: Push Factors
 
 
-![Figure1](http://i65.tinypic.com/16ge740.png) 
+![Figure1](http://i63.tinypic.com/2u7ul1k.jpg) 
 
 
 
 ## Theoretical Framework: Pull Factors
 
-![Figure2](http://i68.tinypic.com/1174q42.jpg) 
+![Figure2](http://i67.tinypic.com/5vmwrm.jpg) 
 
 
 ## Methodology
