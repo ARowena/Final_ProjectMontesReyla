@@ -41,8 +41,6 @@ library('pglm')
 library('stargazer')
 library("migest")
 library("tseries")
-library("vif")
-
 
 #2. Setting directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
@@ -121,6 +119,10 @@ Merged <- plyr::rename(Merged, c("RL.EST" = "RuleOfLaw"))
 Merged <- plyr::rename(Merged, c("VA.EST" = " VoiceAndAccountability"))
 Merged <- plyr::rename(Merged, c("SP.DYN.TFRT.IN" = "FertilityRate"))
 
+# Code variables as numeric
+Merged$year <- as.numeric(Merged$year)
+Merged$emigration <- as.numeric(Merged$emigration)
+
 # Generating Dependent variables
 Merged$emigration2 = Merged$emigration/100000
 Merged$emigrationpercap = Merged$emigration/Merged$TotalPopulation*100000
@@ -132,19 +134,19 @@ str(Merged)
 summary(Merged)
 table (Merged$year)
 
-# Code variables as numeric
-Merged$year <- as.numeric(Merged$year)
-Merged$emigration <- as.numeric(Merged$emigration)
 
 # sub dataframes by year
 merged90 <-subset(Merged, year==1990)
-merged00 <-subset(Merged, year==2000)
-merged10 <-subset(Merged, year==2010)
-merged13 <-subset(Merged, year==2013)
+write.csv(merged90, file="merged90")
 
-# Code variables as numeric
-Merged$year <- as.numeric(Merged$year)
-Merged$emigration <- as.numeric(Merged$emigration)
+merged00 <-subset(Merged, year==2000)
+write.csv(merged00, file="merged00")
+
+merged10 <-subset(Merged, year==2010)
+write.csv(merged10, file="merged10")
+
+merged13 <-subset(Merged, year==2013)
+write.csv(merged13, file="merged13")
 
 # Counting missing information in the Independent Variables
 
@@ -192,11 +194,6 @@ Merged$logFertilityRate = log(Merged$FertilityRate)
 Merged$logPoliticalStability = log(Merged$PoliticalStability)
 Merged$employmentprob = 1-((Merged$UnemploymentRate))
 
-# sub dataframes by year
-merged90 <-subset(Merged, year==1990)
-merged00 <-subset(Merged, year==2000)
-merged10 <-subset(Merged, year==2010)
-merged13 <-subset(Merged, year==2013)
 
 # Creating a .csv file with the final version of the data
 write.csv(Merged, file="MontesandReyla")
@@ -214,30 +211,30 @@ Merged <- plm.data(Merged, index=c("iso2c", "year"))
 sPDF <- joinCountryData2Map( merged90
                              ,joinCode = "ISO2"
                              ,nameJoinColumn = "iso2c")
-mapDevice(Map1)
+#mapDevice(Map1)
 mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               colourPalette = c("heat"),
                borderCol='black', missingCountryCol="beige")
 # 2000
 sPDFII <- joinCountryData2Map( merged00
                                ,joinCode = "ISO2"
                                ,nameJoinColumn = "iso2c")
 mapCountryData(sPDFII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2000',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               colourPalette = c("heat"),
                borderCol='black')
 # 2010
 sPDFIII <- joinCountryData2Map( merged10
                                 ,joinCode = "ISO2"
                                 ,nameJoinColumn = "iso2c")
 mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2010',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               colourPalette = c("heat"),
                borderCol='black')
 # 2013
 sPDFIV <- joinCountryData2Map( merged13
                                ,joinCode = "ISO2"
                                ,nameJoinColumn = "iso2c")
 mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2013',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
+               colourPalette = c("heat"),
                borderCol='black')
 
 
