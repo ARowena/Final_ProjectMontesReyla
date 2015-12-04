@@ -106,21 +106,39 @@ merged13 <- read.csv(file="merged13")
 
 #Set data as panel data
 Merged <- plm.data(Merged, index=c("iso2c", "year"))
-
 load("myWorkSpace.RData")
 ```
 
 
-## Emigration 1990
+## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
-sPDF <- joinCountryData2Map( merged90
-                             ,joinCode = "ISO2"
-                             ,nameJoinColumn = "iso2c")
+#sPDF <- joinCountryData2Map(merged90, joinCode = "ISO2", nameJoinColumn = "iso2c")
 #mapDevice(Map1)
-mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990',
-               colourPalette = c("heat"),
-               borderCol='black', missingCountryCol="beige")
+#mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990', colourPalette = c("heat"),borderCol='black', missingCountryCol="beige")
 ```
+![Figure2](http://i68.tinypic.com/i2ufid.jpg) 
+
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+
+#sPDFII <- joinCountryData2Map( merged00 ,joinCode = "ISO2", nameJoinColumn = "iso2c")
+#mapCountryData(sPDFII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2000', colourPalette = c("heat"),   borderCol='black')
+```
+
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+
+#sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2",nameJoinColumn = "iso2c")
+#mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2010',ccolourPalette = c("heat"),borderCol='black')
+```
+
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+
+#sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2",nameJoinColumn = "iso2c")
+#mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2013',colourPalette = c("heat"), borderCol='black')
+```
+
 ## Results: Model 1, Cellphone Users as proxy
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
