@@ -15,10 +15,6 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 ## Presentation Outline
 
 - Research Question 
@@ -73,12 +69,89 @@ $$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Net + {\beta}_2 FertRat
 
 ## Descriptive Statistics 
 
+```{r setup, include=FALSE}
+
+# 0. Clearing the workspace
+rm(list = ls(all=TRUE))
+
+# 1. Loading packages
+
+library("ggmap")
+library("maptools")
+library("countrycode")
+library("RJSONIO")
+library("WDI")
+library("tidyr")
+library("rio")
+library("ggplot2")
+library("rworldmap")
+library("sp")
+library("Formula")
+library("plm")
+library("pglm")
+library("stargazer")
+library("migest")
+library("tseries")
+
+#2. Setting directory
+setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Assignment3MontesReyla/Assignment3MontesReyla')
+
+#loading data set
+Merged <- read.csv(file="MontesandReyla")
+merged00 <- read.csv(file="merged00")
+merged90 <- read.csv(file="merged90")
+merged10 <- read.csv(file="merged10")
+merged13 <- read.csv(file="merged13")
+
+#Set data as panel data
+Merged <- plm.data(Merged, index=c("iso2c", "year"))
+
+load("myWorkSpace.RData")
+```
 
 
+## Emigration 1990
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+sPDF <- joinCountryData2Map( merged90
+                             ,joinCode = "ISO2"
+                             ,nameJoinColumn = "iso2c")
+#mapDevice(Map1)
+mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990',
+               colourPalette = c("heat"),
+               borderCol='black', missingCountryCol="beige")
+```
+## Results: Model 1, Cellphone Users as proxy
 
-## Slide with Plot
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
+labels2 <- c('CellphoneUsers', 'FertilityRate', 'PoliticalStability', 'logGDPPerCapita' ,'(Intercept)')
 
-## Results
+stargazer::stargazer(Within_12, covariate.labels = labels2,
+    title = 'Fixed effects regresion',
+    digits = 3, type = 'latex', header = FALSE)
+
+```
+
+## Results: Model 2, Internet Users as proxy
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
+Within_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+labels2 <- c('InternetUsers', 'FertilityRate', 'PoliticalStability', 'logGDPPerCapita' ,'(Intercept)')
+
+stargazer::stargazer(Within_22, covariate.labels = labels2,
+    title = 'Fixed effects regresion',
+    digits = 3, type = 'latex', header = FALSE)
+
+```
 
 ## Conclusion & Limitations
+
+- Panel regression using within, between, pools  estimators were used when analyzing the
+
+- The results show that cellphone /or Internet usage is significant to explain the change in immigration inside a country. 
+- The more technology is introduced in the country, the more it will incentivize or "push" migration out of the  country. 
+- This suggests that the technological differences across the countries are not a relevant factor to explain immigration across countries.
+
