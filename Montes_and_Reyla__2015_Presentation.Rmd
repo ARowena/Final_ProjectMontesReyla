@@ -27,12 +27,11 @@ output:
 
 ## Motivation & Research Question 
 
-*Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)*
+1. Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)
 
-1. We are interested in analysing the historical development of ICTs and its impact on migration
+2. Historical development of ICTs. Explore the time dimenstion in a panel data.
 
-2. 
-
+3. "With growing access to ICTs and the current state of mobility of people around the world, it easy to imagine that there exist relationships between access and sharing of information and the outcomes of migration" (Hamel, 2009)
 
 **Research Questions: Has the increase use of technologies, such as the Internet and mobile phones affected the flows of emigration?**
 
@@ -116,7 +115,7 @@ load("myWorkSpace.RData")
 #mapDevice(Map1)
 #mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990', colourPalette = c("heat"),borderCol='black', missingCountryCol="beige")
 ```
-![Figure3] ()
+![Figure3](http://i65.tinypic.com/zios9l.jpg)
 
 ## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
@@ -133,6 +132,7 @@ load("myWorkSpace.RData")
 #sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2",nameJoinColumn = "iso2c")
 #mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2010',ccolourPalette = c("heat"),borderCol='black')
 ```
+![Figure6](http://i64.tinypic.com/x58ewx.jpg)
 
 ## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
@@ -140,7 +140,8 @@ load("myWorkSpace.RData")
 #sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2",nameJoinColumn = "iso2c")
 #mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2013',colourPalette = c("heat"), borderCol='black')
 ```
-![Figure5](http://i68.tinypic.com/i2ufid.jpg) 
+![Figure6](http://i68.tinypic.com/i2ufid.jpg) 
+
 ## Results: Model 1, Cellphone Users as proxy
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
@@ -153,7 +154,7 @@ stargazer::stargazer(Within_12, covariate.labels = labels2,
     digits = 3, type = 'latex', header = FALSE)
 
 ```
-![Figure6] ()
+
 ## Results: Model 2, Internet Users as proxy
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
@@ -174,4 +175,6 @@ stargazer::stargazer(Within_22, covariate.labels = labels2,
 - The results show that cellphone /or Internet usage is significant to explain the change in immigration inside a country. 
 - The more technology is introduced in the country, the more it will incentivize or "push" migration out of the  country. 
 - This suggests that the technological differences across the countries are not a relevant factor to explain immigration across countries.
+
+- Fixed model eliminates variables that are constant in time such as Distance, Common language, colonialism, Border.
 
