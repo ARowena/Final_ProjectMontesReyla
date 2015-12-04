@@ -20,7 +20,6 @@ output:
 - Research Question 
 - Theoretical Framework
 - Methodology
-- Descriptive Statistics 
 - Results
 - Conclusion & Limitations
 
@@ -59,14 +58,12 @@ $$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Net + {\beta}_2 FertRat
 
 **Datasets:** 
 
-- UN Migration Stock 1990-2013 and World Bank Indicators 
+- UN Migration Stock 2000,2010, 2013 and World Bank Indicators 
 
 
 **Methodology:**
 
 - Panel regression with fixed effects
-
-## Descriptive Statistics 
 
 ```{r setup, include=FALSE}
 
@@ -103,11 +100,12 @@ merged90 <- read.csv(file="merged90")
 merged10 <- read.csv(file="merged10")
 merged13 <- read.csv(file="merged13")
 
+Merged2 <-Merged[,c(6, 7, 13, 17, 24, 27)]
+
 #Set data as panel data
 Merged <- plm.data(Merged, index=c("iso2c", "year"))
 load("myWorkSpace.RData")
 ```
-
 
 ## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
@@ -147,7 +145,7 @@ load("myWorkSpace.RData")
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
 Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-labels2 <- c('CellphoneUsers', 'FertilityRate', 'PoliticalStability', 'logGDPPerCapita' ,'(Intercept)')
+labels2 <- c('CellphoneUsers', 'FertilityRate', 'PoliticalStability', 'employmentprob','(Intercept)')
 
 stargazer::stargazer(Within_12, covariate.labels = labels2,
     title = 'Fixed effects regresion',
@@ -160,7 +158,7 @@ stargazer::stargazer(Within_12, covariate.labels = labels2,
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
 Within_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-labels2 <- c('InternetUsers', 'FertilityRate', 'PoliticalStability', 'logGDPPerCapita' ,'(Intercept)')
+labels2 <- c('InternetUsers', 'FertilityRate', 'PoliticalStability', 'employmentprob' ,'(Intercept)')
 
 stargazer::stargazer(Within_22, covariate.labels = labels2,
     title = 'Fixed effects regresion',
@@ -170,11 +168,9 @@ stargazer::stargazer(Within_22, covariate.labels = labels2,
 
 ## Conclusion & Limitations
 
-- Panel regression using within, between, pools  estimators were used when analyzing the
-
+- Panel regression using within, between, pools  estimators were used
 - The results show that cellphone /or Internet usage is significant to explain the change in immigration inside a country. 
-- The more technology is introduced in the country, the more it will incentivize or "push" migration out of the  country. 
-- This suggests that the technological differences across the countries are not a relevant factor to explain immigration across countries.
-
+- The more technology is introduced in the country, the more it will incentivize migration out of the  country. 
+- This suggests that the technological differences across the countries are not a relevant factor to explain emigration across countries.
 - Fixed model eliminates variables that are constant in time such as Distance, Common language, colonialism, Border.
 

@@ -192,7 +192,7 @@ Merged$logCellphoneUsers = log(Merged$CellphoneUsers)
 Merged$logGDPPerCapita = log(Merged$GDPPerCapita)
 Merged$logFertilityRate = log(Merged$FertilityRate)
 Merged$logPoliticalStability = log(Merged$PoliticalStability)
-Merged$employmentprob = 1-((Merged$UnemploymentRate))
+Merged$employmentprob = 1-((Merged$UnemploymentRate)/100)
 
 
 # Creating a .csv file with the final version of the data
@@ -202,7 +202,11 @@ write.csv(Merged, file="MontesandReyla")
 ############################### DESCRIPTIVE STATISTICS ##############################
 ####################################################################################
 
+#```{r, echo=FALSE, message=FALSE, warning=FALSE, header=FALSE, results="asis"}
+#labels1 <- c("Cellphone Users","Internet User","PoliticalStability","FertilityRate", #"logGDPPerCapita","employmentprob")
+#stargazer::stargazer(Merged2, type = "latex", title="Descriptive statistics", labels1, digits=2)
 ##Set data as panel data
+
 Merged <- plm.data(Merged, index=c("iso2c", "year"))
 
 ##Dependent Variable
