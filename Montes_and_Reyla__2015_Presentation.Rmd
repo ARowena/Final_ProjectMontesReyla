@@ -116,7 +116,7 @@ load("myWorkSpace.RData")
 #mapDevice(Map1)
 #mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990', colourPalette = c("heat"),borderCol='black', missingCountryCol="beige")
 ```
-![Figure2](http://i68.tinypic.com/i2ufid.jpg) 
+![Figure3] ()
 
 ## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
@@ -124,6 +124,8 @@ load("myWorkSpace.RData")
 #sPDFII <- joinCountryData2Map( merged00 ,joinCode = "ISO2", nameJoinColumn = "iso2c")
 #mapCountryData(sPDFII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2000', colourPalette = c("heat"),   borderCol='black')
 ```
+
+![Figure4](http://i63.tinypic.com/29bmr2t.jpg)
 
 ## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
@@ -138,7 +140,7 @@ load("myWorkSpace.RData")
 #sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2",nameJoinColumn = "iso2c")
 #mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2013',colourPalette = c("heat"), borderCol='black')
 ```
-
+![Figure5](http://i68.tinypic.com/i2ufid.jpg) 
 ## Results: Model 1, Cellphone Users as proxy
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
@@ -151,7 +153,7 @@ stargazer::stargazer(Within_12, covariate.labels = labels2,
     digits = 3, type = 'latex', header = FALSE)
 
 ```
-
+![Figure6] ()
 ## Results: Model 2, Internet Users as proxy
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
