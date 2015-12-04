@@ -1,11 +1,11 @@
 ---
-title: "Information and Communication Technologies and Migration"
+title: "Push or Pull: The Influence of ICT on Emigration Flows"
 author: "A. Reyla and A. Montes"
 date: "4 December 2015"
 number_sections: yes
 output:
   beamer_presentation:
-    colortheme: beaver
+    colortheme: seahorse
     fonttheme: structurebold
     theme: Boadilla
     fig_width: 6
@@ -28,27 +28,48 @@ knitr::opts_chunk$set(echo = FALSE)
 - Results
 - Conclusion & Limitations
 
-## Research Question & Motivation
 
-**Research Questions? Has the increase use of technologies, such as the Internet and mobile phones affected the flows of emigration?**
+## Motivation & Research Question 
+
+*Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)*
+
+1. We are interested in analysing the historical development of ICTs and its impact on migration
+
+2. 
 
 
--  Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)
+**Research Questions: Has the increase use of technologies, such as the Internet and mobile phones affected the flows of emigration?**
 
-## Theoretical Framework: Push Factors
+
+## Theoretical Framework - Push Factors
 
 
 ![Figure1](http://i63.tinypic.com/2u7ul1k.jpg) 
 
 
 
-## Theoretical Framework: Pull Factors
+## Theoretical Framework - Pull Factors
 
 ![Figure2](http://i67.tinypic.com/5vmwrm.jpg) 
 
 
 ## Methodology
 
+**Model 1: Cellphone Users**
+$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Cell + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
+
+**Model 2: Internet Users**
+$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Net + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
+
+
+**Datasets:** 
+
+- UN Migration Stock 1990-2013 and World Bank Indicators 
+
+
+**Methodology:**
+
+- Panel regression with fixed effects
 
 ## Descriptive Statistics 
 
@@ -57,9 +78,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Slide with Plot
 
-```{r pressure}
-plot(pressure)
-```
 
 ## Results
+
 ## Conclusion & Limitations
