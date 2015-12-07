@@ -15,6 +15,69 @@ output:
 ---
 
 
+<<<<<<< Updated upstream
+=======
+
+
+0. Clearing the workspace
+rm(list = ls(all=TRUE))
+
+# 1. Loading packages
+install.packages(plm)
+install. packages ("stargazer")
+install.packages(formula)
+
+library("ggmap")
+library("maptools")
+library("countrycode")
+library("RJSONIO")
+library("WDI")
+library("tidyr")
+library("rio")
+library("ggplot2")
+library("rworldmap")
+library("sp")
+library("Formula")
+library('plm')
+library("pglm")
+library("stargazer")
+library("migest")
+library("tseries")
+library("vif")
+
+#2. Setting directory
+#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
+
+#loading data set
+Merged <- read.csv(file="MontesandReyla")
+
+#Set data as panel data
+Merged <- plm.data(Merged, index=c("iso2c", "year"))
+
+
+## Slide with Plot
+
+
+## Results
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
+##MODEL 1 - Panel regression with fixed effect, Cellphone Users 
+
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability 
+              + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+labels2 <- c('CellphoneUsers', 'FertilityRate', 'PoliticalStability', 'employmentprob' ,'(Intercept)')
+
+stargazer::stargazer(Within_12, covariate.labels = labels2,
+    title = 'Fixed effects regresion',
+    digits = 3, type = 'latex', header = FALSE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+>>>>>>> Stashed changes
 ## Presentation Outline
 
 - Research Question 
@@ -28,7 +91,10 @@ output:
 
 1. Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)
 
+<<<<<<< Updated upstream
 2. Historical development of ICTs. Explore the time dimenstion in a panel data.
+=======
+>>>>>>> Stashed changes
 
 3. "With growing access to ICTs and the current state of mobility of people around the world, it easy to imagine that there exist relationships between access and sharing of information and the outcomes of migration" (Hamel, 2009)
 
@@ -124,8 +190,14 @@ load("myWorkSpace.RData")
 
 ![Figure4](http://i63.tinypic.com/29bmr2t.jpg)
 
+<<<<<<< Updated upstream
 ## Emigration Flow
 ```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+=======
+
+
+## Slide with Plot
+>>>>>>> Stashed changes
 
 #sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2",nameJoinColumn = "iso2c")
 #mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2010',ccolourPalette = c("heat"),borderCol='black')
