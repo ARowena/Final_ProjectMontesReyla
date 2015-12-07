@@ -3,7 +3,18 @@ title: "CSSR_Final_Paper[interesting title?]"
 author: "Ana Cecila Montest and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
+
+
+highlight: zenburn
+theme: united
+toc: yes
+toc_depth: 3
 ---
+\newpage
+
+
+
+
 
 
 
@@ -13,23 +24,30 @@ knitr::opts_chunk$set(echo = TRUE)
 setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
 
 ```
+#Abstract
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+#Introduction
+Everything around us has changed since the digital revolution. The digital era has transformed how people live their lives, how they interact with one another and how they learn and gather new information. There is no doubt that Information and Communication Technologies (ICTs) have had a monumental impact on the world in which we live, fundamentally changing the way individuals communicate, entertain and learn. With the increase accessibility to ICTs and the existing state of mobility between people around the world, it is easy to envision an existing relationship between increased access to communication and information and the results of migration. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
 
-You can also embed plots, for example:
+#A Theoretical Perspective
+Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving. Migration is one of the three main determinants of a country???s population development (Lee, 1966). Every act of migration involves an origin, a destination and intervening set of obstacles and opportunities. The idea of human mobility is that individuals are always in constant circulation. Humans are constantly moving throughout their lives, which could be seen on varying degrees. Whether it is a college student returning home every summer, or a family permanently moving to another country. In existing literature, the factors that influence an individual???s decision to migrant are multifold and are described as a combination of social, ethnic, and politically related factors that can be categorized as either Push or Pull factors. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+| Motivations for migration  | Push factors || Pull factors |
+| -------------------------- | ---------------------------------------------------------------- |
+| `Economic and demographic` | Poverty      |Prospects of higher wages|
+|                            | Unemployment |Potential for improved standard of living|
+|                            | Low wages    |Personal or professional development|
+|                            | High fertility rates||
+|                            | Lack of basic health and education | |
+| `Political`                | Conflict, insecurity, violence | Safety and security|
+|                            | Poor governance | Political freedom|
+|                            | Corruption   | |
+|                            | Human rights abuses |
+| `Social and cultural`      | Discrimination based | Family reunification|
+|                            | on ethnicity, gender, | Ethnic (diaspora migration) homeland|
+|                            | religion| Freedom from discrimination|
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
