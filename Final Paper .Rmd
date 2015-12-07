@@ -2,14 +2,16 @@
 title: "CSSR_Final_Paper[interesting title?]"
 author: "REYLAMONTES"
 date: "7 December 2015"
-output: html_document
+output: pdf_document
 ---
 
-setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla), silent = TRUE) 
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
+
 ```
 
 ## R Markdown
