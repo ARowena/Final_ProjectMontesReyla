@@ -1,15 +1,17 @@
 ---
-title: "[interesting title?]WEBSITEindex.Rmd"
+title: "CSSR_Final_Paper[interesting title?]"
 author: "REYLAMONTES"
-date: "20 November 2015"
-output: html_document
+date: "7 December 2015"
+output: pdf_document
 ---
 
 
-testing testing testing 
-  
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
+
 ```
 
 ## R Markdown
@@ -22,7 +24,7 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
-## Hi ANA this is a test
+## Including Plots
 
 You can also embed plots, for example:
 
