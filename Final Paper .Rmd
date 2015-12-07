@@ -28,35 +28,40 @@ setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_Projec
 
 
 #Introduction
-
-Introduction
-
 Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving (Lee, 1966). For many years, the idea of international migration meant disconnecting with one???s homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. New ICT such as mobile phones have facilitated instant communication by phone calls, text messages, e-mail, and other social platforms. Cheap international telephone calls function as the ???social glue??? binding migrants to their friends and families in their home country by creating constant involvement and engagement in their life (Vetrovec, 2004 ). Castells (2000) argues that the digital age has drastically changed the speed of communication within transnational populations. Since the introduction of the Internet to the masses, it has developed into a globally diverse web of opportunities for gathering information, interacting globally and effectively producing new forms of media and content for consumption. 
 
 Presently, the digital era has transformed how people live their lives, how they interact with one another and how they learn and gather new information. There is no doubt that ICT have had a monumental impact on the world in which we live, fundamentally changing the way individuals communicate, entertain and learn. With the increase accessibility to ICTs and the existing state of mobility between people around the world, it is easy to envision an existing relationship between increased access to communication and information and the results of migration. Social media developed on the Internet has become one of the most popular channels of communication. These new communication devices created by the Internet and mobile phones are important for migrants who frequently remain in contact with friends of family members in their original locations. New innovation in digital technologies allows people to thing beyond borders and it is reinforced by both digital and societal developments (Castells, 2000). 
 
-Furthermore, with the advent of ICT in all components of everyday life, it is important and yet interesting to observe the how the relationship between ICT and migration has developed. This paper seems to answer the following question: Has the increase use of technologies such as the Internet and mobile phones impacted the flow of emigration? 
+Furthermore, with the advent of ICT in all components of everyday life, it is important and yet interesting to observe the how the relationship between ICT and migration has developed. This empirical analysis seeks to observe if the increase use of technologies such as the Internet and mobile phones impacted the flow of emigration? With the beginning of globalization, we aim to observe the changes in the context of migration around the world. 
 
-
-
+As such, this paper will be organized as follows. Section 2 will provide a theoretical foundation for the analysis, as to set the scene for subsequent discussion. Section 3 will be a literature review to identify the converging ideas and understand contemporary studies on the topic. Section 4 will provide the basis for our empirical analysis, by explaining the data and methodology. Section 5 will provide the results of the analysis, followed by a discussion. 
 
 
 
 #Incentives for Migration: A Theoretical Foundation
-Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving. Migration is one of the three main determinants of a country???s population development (Lee, 1966). Every act of migration involves an origin, a destination and intervening set of obstacles and opportunities. The idea of human mobility is that individuals are always in constant circulation. Humans are constantly moving throughout their lives, which could be seen on varying degrees. Whether it is a college student returning home every summer, or a family permanently moving to another country. In existing literature, the factors that influence an individual???s decision to migrant are multifold and are described as a combination of social, ethnic, and politically related factors that can be categorized as either Push or Pull factors. 
+Migration is one of the three main determinants of a country???s population development (Lee, 1966 ). Every act of migration involves an origin, a destination and intervening set of obstacles and opportunities. The idea of human mobility is that individuals are always in constant circulation. Humans are constantly moving throughout their lives, which could be seen on varying degrees. Whether it is a college student returning home every summer, or a family permanently moving to another country. In existing literature, the factors that influence an individual???s decision to migrate, more specifically to emigrate from their origin country to another location are multifold and are described as a combination of social, ethnic, and politically related factors that can be categorized as either Push or Pull factors that are divided into three categories: Economic and demographic, political, and social and cultural.
 
-| Motivations for migration  | Push factors  | Pull factors |
-| -------------------------- | ---------------------------------------------------------------- |
-| `Economic and demographic` | Poverty                 |Prospects of higher wages|
-|                            | Unemployment             |Potential for improved standard of living|
-|                            | Low wages       |Personal or professional development|
-|                            | High fertility rates||
-|                            | Lack of basic health and education | |
-| `Political`                | Conflict, insecurity, violence | Safety and security|
-|                            | Poor governance | Political freedom|
-|                            | Corruption   | |
-|                            | Human rights abuses |
-| `Social and cultural`      | Discrimination based | Family reunification|
-|                            | on ethnicity, gender, | Ethnic (diaspora migration) homeland|
-|                            | religion| Freedom from discrimination|
+Push factors are reasons that are generally forced and negative. In particular, these factors are associated with the country of origin. When considering the three categories, people are ???pushed??? to leave their homeland for a number of varying reasons. Social push factors include discrimination, for example, those facing religious or racial discrimination will be negatively influenced to leave their country of origin to seek a new location that does not have leave them socially oppressed. Also, political push factors play a role as to why people leave. Often people living in countries with on going war, conflict, government instability or corruption are forced to flee to avoid harm. Furthermore, economic push factors play a large role in emigration. Countries with low unemployment, rampant poverty or a high cost of living may force individuals to seek more reasonable and opportunistic locations to settle.  Moreover, people will move for more employment opportunities
+
+Pull factors on the other hand are the positive traits that positively affect the movement of people. Often people are drawn to move to places to escape the negative factors pushing them out. To escape the issue of social discrimination, people are pulled to countries with high levels of personal freedom or equality. Migrants seeking alleviation from political push factors will be drawn to locations with well-established individual rights or a well functioning justice system. Moreover, people will move to find more economically stable reasons such as employment opportunities or high standard of living.
+
+Castells (2000) argues of a new ???network society??? where ICT has made information the most valuable resource. Technology allows for information to flow quickly and efficiently, providing opportunities for people to interact with one another. *** Develop further***
+
+ 
+
+
+| Motivations for migration  | Push factors                       || Pull factors                             |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| `Economic and demographic` | Poverty                            || Prospects of higher wages                |
+|                            | Unemployment                       || Potential for improved standard of living|
+|                            | Low wages                          || Personal or professional development     |
+|                            | High fertility rates               ||                                          |
+|                            | Lack of basic health and education ||                                          |
+| `Political`                | Conflict, insecurity, violence     || Safety and security                      |
+|                            | Poor governance                    || Political freedom                        |
+|                            | Corruption                         ||                                          |
+|                            | Human rights abuses                ||                                          |
+| `Social and cultural`      | Discrimination based               || Family reunification                     |
+|                            | on ethnicity, gender,              || Ethnic (diaspora migration) homeland     |
+|                            | religion                           || Freedom from discrimination              |
 
