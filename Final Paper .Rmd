@@ -71,7 +71,7 @@ As such, this paper will be organized as follows. Section 2 will provide a theor
 
 
 
-#Incentives for Migration: A Theoretical Foundation
+#Understanding Migration: A Theoretical Foundation
 Migration is one of the three main determinants of a country's population development [@Lee1966]. Every act of migration involves an origin, a destination and intervening set of obstacles and opportunities. The idea of human mobility is that individuals are always in constant circulation. Humans are constantly moving throughout their lives, which could be seen on varying degrees. Whether it is a college student returning home every summer, or a family permanently moving to another country. In existing literature, the factors that influence an individual's decision to migrate, more specifically to emigrate from their origin country to another location are multifold and are described as a combination of social, ethnic, and politically related factors that can be categorized as either Push or Pull factors that are divided into three categories: Economic and demographic, political, and social and cultural [@Gold2013].
 
 Push factors are reasons that are generally forced and negative. In particular, these factors are associated with the country of origin. When considering the three categories, people are 'pushed' to leave their homeland for a number of varying reasons. Social push factors include discrimination, for example, those facing religious or racial discrimination will be negatively influenced to leave their country of origin to seek a new location that does not have leave them socially oppressed. Also, political push factors play a role as to why people leave. Often people living in countries with on going war, conflict, government instability or corruption are forced to flee to avoid harm. Furthermore, economic push factors play a large role in emigration. Countries with low unemployment, rampant poverty or a high cost of living may force individuals to seek more reasonable and opportunistic locations to settle.  Moreover, people will move for more employment opportunities
@@ -99,6 +99,14 @@ Castells [@Castells2009] argues of a new 'network society' where information is 
 
 
 #State of the Art
+
+ICT plays an important role in many stages of the migration process. Different modes of communicating information such as news, films and advertisments are important sources of information for people considering miration [@Wood2001]. Moreover, new ICT may have created the image of wealth and prosperity of more developed countries in those living in developing regions [@Hamel2009]. Information is crucial in the final decision making process of migration. However, this information flows both ways. Simultaneously, accessability to ICT have fostered a negative perception of migrants [@Wood2001]. Castells argues that being interconnected through a 'network society' has changed the nature of international migration, ICT has increased the rate at which people gather information and communication transnationally [@Castells2010].
+
+
+
+
+
+
 
 
 #References
