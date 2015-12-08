@@ -1,6 +1,6 @@
 ---
 title: "CSSR_Final_Paper[interesting title?]"
-author: "Ana Cecila Montest and Ayra Rowena Reyla "
+author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
 
@@ -64,4 +64,7 @@ Castells (2000) argues of a new ???network society??? where ICT has made informa
 | `Social and cultural`      | Discrimination based               || Family reunification                     |
 |                            | on ethnicity, gender,              || Ethnic (diaspora migration) homeland     |
 |                            | religion                           || Freedom from discrimination              |
+
+
+
 
