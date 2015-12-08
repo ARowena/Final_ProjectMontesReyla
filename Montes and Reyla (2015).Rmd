@@ -14,12 +14,7 @@ toc_depth: 3
 \newpage
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
-```
-
-# 1 Introduction
+ 1 Introduction
 
 Migration, the movement of individuals is hardly a new phenomenon in societies. People have moved from country to country for centuries, be it for social, political or economic reasons, however, more recently it has gained momentum amongst academic scholars and policy makers. According to the United Nation's Population Division, more than 231 million individuals now live outside of their home country and moreover, this number has increased rapidly in the last 10 years. Few countries today are not affected by international migration [@Martin2014]. It importance lies in the fact that international migration is part of a transnational shift that is currently reshaping societies and politics around the globe. 
 
@@ -106,20 +101,17 @@ library('plm')
 library('pglm')
 
 # Setting directory
-#setwd('/Users/AnaCe/Desktop/Assignment3MontesReyla')
-setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Assignment3MontesReyla/Assignment3MontesReyla')
+setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
 
 #loading data set
 Merged <- read.csv(file="MontesandReyla")
+Merged2 <- read.csv(file="MontesandReylaFinalVars")
 
-#Set data as panel data
-Merged <- plm.data(Merged, index=c("iso2c", "year"))
-
-# sub dataframes by year
-merged90 <-subset(Merged, year==1990)
-merged00 <-subset(Merged, year==2000)
-merged10 <-subset(Merged, year==2010)
-merged13 <-subset(Merged, year==2013)
+#subdataframes
+merged00 <- read.csv(file="merged00")
+merged10 <- read.csv(file="merged10")
+merged13 <- read.csv(file="merged13")
 
 ```
 
@@ -131,7 +123,7 @@ Figure 1 below shows the distribution of the dependent variable. Since the stati
 
 
 ```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
-hist(Merged$emigration2, xlab = "Thousands of emigrants", main = "Figure 1. Histogram for Emigration ", xlim=range(0:14170))
+hist(Merged$logemigration, xlab = "Thousands of emigrants (log)", main = "Figure 1. Histogram for Emigration ", xlim=range(0:14170))
 
 ## Summary
 summary(Merged$emigration2, na.rm = TRUE)
@@ -144,7 +136,7 @@ Among all the years, the country with the largest emigration per capita is the W
 
 
 ```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
-hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
+hist(Merged2$logemigrationpercap, xlab = "Emigrants per capita (log)", main = "Figure 2. Histogram for Emigrants per capita")
 ## Summary
 summary(Merged$emigrationpercap, na.rm = TRUE)
 ``` 
@@ -158,45 +150,6 @@ While Africa has experienced a decrease in emigration, Latin America has the opp
 
 In Europe, the situation is quite mixed since many factors, such as the creation of European Union (EU) and the enlargement of EU over the years could have played a large role the heterogeneity of the migration patterns in the past decade. There is migration movement, but there is no overall pattern of movements within the EU region.
 
-
-<center>
-```{r merged90, tidy=TRUE, warning=FALSE, comment="Note:", error=FALSE, echo=FALSE, cache=FALSE}
-# Graphs
-# 1990
-sPDF <- joinCountryData2Map( merged90
-                             ,joinCode = "ISO2"
-                             ,nameJoinColumn = "iso2c")
-Emi90 <- mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', 
-                        mapTitle= 'Figure 3. Number of emigrants per capita 1990', 
-                        colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"), 
-                        borderCol='black', missingCountryCol="beige")
-
-
-# 2000
-sPDFII <- joinCountryData2Map( merged00
-                             ,joinCode = "ISO2"
-                             ,nameJoinColumn = "iso2c")
-mapCountryData(sPDFII, nameColumnToPlot='emigrationpercap', mapTitle= 'Figure 4 Number of emigrants per capita 2000',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
-               borderCol='black', missingCountryCol="beige")
-
-# 2010
-sPDFIII <- joinCountryData2Map( merged10
-                                ,joinCode = "ISO2"
-                                ,nameJoinColumn = "iso2c")
-mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Figure 5. Number of emigrants per capita 2010',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
-               borderCol='black', missingCountryCol="beige")
-
-# 2013
-sPDFIV <- joinCountryData2Map( merged13
-                               ,joinCode = "ISO2"
-                               ,nameJoinColumn = "iso2c")
-mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Figure 6. Number of emigrants per capita 2013',
-               colourPalette = c("darkorange", "coral2","gold","aquamarine1", "cyan3", "blue","magenta"),
-               borderCol='black', missingCountryCol="beige")
-
-```
 
 #Independent Variables
 
@@ -241,6 +194,33 @@ Furthermore, the comparison between the same countries within the same year indi
 
 It's the effect within the country and the year that is significant. The more technology is introduced in the country, the more it will incentive or "push" immigration in the country. This suggests that the differences across the countries are not a relevant factor to explain immigration across countries. 
 
+#Table 2. Yearly regressions
+{landscape}
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#OLS Regression by years and interaction
+#Cellphones
+OLS00_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+OLS10_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+
+OLS13_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+
+# Internet
+OLS00_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+
+OLS10_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+
+OLS13_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+
+#Table
+stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, 
+          type = "latex", 
+          header = FALSE, title = "Table 1. Regression analysis of emigration stocks around the world 2000-2013",
+          digits = 4,
+          omit.stat = c("f", "ser"),
+          notes = "OLS regression")
+```
+{landscape}
 
 #Limitations and Further Research
 

@@ -194,7 +194,7 @@ Merged$employmentprob = 1-((Merged$UnemploymentRate)/100)
 write.csv(Merged, file="MontesandReyla")
 
 # Dataframe with final variables
-Merged2 <- Merged[c("iso2c","year", "country","logemigrationpercap", "CellphoneUsers", "FertilityRate", "PoliticalStability", "employmentprob", "GDPPerCapita.l")]
+Merged2 <- Merged[c("iso2c","country","year", "logemigrationpercap", "CellphoneUsers", "InternetUsers" ,"FertilityRate", "PoliticalStability", "employmentprob", "logGDPPerCapita.l")]
 write.csv(Merged2, file="MontesandReylaFinalVars")
 
 # sub dataframes by year
@@ -328,7 +328,7 @@ cor.test(Merged$logInternetUsers, Merged$logCellphoneUsers, na.rm = TRUE)
 cor.test(Merged$employmentprob, Merged$InternetUsers)
 cor.test(Merged$employmentprob, Merged$GDPPerCapita.l)
 
-car::scatterplotMatrix(Prestige)
+car::scatterplotMatrix(Merged2)
 
 # Figure
 plot(Merged$InternetUsers)
@@ -343,8 +343,8 @@ ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
 #################################### PANEL MODEL ###################################
 ####################################################################################
 
-##Cellphone users
-# using log
+##Cellphone users - using log
+# Pool OLS
 pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_1)
 
@@ -425,22 +425,60 @@ pFtest (Within_22, pooling_22)
 phtest (Within_22, Random_22 )
 
 #Model by years
-OLS00 <- lm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+#CEllphones
+OLS00_1 <- lm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob + logGDPPerCapita.l, data = merged00)
+summary(OLS00_1)
 
+OLS10_1 <- lm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob + logGDPPerCapita.l, data = merged10)
+summary(OLS10_1)
+
+OLS13_1 <- lm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob +logGDPPerCapita.l, data = merged13)
+summary(OLS13_1)
+
+
+# Internet
+OLS00_2 <- lm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability +employmentprob+ logGDPPerCapita.l, data = merged00)
+summary(OLS00_2)
+
+OLS10_2 <- lm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability + employmentprob + logGDPPerCapita.l, data = merged10)
+summary(OLS10_2)
+
+OLS13_2 <- lm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability + employmentprob + logGDPPerCapita.l, data = merged13)
+summary(OLS13_2)
+
+#Model by years and interaction
+#CEllphones
+OLS00_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+summary(OLS00_1)
+
+OLS10_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+summary(OLS10_1)
+
+OLS13_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+summary(OLS13_1)
+
+# Internet
+OLS00_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+summary(OLS00_2)
+
+OLS10_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+summary(OLS10_2)
+
+OLS13_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+summary(OLS13_2)
 
 
 
 # Creating table output 
-stargazer(Poisson_1, Within_1, Between_1,
-          type = "latex",
-          header = FALSE, 
-          title = "Table 1. Regression analysis of emigration stocks around the world 1990-2013",
-          digits = 2,
+stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, 
+          type = "latex", 
+          header = FALSE, title = "Table 1. Regression analysis of emigration stocks around the world 2000-2013",
+          digits = 4,
           omit.stat = c("f", "ser"),
-          notes = "This regression output shows the results using cellphone users as a proxy of 
+          notes = "This regression output shows the results using cellphone users and Internet as a proxy of 
           comunication technology")
 
-stargazer(Poisson_2, Within_2, Between_2,
+stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2,
           type = "latex",
           header = FALSE, 
           title = "Table 2. Regression analysis of emigration stocks around the world 1990-2013",
