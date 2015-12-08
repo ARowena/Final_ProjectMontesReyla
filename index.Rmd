@@ -2,7 +2,9 @@
 title: "[interesting title?]WEBSITEindex.Rmd"
 author: "REYLAMONTES"
 date: "20 November 2015"
-output: html_document
+output:   
+html_document:
+    css: styles.css
 ---
 
 
@@ -11,6 +13,7 @@ testing testing testing
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
+
 
 ```
 

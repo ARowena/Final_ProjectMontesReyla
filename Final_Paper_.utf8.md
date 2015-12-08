@@ -21,42 +21,7 @@ toc_depth: 3
 
 
 
-```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
-#Clearing the workspace
-#rm(list = ls(all=TRUE))
 
-# 1. Loading packages
-#install.packages("plm")
-#install.packages("stargazer")
-#install.packages("formula")
-
-#library("ggmap")
-#library("maptools")
-#library("countrycode")
-#library("RJSONIO")
-#library("WDI")
-#library("tidyr")
-#library("rio")
-#library("ggplot2")
-#library("rworldmap")
-#library("sp")
-#library("Formula")
-#library('plm')
-#library("pglm")
-#library("stargazer")
-#library("migest")
-#library("tseries")
-#library("vif")
-
-#2. Setting directory
-#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
-setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
-
-#Merged <- read.csv(file="MontesandReyla")
-
-#Set data as panel data
-#Merged <- plm.data(Merged, index=c("iso2c", "year"))
-```
 
 
 
