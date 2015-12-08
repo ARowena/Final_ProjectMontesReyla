@@ -1,4 +1,12 @@
 ---
+title: "Have ICT changed the game for mobility and migration?"
+author: "REYLAMONTES"
+date: "20 November 2015"
+output:   
+html_document:
+  theme: journal
+
+  output: 
   html_document: 
     theme: flatly
 ---
@@ -6,12 +14,11 @@
 ```{r setup, include=FALSE}
 setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
 
-#install.packages("shinythemes")
+install.packages(shiny)
+library("shiny")
 
 
 ```
 
 
-RRRRRRRRRtitle: "Have ICT changed the game for mobility and migration?"
-author: "REYLAMONTES"
-date: "20 November 2015"
+RRRRRRRRR
