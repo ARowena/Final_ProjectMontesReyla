@@ -3,7 +3,6 @@ title: "CSSR_Final_Paper[interesting title?]"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
-bibliography: references.bib
 highlight: zenburn
 theme: united
 toc: yes
