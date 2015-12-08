@@ -22,8 +22,9 @@ rm(list = ls(all=TRUE))
 #install.packages("pglm")
 #install.packages("stargazer")
 #install.packages("migest")
-install.packages("tseries")
-
+#install.packages("tseries")
+#install.packages("DataCombine")
+install.packages("corrplot")
 
 library("ggmap")
 library("maptools")
@@ -41,6 +42,8 @@ library('pglm')
 library('stargazer')
 library("migest")
 library("tseries")
+library("DataCombine")
+library("corrplot")
 
 #2. Setting directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
@@ -74,31 +77,36 @@ emigrationtotal$year[emigrationtotal$year=="Emigration.1"] <- "2010"
 emigrationtotal$year[emigrationtotal$year=="Emigration.2"] <- "2000"
 emigrationtotal$year[emigrationtotal$year=="Emigration.3"] <- "1990"
 ls()
-rm(list = c("emigration","emigration11", "emigration2", "emigration5", "emigration8", 
-            "i", "tables"))
+rm(list = c("emigration","i", "tables"))
 
-# 5. Loading data from the Worldbank database
+# 5. Creating an unique identifier for emigration
+emigrationtotal$iso2c <- countrycode (emigrationtotal$Country, origin = 'country.name', 
+                                      destination = 'iso2c', warn = TRUE)
+
+# 6. Loading data from the Worldbank database
 wbdata <- c ("IT.CEL.SETS.P2", "IT.NET.USER.P2", "NY.GDP.PCAP.PP.CD","SP.POP.TOTL","SI.POV.DDAY","SL.UEM.TOTL.ZS","VC.IHR.PSRC.P5"
              ,"CC.EST","GE.EST","PV.EST","RQ.EST","RL.EST","VA.EST","SP.DYN.TFRT.IN")
 
 WDI_indi<- WDI(country = "all", indicator = wbdata,
                start = 1990, end = 2013, extra = FALSE, cache = NULL)
 
-# 6. Creating an unique identifier for both data frames
-emigrationtotal$iso2c <- countrycode (emigrationtotal$Country, origin = 'country.name', 
-                                      destination = 'iso2c', warn = TRUE)
-
-WDI_indi$iso2c <- countrycode (WDI_indi$country, origin = 'country.name', 
-                               destination = 'iso2c', warn = TRUE)
-
-# Deleting agregates in the WDI indicators
+## Lagging some variables
+WDI_indi <-slide(WDI_indi, Var="NY.GDP.PCAP.PP.CD", GroupVar="country", slideBy = -1)
+                 
+# Deleting agregates in the WDI indicators and small countries/islands
+WDI_indi$iso2c[WDI_indi$iso2c== ""] <- NA
 WDI_indi <- WDI_indi[!is.na(WDI_indi$iso2c),]
+WDI_indi <- WDI_indi[!WDI_indi$iso2c %in% c("7E", "4E", "1W", "1A", "8S", "S3", "S4", "S2", "S1", "OE", "F1", "EU" , 
+                                            "B8"),]
 
 # 7. Merging "WDI Indicators " and "UN Migration stocks"
 Merged <- merge(emigrationtotal, WDI_indi, by = c('iso2c','year'))
 summary(Merged)
 
+####################################################################################################
 # 8. Cleaning the data
+####################################################################################################
+
 # Dropping rows where all variables are missing
 Merged <- Merged[which(rowSums(!is.na(Merged[, wbdata])) > 0), ]
 # 9 observations
@@ -118,7 +126,8 @@ Merged <- plyr::rename(Merged, c("RQ.EST" = "RegulatoryQuality"))
 Merged <- plyr::rename(Merged, c("RL.EST" = "RuleOfLaw"))
 Merged <- plyr::rename(Merged, c("VA.EST" = " VoiceAndAccountability"))
 Merged <- plyr::rename(Merged, c("SP.DYN.TFRT.IN" = "FertilityRate"))
-
+Merged <- plyr::rename(Merged, c("NY.GDP.PCAP.PP.CD-1" = "GDPPerCapita.l"))
+                       
 # Code variables as numeric
 Merged$year <- as.numeric(Merged$year)
 Merged$emigration <- as.numeric(Merged$emigration)
@@ -133,20 +142,6 @@ Merged$logemigration = log(Merged$emigration)
 str(Merged)
 summary(Merged)
 table (Merged$year)
-
-
-# sub dataframes by year
-merged90 <-subset(Merged, year==1990)
-write.csv(merged90, file="merged90")
-
-merged00 <-subset(Merged, year==2000)
-write.csv(merged00, file="merged00")
-
-merged10 <-subset(Merged, year==2010)
-write.csv(merged10, file="merged10")
-
-merged13 <-subset(Merged, year==2013)
-write.csv(merged13, file="merged13")
 
 # Counting missing information in the Independent Variables
 
@@ -190,17 +185,31 @@ Merged <-subset.data.frame(Merged, select = -Country)
 Merged$logInternetUsers = log(Merged$InternetUsers)
 Merged$logCellphoneUsers = log(Merged$CellphoneUsers)
 Merged$logGDPPerCapita = log(Merged$GDPPerCapita)
+Merged$logGDPPerCapita.l = log(Merged$GDPPerCapita.l)
 Merged$logFertilityRate = log(Merged$FertilityRate)
 Merged$logPoliticalStability = log(Merged$PoliticalStability)
 Merged$employmentprob = 1-((Merged$UnemploymentRate)/100)
 
-
 # Creating a .csv file with the final version of the data
 write.csv(Merged, file="MontesandReyla")
 
+# Dataframe with final variables
+Merged2 <- Merged[c("iso2c","year", "country","logemigrationpercap", "CellphoneUsers", "FertilityRate", "PoliticalStability", "employmentprob", "GDPPerCapita.l")]
+write.csv(Merged2, file="MontesandReylaFinalVars")
+
+# sub dataframes by year
+merged00 <-subset(Merged2, year==2000)
+write.csv(merged00, file="merged00")
+
+merged10 <-subset(Merged2, year==2010)
+write.csv(merged10, file="merged10")
+
+merged13 <-subset(Merged2, year==2013)
+write.csv(merged13, file="merged13")
+
 ###############################################################################################
-############################### DESCRIPTIVE STATISTICS ##############################
-####################################################################################
+############################### DESCRIPTIVE STATISTICS ########################################
+###############################################################################################
 
 #```{r, echo=FALSE, message=FALSE, warning=FALSE, header=FALSE, results="asis"}
 #labels1 <- c("Cellphone Users","Internet User","PoliticalStability","FertilityRate", #"logGDPPerCapita","employmentprob")
@@ -247,6 +256,10 @@ hist(Merged$emigration2, xlab = "Thousands of emigrants", main = "Histogram")
 hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Histogram")
 hist(Merged$logemigrationpercap, xlab = "Emigrants per capita (log)", main = "Histogram")
 hist(Merged$logemigration, xlab = "Number of Emigrants (log)", main = "Histogram")
+qplot(logemigrationpercap, data=Merged, geom="histogram") + geom_histogram(aes(fill = ..count..))
+
+
+hist(Merged$CellphoneUsers, xlab = "Number of Cellphone users", main = "Histogram")
 
 ## Normality
 jarque.bera.test(Merged$logemigrationpercap)
@@ -297,17 +310,25 @@ summary(Merged$RuleOfLaw, na.rm = TRUE)
 summary(Merged$VoiceAndAccountability, na.rm = TRUE)
 
 # Correlation between independent variables
+
 cor.test(Merged$InternetUsers, Merged$CellphoneUsers, na.rm = TRUE)
-cor.test(merged90$GDPPerCapita, merged90$InternetUsers)
-cor.test(merged10$TotalPopulation, merged10$InternetUsers)
+cor.test(Merged$GDPPerCapita, Merged$InternetUsers, na.rm = TRUE)
+cor.test(Merged$GDPPerCapita.l, Merged$InternetUsers)
+
+cor.test(Merged$TotalPopulation, Merged$InternetUsers)
 cor.test(merged13$FertilityRate, merged13$InternetUsers)
 
 cor.test(Merged$InternetUsers, Merged$CellphoneUsers, na.rm = TRUE)
-cor.test(merged90$GDPPerCapita, merged90$CellphoneUsers)
+cor.test(Merged$GDPPerCapita, Merged$CellphoneUsers)
 cor.test(merged10$TotalPopulation, merged10$CellphoneUsers)
 cor.test(merged13$FertilityRate, merged13$CellphoneUsers)
 cor.test(Merged$logGDPPerCapita, Merged$logCellphoneUsers)
 cor.test(Merged$logInternetUsers, Merged$logCellphoneUsers, na.rm = TRUE)
+
+cor.test(Merged$employmentprob, Merged$InternetUsers)
+cor.test(Merged$employmentprob, Merged$GDPPerCapita.l)
+
+car::scatterplotMatrix(Prestige)
 
 # Figure
 plot(Merged$InternetUsers)
@@ -315,51 +336,54 @@ plot(Merged$InternetUsers)
 plot(Merged$logemigrationpercap, Merged$CellphoneUsers)
 plot(Merged$logemigrationpercap, Merged$InternetUsers)
 
+ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
+  geom_point() + geom_smooth() + theme_bw()
+
 ####################################################################################
 #################################### PANEL MODEL ###################################
 ####################################################################################
 
 ##Cellphone users
-# Poisson Regression
-#Poisson_1 <- glm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita + year + FertilityRate, data = Merged, family = 'poisson')
-#summary(Poisson_1)
-
-# Panel regression, within estimator 
-Within_1 <- plm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "within")
-summary(Within_1)
-
-# Panel regression, between estimator 
-Between_1 <- plm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "between")
-summary(Between_1)
-
-# Panel regression, random effects
-Random_1 <- plm(emigration2 ~ CellphoneUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
-#summary(Random_1)
-
-Random_1 <- plm(emigration2 ~ CellphoneUsers + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
-
-
 # using log
-pooling_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_12)
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_1)
+
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_1)
 
 Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
-summary(Within_12)
+summary(Within_1)
 
 Between_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
-summary(Between_12)
+summary(Between_1)
 
 Random_12 <- plm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
-summary(Random_12)
+summary(Random_1)
 
 # LM test for pooling versus random effects
-plmtest(pooling_12)
+plmtest(pooling_1)
 
 # LM test for fixed verus pooling
 pFtest (Within_12, pooling_12)
 
 # LM test for Random verus fixed
 phtest (Within_12, Random_12 )
+
+
+pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+
+pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_13)
+
+pooling_14 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_14)
+
+pooling_15 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_15)
+
+pooling_16 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_16)
+
 
 ##Internet Users
 # Poisson Regression
@@ -399,6 +423,10 @@ pFtest (Within_22, pooling_22)
 
 # LM test for Random verus fixed
 phtest (Within_22, Random_22 )
+
+#Model by years
+OLS00 <- lm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+
 
 
 
@@ -472,3 +500,8 @@ write.csv(Merged, file="MontesandReylaTotal")
 
 #### WDI
 WDI_indi2 <- WDI_indi[which(rowSums(!is.na(WDI_indi[, wbdata])) > 0), ]
+
+
+# Create list of packages and BibTex file for packages
+PackagesUsed <- c("ggplot2","repmis", "knitr", "plm", "Hmisc", "texreg", "bibtex", "rworldmap", "RColorBrewer")
+repmis::LoadandCite(PackagesUsed, file = "Packages.bib", install = FALSE)
