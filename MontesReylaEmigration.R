@@ -47,7 +47,7 @@ library("corrplot")
 
 #2. Setting directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
-#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Assignment3MontesReyla/Assignment3MontesReyla')
+#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
 
 ########################################################################################
 ################################# LOADING AND CLEANING DATA ############################
