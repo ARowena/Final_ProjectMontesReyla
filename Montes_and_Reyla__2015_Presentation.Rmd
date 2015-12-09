@@ -1,0 +1,248 @@
+---
+title: "Push or Pull: The Influence of ICT on Emigration Flows"
+author: "A. Reyla and A. Montes"
+date: "4 December 2015"
+number_sections: yes
+output:
+  beamer_presentation:
+    colortheme: seahorse
+    fonttheme: structurebold
+    theme: Boadilla
+    fig_width: 6
+    fig_height: 4.5
+    fig_caption: false
+  ioslides_presentation: null
+---
+
+
+<<<<<<< Updated upstream
+=======
+
+
+0. Clearing the workspace
+rm(list = ls(all=TRUE))
+
+# 1. Loading packages
+install.packages(plm)
+install. packages ("stargazer")
+install.packages(formula)
+
+library("ggmap")
+library("maptools")
+library("countrycode")
+library("RJSONIO")
+library("WDI")
+library("tidyr")
+library("rio")
+library("ggplot2")
+library("rworldmap")
+library("sp")
+library("Formula")
+library('plm')
+library("pglm")
+library("stargazer")
+library("migest")
+library("tseries")
+library("vif")
+
+#2. Setting directory
+#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
+
+#loading data set
+Merged <- read.csv(file="MontesandReyla")
+
+#Set data as panel data
+Merged <- plm.data(Merged, index=c("iso2c", "year"))
+
+
+## Slide with Plot
+
+
+## Results
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
+##MODEL 1 - Panel regression with fixed effect, Cellphone Users 
+
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability 
+              + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+labels2 <- c('CellphoneUsers', 'FertilityRate', 'PoliticalStability', 'employmentprob' ,'(Intercept)')
+
+stargazer::stargazer(Within_12, covariate.labels = labels2,
+    title = 'Fixed effects regresion',
+    digits = 3, type = 'latex', header = FALSE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+>>>>>>> Stashed changes
+## Presentation Outline
+
+- Research Question 
+- Theoretical Framework
+- Methodology
+- Results
+- Conclusion & Limitations
+
+
+## Motivation & Research Question 
+
+1. Computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations (Hiller, 2004)
+
+<<<<<<< Updated upstream
+2. Historical development of ICTs. Explore the time dimenstion in a panel data.
+=======
+>>>>>>> Stashed changes
+
+3. "With growing access to ICTs and the current state of mobility of people around the world, it easy to imagine that there exist relationships between access and sharing of information and the outcomes of migration" (Hamel, 2009)
+
+**Research Questions: Has the increase use of technologies, such as the Internet and mobile phones affected the flows of emigration?**
+
+
+## Theoretical Framework - Push Factors
+
+
+![Figure1](http://i63.tinypic.com/2u7ul1k.jpg) 
+
+
+
+## Theoretical Framework - Pull Factors
+
+![Figure2](http://i67.tinypic.com/5vmwrm.jpg) 
+
+
+## Methodology
+
+**Model 1: Cellphone Users**
+$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Cell + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
+
+**Model 2: Internet Users**
+$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Net + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
+
+
+**Datasets:** 
+
+- UN Migration Stock 2000,2010, 2013 and World Bank Indicators 
+
+
+**Methodology:**
+
+- Panel regression with fixed effects
+
+```{r setup, include=FALSE}
+
+# 0. Clearing the workspace
+rm(list = ls(all=TRUE))
+
+# 1. Loading packages
+
+library("ggmap")
+library("maptools")
+library("countrycode")
+library("RJSONIO")
+library("WDI")
+library("tidyr")
+library("rio")
+library("ggplot2")
+library("rworldmap")
+library("sp")
+library("Formula")
+library("plm")
+library("pglm")
+library("stargazer")
+library("migest")
+library("tseries")
+
+#2. Setting directory
+setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Assignment3MontesReyla/Assignment3MontesReyla')
+
+#loading data set
+Merged <- read.csv(file="MontesandReyla")
+merged00 <- read.csv(file="merged00")
+merged90 <- read.csv(file="merged90")
+merged10 <- read.csv(file="merged10")
+merged13 <- read.csv(file="merged13")
+
+Merged2 <-Merged[,c(6, 7, 13, 17, 24, 27)]
+
+#Set data as panel data
+Merged <- plm.data(Merged, index=c("iso2c", "year"))
+load("myWorkSpace.RData")
+```
+
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+#sPDF <- joinCountryData2Map(merged90, joinCode = "ISO2", nameJoinColumn = "iso2c")
+#mapDevice(Map1)
+#mapCountryData(sPDF, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 1990', colourPalette = c("heat"),borderCol='black', missingCountryCol="beige")
+```
+![Figure3](http://i65.tinypic.com/zios9l.jpg)
+
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+
+#sPDFII <- joinCountryData2Map( merged00 ,joinCode = "ISO2", nameJoinColumn = "iso2c")
+#mapCountryData(sPDFII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2000', colourPalette = c("heat"),   borderCol='black')
+```
+
+![Figure4](http://i63.tinypic.com/29bmr2t.jpg)
+
+<<<<<<< Updated upstream
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+=======
+
+
+## Slide with Plot
+>>>>>>> Stashed changes
+
+#sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2",nameJoinColumn = "iso2c")
+#mapCountryData(sPDFIII, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2010',ccolourPalette = c("heat"),borderCol='black')
+```
+![Figure6](http://i64.tinypic.com/x58ewx.jpg)
+
+## Emigration Flow
+```{r, echo=FALSE, warning="FALSE", error=FALSE, message=FALSE, results="asis", include=FALSE}
+
+#sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2",nameJoinColumn = "iso2c")
+#mapCountryData(sPDFIV, nameColumnToPlot='emigrationpercap', mapTitle= 'Number of emigrants per capita 2013',colourPalette = c("heat"), borderCol='black')
+```
+![Figure6](http://i68.tinypic.com/i2ufid.jpg) 
+
+## Results: Model 1, Cellphone Users as proxy
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+labels2 <- c('CellphoneUsers', 'FertilityRate', 'PoliticalStability', 'employmentprob','(Intercept)')
+
+stargazer::stargazer(Within_12, covariate.labels = labels2,
+    title = 'Fixed effects regresion',
+    digits = 3, type = 'latex', header = FALSE)
+
+```
+
+## Results: Model 2, Internet Users as proxy
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE}
+Within_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+labels2 <- c('InternetUsers', 'FertilityRate', 'PoliticalStability', 'employmentprob' ,'(Intercept)')
+
+stargazer::stargazer(Within_22, covariate.labels = labels2,
+    title = 'Fixed effects regresion',
+    digits = 3, type = 'latex', header = FALSE)
+
+```
+
+## Conclusion & Limitations
+
+- Panel regression using within, between, pools  estimators were used
+- The results show that cellphone /or Internet usage is significant to explain the change in immigration inside a country. 
+- The more technology is introduced in the country, the more it will incentivize migration out of the  country. 
+- This suggests that the technological differences across the countries are not a relevant factor to explain emigration across countries.
+- Fixed model eliminates variables that are constant in time such as Distance, Common language, colonialism, Border.
+
