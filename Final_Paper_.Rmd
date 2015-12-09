@@ -3,61 +3,19 @@ title: "Have ICT changed the game for mobility and migration?"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
-bibliography: referencesreylamontes.bib
+bibliography: 
+- referencesreylamontes.bib
+- RPackages.bib
 highlight: tango
+geometry: margin=3cm
 theme: united
 toc: yes
 toc_depth: 3
 ---
 
-#Abstract
 
 ---
 \newpage
-
-
-
-
-
-
-
-```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
-#Clearing the workspace
-#rm(list = ls(all=TRUE))
-
-# 1. Loading packages
-#install.packages("plm")
-#install.packages("stargazer")
-#install.packages("formula")
-
-#library("ggmap")
-#library("maptools")
-#library("countrycode")
-#library("RJSONIO")
-#library("WDI")
-#library("tidyr")
-#library("rio")
-#library("ggplot2")
-#library("rworldmap")
-#library("sp")
-#library("Formula")
-#library('plm')
-#library("pglm")
-#library("stargazer")
-#library("migest")
-#library("tseries")
-#library("vif")
-
-#2. Setting directory
-#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
-setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla') 
-
-#Merged <- read.csv(file="MontesandReyla")
-
-#Set data as panel data
-#Merged <- plm.data(Merged, index=c("iso2c", "year"))
-```
-
 
 
 # 1. Introduction
@@ -129,21 +87,234 @@ In order to examine the flows of migration, we intend to use data on trends in _
 
 ##5.2 Emperical Strategy
 
-To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes panel data regression, fixed effects and random effects. 
+******** rewrite To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes panel data regression, fixed effects and random effects. 
 
 
-# 6 Limitations
+
+##5.2 Emperical Strategy
+
+#Emperical Methods
+
+
+#Descriptive Statistics
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+#install.packages('WDI')
+#install.packages('tidyr')
+#install.packages('rio')
+#install.packages('countrycode')
+#install.packages("RJOSONIO")  
+#install.packages ("ggplot2")
+#install.packages("rworldmap")
+#install.packages("sp")
+#install.packages("joinCountryData2Map")
+#install.packages("plm")
+#install.packages("Formula")
+#install.packages("pglm")
+#install.packages("knitr")
+#install.packages("ggmap")
+#install.packages("tseries")
+#install.packages("DataCombine")
+
+# Loading packages
+library("knitr")
+library("ggmap")
+library("maptools")
+library("countrycode")
+library("RJSONIO")
+library("WDI")
+library("tidyr")
+library("rio")
+library("ggplot2")
+library("rworldmap")
+library("sp")
+library('Formula')
+library('plm')
+library('pglm')
+library('stargazer')
+library("tseries")
+library("DataCombine")
+
+
+# Setting directory
+#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla')
+
+
+#loading data set
+Merged <- read.csv(file="MontesandReyla")
+Merged2 <- read.csv(file="MontesandReylaFinalVars")
+
+#subdataframes
+merged00 <- read.csv(file="merged00")
+merged10 <- read.csv(file="merged10")
+merged13 <- read.csv(file="merged13")
+
+```
+
+## Dependent Variables
+
+## Summary Statistics 
+
+# Patterns of Emmigration
+
+```{r maps1, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
+Map1 <-{sPDFII <- joinCountryData2Map(merged00, joinCode = "ISO2", nameJoinColumn = "iso2c")
+mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+png(filename= "migration00.png", width=640,height=480)}
+```
+
+```{r maps11, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
+Emi2000<-mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+
+```
+
+
+```{r maps2, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
+Map2 <-{sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2", nameJoinColumn = "iso2c")
+mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 5. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+png(filename= "migration10.png", width=640,height=480)
+}
+```
+
+```{r maps21, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
+Emi2010<-mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 5. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+```
+
+```{r maps3, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
+Map3<-{sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2", nameJoinColumn = "iso2c")
+mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+png(filename= "migration13.png", width=640,height=480)
+}
+```
+
+```{r maps31, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
+Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+```
+
+#Independent Variables
+
+
+#Results
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#Panel regression by years and interaction
+#Cellphones and Within
+
+Within_11<- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_13<- plm(logemigrationpercap ~ CellphoneUsers+  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_14<- plm(logemigrationpercap ~ CellphoneUsers+  PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_15<-plm(logemigrationpercap ~ CellphoneUsers+ employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_16<-plm(logemigrationpercap ~ CellphoneUsers, data = Merged, index = c("country", "year"), model = "within")
+
+#Table
+labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
+
+table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_12, Within_11, type = "latex", header = FALSE, title = "Table 1 Panel Regression of emigration rate using Cellphone Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+
+```
+
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#Panel regression by years and interaction
+#Cellphones and Within
+
+Within_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_22 <- plm(logemigrationpercap ~ InternetUsers + logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_23<- plm(logemigrationpercap ~ InternetUsers+  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_24<- plm(logemigrationpercap ~ InternetUsers+  PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_25<-plm(logemigrationpercap ~ InternetUsers+ employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_26<-plm(logemigrationpercap ~ InternetUsers, data = Merged, index = c("country", "year"), model = "within")
+
+#Table
+labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'InternetUsersXlogGDPpp-1')
+
+table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_22, Within_21, type = "latex", header = FALSE, title = "Table 2 Panel Regression of emigration rate using Internet Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+
+```
+
+
+#Table 3. Yearly regressions
+<center>
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#OLS Regression by years and interaction
+#Cellphones
+OLS00_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+OLS10_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+
+OLS13_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+
+# Internet
+OLS00_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+
+OLS10_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+
+OLS13_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+
+
+labels3 <-c('CellphoneUsers', 'InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob','CellphoneUsersXlogGDPpp-1', 'InternetUsersXlogGDPpp-1')
+table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, column.labels = c("2000", "2010", "2013", "2000", "2010", "2013"), type = "latex", header = FALSE, title = "Yearly OLS Regression of emigration", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels3)
+```
+
+
+#  Limitations
 
 One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the resarch because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
 
 
+# Appendix
 
-#References
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#Panel regression by years and interaction
+#Cellphones
 
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 
+#Within
+Within_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
+Between_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 
+Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 
+# Table XXPanel Regression - All model- Internet USers
+labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
+
+table10<-stargazer::stargazer(pooling_1, Within_11, Between_11, Random_11, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regressions fro cellphoneUsers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+# Pooling
+
+pooling_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+
+#Within
+Within_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Between_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+
+Random_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+
+#Table
+labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
+
+table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regressions for InternetUSers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+
+```
 
 
 
