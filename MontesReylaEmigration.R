@@ -24,7 +24,9 @@ rm(list = ls(all=TRUE))
 #install.packages("migest")
 #install.packages("tseries")
 #install.packages("DataCombine")
-install.packages("corrplot")
+#install.packages("corrplot")
+#install.packages("repmis")
+#install.packages("Hmisc")
 
 library("ggmap")
 library("maptools")
@@ -40,11 +42,9 @@ library('Formula')
 library('plm')
 library('pglm')
 library('stargazer')
-library("migest")
-library("tseries")
-library("DataCombine")
 library("corrplot")
-
+library("repmis")
+library("Hmisc")
 #2. Setting directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
 #setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
@@ -54,8 +54,7 @@ setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
 ########################################################################################
 
 # 4. Loading Migration UN Data
-
-### loop that loads into R each table in the file and extracts the relevant information for this assigment
+## loop that loads into R each table in the file and transforms the relevant information for this assigment
 
 tables <-c(2, 5, 8, 11)
 for (i in tables)   {
@@ -80,7 +79,7 @@ ls()
 rm(list = c("emigration","i", "tables"))
 
 # 5. Creating an unique identifier for emigration
-emigrationtotal$iso2c <- countrycode (emigrationtotal$Country, origin = 'country.name', 
+emigrationtotal$iso2c <- countrycode(emigrationtotal$Country, origin = 'country.name', 
                                       destination = 'iso2c', warn = TRUE)
 
 # 6. Loading data from the Worldbank database
@@ -133,7 +132,6 @@ Merged$year <- as.numeric(Merged$year)
 Merged$emigration <- as.numeric(Merged$emigration)
 
 # Generating Dependent variables
-Merged$emigration2 = Merged$emigration/100000
 Merged$emigrationpercap = Merged$emigration/Merged$TotalPopulation*100000
 Merged$logemigrationpercap = log(Merged$emigrationpercap)
 Merged$logemigration = log(Merged$emigration)
@@ -169,6 +167,9 @@ NAs$FertilityRate<- sum(is.na(Merged$FertilityRate))/nrow(Merged)
 # Merged <- Merged[, !(colnames(Merged)) %in% c("Poverty", "IntentionalHomocides","PoliticalStability","Corruption", "UnemploymentRate")]
 Merged <- Merged[, !(colnames(Merged)) %in% c("Poverty", "IntentionalHomocides","RegulatoryStability")]
 
+# Removing extra country name coloumn
+Merged <-subset.data.frame(Merged, select = -Country)
+
 # Dropping missing values
 Merged <- Merged[!is.na(Merged$InternetUsers),]
 Merged <- Merged[!is.na(Merged$CellphoneUsers),]
@@ -178,8 +179,6 @@ Merged <- Merged[!is.na(Merged$iso2c),]
 Merged <- Merged[!is.na(Merged$PoliticalStability),]
 Merged <- Merged[!is.na(Merged$UnemploymentRate),]
 
-# Removing extra country name coloumn
-Merged <-subset.data.frame(Merged, select = -Country)
 
 # 9. Generating variables
 Merged$logInternetUsers = log(Merged$InternetUsers)
@@ -537,5 +536,6 @@ WDI_indi2 <- WDI_indi[which(rowSums(!is.na(WDI_indi[, wbdata])) > 0), ]
 
 
 # Create list of packages and BibTex file for packages
-PackagesUsed <- c("ggplot2","repmis", "knitr", "plm", "Hmisc", "texreg", "bibtex", "rworldmap", "RColorBrewer")
-repmis::LoadandCite(PackagesUsed, file = "Packages.bib", install = FALSE)
+PackagesUsed <- c("repmis", "ggplot2", "knitr", "plm", "Hmisc", "Formula", "rworldmap", "RColorBrewer", "maptools", "countrycode","RJSONIO", "pglm", "WDI", "tidyr", "rio", "sp", "stargazer", "tseries", "DataCombine")
+repmis::LoadandCite(PackagesUsed, file = "RPackages.bib", install = FALSE)
+

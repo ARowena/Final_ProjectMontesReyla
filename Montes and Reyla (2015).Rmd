@@ -4,8 +4,12 @@ subtitle: "Working Paper. Please don't cite"
 author: "Ayra Rowena Reyla and Ana Cecilia Montes"
 date: "11 November 2015"
 output: pdf_document
-bibliography: referencesreylamontes.bib
+bibliography: 
+- referencesreylamontes.bib
+- RPackages.bib
 
+
+geometry: margin=3cm
 highlight: zenburn
 theme: united
 toc: yes
@@ -13,7 +17,7 @@ toc_depth: 3
 ---
 \newpage
 ---
- 1 Introduction
+
 
 ##5.2 Emperical Strategy
 
@@ -37,8 +41,11 @@ knitr::opts_chunk$set(echo = FALSE)
 #install.packages("plm")
 #install.packages("Formula")
 #install.packages("pglm")
+#install.packages("knitr")
 
 # Loading packages
+library("knitr")
+library("ggmap")
 library("maptools")
 library("countrycode")
 library("RJSONIO")
@@ -51,6 +58,10 @@ library("sp")
 library('Formula')
 library('plm')
 library('pglm')
+library('stargazer')
+library("tseries")
+library("DataCombine")
+
 
 # Setting directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
@@ -71,15 +82,47 @@ merged13 <- read.csv(file="merged13")
 
 ## Summary
 
-### Patterns of Emmigration
+# Patterns of Emmigration
+
+```{r maps1, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
+Map1 <-{sPDFII <- joinCountryData2Map(merged00, joinCode = "ISO2", nameJoinColumn = "iso2c")
+mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+png(filename= "migration00.png", width=640,height=480)}
+```
+
+```{r maps11, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
+Emi2000<-mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+
+```
+
+
+```{r maps2, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
+Map2 <-{sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2", nameJoinColumn = "iso2c")
+mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 5. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+png(filename= "migration10.png", width=640,height=480)
+}
+```
+
+```{r maps21, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
+Emi2010<-mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 5. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+```
+
+```{r maps3, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
+Map3<-{sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2", nameJoinColumn = "iso2c")
+mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+png(filename= "migration13.png", width=640,height=480)
+}
+```
+
+```{r maps31, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
+Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+```
 
 #Independent Variables
 
+
 #Results
 
-
-#Table 1 Panel Regression Cellphone users
-<center>
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #Panel regression by years and interaction
 #Cellphones and Within
@@ -99,12 +142,11 @@ Within_16<-plm(logemigrationpercap ~ CellphoneUsers, data = Merged, index = c("c
 #Table
 labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
 
-table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_12, Within_11, type = "latex", header = FALSE, title = "Panel Regression of emigration rate", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_12, Within_11, type = "latex", header = FALSE, title = "Table 1 Panel Regression of emigration rate using Cellphone Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
 
 ```
 
-#Table 2 Panel Regression internet usrer
-<center>
+
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #Panel regression by years and interaction
 #Cellphones and Within
@@ -124,7 +166,7 @@ Within_26<-plm(logemigrationpercap ~ InternetUsers, data = Merged, index = c("co
 #Table
 labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'InternetUsersXlogGDPpp-1')
 
-table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_22, Within_21, type = "latex", header = FALSE, title = "Panel Regression of emigration rate", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_22, Within_21, type = "latex", header = FALSE, title = "Table 2 Panel Regression of emigration rate using Internet Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
 
 ```
 
@@ -146,10 +188,9 @@ OLS10_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityR
 
 OLS13_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
 
-#Table 3
 
 labels3 <-c('CellphoneUsers', 'InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob','CellphoneUsersXlogGDPpp-1', 'InternetUsersXlogGDPpp-1')
-table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, column.labels = c("2000", "2010", "2013", "2000", "2010", "2013"), type = "latex", header = FALSE, title = "OLS Regression of emigration stocks around the world 2000-2013", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels3)
+table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, column.labels = c("2000", "2010", "2013", "2000", "2010", "2013"), type = "latex", header = FALSE, title = "Yearly OLS Regression of emigration", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels3)
 ```
 
 #Limitations and Further Research
@@ -158,7 +199,6 @@ table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13
 
 
 # Appendix
-Table X Panel Regression - All model- Cellphone Users
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #Panel regression by years and interaction
@@ -176,11 +216,10 @@ Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + Fertilit
 # Table XXPanel Regression - All model- Internet USers
 labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
 
-table10<-stargazer::stargazer(pooling_1, Within_11, Between_11, Random_11, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regression of emigration stocks around the world 2000-2013", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+table10<-stargazer::stargazer(pooling_1, Within_11, Between_11, Random_11, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regressions fro cellphoneUsers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
 
 ```
 
-#Panel regression - All Models- Internet users
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 # Pooling
 
@@ -196,6 +235,6 @@ Random_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita + Fertility
 #Table
 labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
 
-table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regression of emigration stocks around the world 2000-2013", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regressions for InternetUSers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
 
 ```
