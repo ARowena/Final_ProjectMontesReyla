@@ -39,25 +39,21 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 #**THE DATA**
 
-1. International Migrant Stock from the United Nations from 2000, 2010 and 2013
+1. **International Migrant Stock** from the United Nations from 2000, 2010 and 2013
 
-2. Internet Users and the number of cellphone subscriptions for each country collected from the World Bank as proxy variables for ICT 
+2. **Internet Users** and the number of **cellphone subscriptions** for each country collected from the World Bank as proxy variables for ICT 
 
-3. World Bank Indicators to control for social, economic and political factors. 
-        - Fertility Rate: Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates.
-        - Employment Probability: We calculated employment probability by using Total Population. $$ I_\frac{UnemploymentRate}{100} $$
-        - Political Stability 
+3. World Bank Indicators to control for social, economic and political factors:
 
+- **Fertility Rate:** Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates.
 
+- **Employment Probability:** Calculated using the 1- the unemployment rate [@Mayda2005].
 
-Additionally, in order to conduct a more thorough analysis we will include a number of aggregate data collected from The World Bank indicators. There are many other determinants of migration, that is why this analysis chooses to include a wide variety of World Bank indicators. The chosen indicators are used to measure certain push factors.
-
-To measure economic and demographic determinants this analysis includes the fertility rate indicator. Indicators such as poverty and unemployment have been removed from the analysis, as there are many missing values in the data set.
-
-
+- **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism.
 
 #**OUR METHOD**
 
+The best model for our research is a panel regression with fixed effects 
 
 #**WHAT DID WE LEARN?**
 
