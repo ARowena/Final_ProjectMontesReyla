@@ -13,60 +13,12 @@ toc_depth: 3
 ---
 \newpage
 ---
-
  1 Introduction
-
-Migration, the movement of individuals is hardly a new phenomenon in societies. People have moved from country to country for centuries, be it for social, political or economic reasons, however, more recently it has gained momentum amongst academic scholars and policy makers. According to the United Nation's Population Division, more than 231 million individuals now live outside of their home country and moreover, this number has increased rapidly in the last 10 years. Few countries today are not affected by international migration [@Martin2014]. It importance lies in the fact that international migration is part of a transnational shift that is currently reshaping societies and politics around the globe. 
-
-Migration is one of the three main determinants of a country's population development. The other two - the birth and death rate - are generally believed to be easier to forecast [@Castles2014]. However, the literature has associated migration to factors that have classically been seen as drivers for migration between two countries such as [a] conditions in the sending country driving out inhabitants, including political troubles, persecution, conflict and other "push factors"", [b] conditions in the receiving country attracting migrants, such as higher wages, better know as "pull factors", and [c] factors which facilitate or authorize the migration process itself, such as the receiving country's immigration politics. 
-
-More recently, emerging trends that have also enhanced the population flows. @Martin2014 highlights four trends that have increased and continue to improve migration flows.  First, the increase of multinational companies has strengthen global workers mobility, which has improved the influx in _economic integration_. Secondly, the change in _geo-political and security_ has enhanced international cooperation, with autonomous countries seeking legitimate forms of transnational mobility, in a world posed with any security threats. A third trend that has portend the need for enhanced economic cooperation is the _increasing transnationalism_, whereas individual migrants are able to maintain strong relationships and connections in two or more countries has fostered a growing acceptance of multiple-nationality. Additionally, a fourth trend that increases migration flows can be attributed to some extent to new global challenges, such as  _climate change_ that push individuals to migrate to a other geophafical location. 
-
-One driving factor increasingly put forward in recent years is the use of technology. According to @Hiller2004, computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations. Not only has new technology improved and heightened communication, it has also bridged cultural gap between countries as it allows people to easily gathering new information and knowledge about other cultures. This of course has made a large impact on people's perception on other cultures and their worldviews. Overall, technology has changed the landscape for communicating, and gathering knowledge and information. These revolutions that have transformed society are making travel and telecommunications cheaper and easier than ever. Moreover, Technology has enhanced the aspects of interaction as it is transforming the way individuals communicate. 
-
-# 2 Research Question 
-
-Has the increase use of technologies such as internet and mobile phones affected the flow of emigration?
-
-# 3 State of the Art
-
-When examining this topic further, it is essential to examine the already present literature and theories involved. As migration has been an ongoing phenomenon for many centuries, examining the theories will provide a strong foundation for subsequent discussion and provide a framework for the our analysis. 
-
-According to @Castles2014 there are certain determinants that "push" and "pull" individuals out of certain regions or areas. The first "push" and "pull" model was developed by Passaris in 1989, and he can be classified as a 
-_Functionalist theorist_. There here are economic, environmental, and demographic characteristics that influence an individual's choice to stay or leave a particular geographic region. There are a large number of "push" factors, among those include - population growth and density, security issues, economic opportunities, and political factors. On the other hand, the characteristics of the receiving countries may also influence people's decision to pack up and leave. These characteristics are commonly known in the literature as, "Pull" factors, much like their counterparts have a strong influence on attracting a moderate flow of people. Among them include, the demand for labor, the availability of land, economic and employment opportunities, and favorable immigration policies.Nevertheless, the "push" and "pull" model only accounts for causal relationships between variables and does not take into account for certain simultaneous relationship. 
-
-Another theory common among the literature is the _Neo-classical theory_, which affirms that the market allocates labor depending on demand and supply. In most cases, the demand of employment will automatically provide a supply of persons willing to do the labor in order for the market to reach equilibrium. The determinants of the individual decision will be based on the wage differentials among two geographical areas. To illustrate, a person will be more willing to move to another for labor and employment if the offering wage is higher and more competitive than in their home market. 
-
-Another relevant theory associated with the focus of this analysis is _Globalization theory_. According to @Castles2014, Globalization can be defined as as the process in which world wide interconnections have not only expanded but have deepened the speed of connectivity, and time of all aspects of social life. This theory suggest that globalization has very inconclusive effects on migration flows. On one hand, globalization has strengthened migration since it has fostered new developments in transport and comunications. However, on the other hand, it is argued that  these new developments have also changed the way in which people work and interact with each other. For example, it has increased outsourcing, commuting and teleworking. Although it sounds like a positive innovation, this has also made migration to another location less attractive, as all the resources are so readily available. 
-
-Overall, This study attempt to answer the following question: Has the increase use of technologies such as internet and mobile phones affected the flow of emigration?
-
-#4 Relevance
-
-Migration is a phenomenon that has been happening for centuries, and will continue to happen under any circumstances. The flow of people between countries may stagnate at times, but nevertheless it will never fully cease. In the contemporary context, communications technology will only continue to increase.There are always many reasons why individuals choose to migration, and communication technologies could make this process much more easy and attractive. 
-It is benificial for countries or governments to undestand the causes and the drivers for migration so that they can futher learn and grow depending on trends currently happening around the globe. Mobile and internet technology are also resources that governments can exploit to communicate policies and information for people interesting in migrating, making integration process more easy for them. 
-
-
-# 5 Methodology
-## 5.1 Data Selection
-
-In order to examine the flows of migration, this analysis uses data from the _International Migrant Stock_ produced by the United Nations. The data contains information from 232 countries and provides the number of migrants by destination and country of origin for four periods of time; 1990, 2000, 2010, and 2013. Moreover, to account for technology diffusion we will use _World Bank indicators_ on the number of Internet users and the number of cellular mobile subscriptions for each country. 
-
-The _International Migrant Stock Total_ indicates the number of people born in a country other than the country in which they currently reside in, this includes refugees as well. The data set estimates the international migrant stock at a particular time and are mainly collect from population censuses. 
-Also, the data set presents the estimates of : (1) international migrant stock at mid-year; (2) total population at mid-year (thousands); (3) international migrant stock as a percentage of the total population; (4) annual rate of change of migrant stock (percentage); and (5) estimated number of refugees. The estimates are based on official statistics on the foreign-born or the foreign population. 
-
-This analysis will focus on the estimates for the years 1990, 2000, 2010 and 2013. 
-
-Additionally, in order to conduct a more thorough analysis we will include a number of aggregate data collected from _The World Bank indicators_. There are many other determinants of migration, that is why this analysis chooses to include a wide variety of World Bank indicators. The chosen indicators are used to measure certain push factors. 
-
-To measure economic and demographic determinants this analysis includes the _fertility rate_ indicator. Indicators such as _poverty_ and _unemployment_ have been removed from the analysis, as there are many missing values in the data set. 
-
 
 ##5.2 Emperical Strategy
 
 #Emperical Methods
 
-To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes **panel data regression using the within and between estimators, and a random effects model**.  
 
 #Descriptive Statistics
 
@@ -117,86 +69,68 @@ merged13 <- read.csv(file="merged13")
 
 ## Dependent Variables
 
-Our dependent variable is the total migrant stock at mid-year by country of origin, which we retrieved from the United Nations Population division. 
-
-Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count data. Migration flow data is also higly skewed, because there is a large amount countries that both have low emigration and low population, while theres other large population outflows. Figure 2 displays the depended variable in natural logaritm.
-
-
-```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
-hist(Merged$logemigration, xlab = "Thousands of emigrants (log)", main = "Figure 1. Histogram for Emigration ", xlim=range(0:14170))
-
 ## Summary
-summary(Merged$emigration2, na.rm = TRUE)
-```
-
-
-Figure 2 expresses emigration in per capita terms in order to account for population differences between countries. The shape of the distribution has not as not made a strong visual change, which means that emigration is quite low in a large number of countries. 
-
-Among all the years, the country with the largest emigration per capita is the West Bank and Gaza. One can infer that the conflict in this region over time has affected the population movements drastically. The country with the lowest emigration per capita is Western Sahara. Even though there is a strong conflict in the region, free mobility in and out of the country is heavily guarded and limited by a 2,700 kilometer sand wall, also known as the Moroccan Wall. This can account for the lack of emigration throughout the region. 
-
-
-```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold"}
-hist(Merged2$logemigrationpercap, xlab = "Emigrants per capita (log)", main = "Figure 2. Histogram for Emigrants per capita")
-## Summary
-summary(Merged$emigrationpercap, na.rm = TRUE)
-``` 
 
 ### Patterns of Emmigration
-The following figures illustrate the evolution of the per capita emigration stock totals for each country in the years 1990, 2000, 2010 and 2013. 
-
-Observing the figures indicates the important population movements, particularly in Africa. For example, between the years of 1990-2000, Mozambique  and Burkina Faso has reduced the number of people exiting the country. Also, Chad has experienced similar pasterns, but not the the extent to which the previous examples faced. When comparing 2010 and 2013, there is not a visually observable difference. This can possibly be attributed to the stabilization of migration patterns. 
-
-While Africa has experienced a decrease in emigration, Latin America has the opposite pattern. For example, countries such as Mexico, Colombia, Educator, Peru, Bolivia, and Guatemala have experience a large increase in total emigration during the last decade. 
-
-In Europe, the situation is quite mixed since many factors, such as the creation of European Union (EU) and the enlargement of EU over the years could have played a large role the heterogeneity of the migration patterns in the past decade. There is migration movement, but there is no overall pattern of movements within the EU region.
-
 
 #Independent Variables
 
-This analysis makes use of many variables, to control for determinates that effect the dependent variable.
-Below is the calculated summary statistics for the independent variables.
-
-###GDP Per Capita
-```{r, echo=FALSE, tidy=TRUE, comment=NA}
-summary(Merged$GDPPerCapita, na.rm = TRUE)
-```
-###Total Population
-```{r, echo=FALSE, tidy=TRUE, comment=NA}
-summary(Merged$TotalPopulation, na.rm = TRUE)
-```
-###Fertility Rate
-```{r, echo=FALSE, tidy=TRUE, comment=NA}
-summary(Merged$FertilityRate, na.rm = TRUE)
-```
-
-###Cellphone Users
-```{r, echo=FALSE, tidy=TRUE, comment=NA}
-summary(Merged$CellphoneUsers, na.rm = TRUE)
-```
-###Internet Users
-```{r, echo=FALSE, tidy=TRUE, comment=NA}
-summary(Merged$InternetUsers, na.rm = TRUE)
-```
-###Correlation between independent variables
-```{r, echo=FALSE, tidy=TRUE, comment=NA}
-cor.test(Merged$InternetUsers, Merged$CellphoneUsers, na.rm = TRUE)
-```
-
-Since a high correlation between internet users and cellphone users can be observed from the correlation test above, this analysis used the variables seperately. 
-
 #Results
 
-Panel regression using within estimators and separate random effect estimators are used when analyzing the research question at hand. 
 
-_Table 1_ illustrates the regression results of a *panel regression*. The results show that cellphone usage is significant to explain the change in immigration inside a country. Additionally, the within estimations indicates that cellphone users do not explain the migration pattern across countries. 
+#Table 1 Panel Regression Cellphone users
+<center>
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#Panel regression by years and interaction
+#Cellphones and Within
 
-Furthermore, the comparison between the same countries within the same year indicate that the more cellphone users in a country, the more migration occurs. Coincidentally, when comparing between countries, there is no effect on the cellphone users. 
+Within_11<- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-It's the effect within the country and the year that is significant. The more technology is introduced in the country, the more it will incentive or "push" immigration in the country. This suggests that the differences across the countries are not a relevant factor to explain immigration across countries. 
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-#Table 2. Yearly regressions
-{landscape}
+Within_13<- plm(logemigrationpercap ~ CellphoneUsers+  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
+Within_14<- plm(logemigrationpercap ~ CellphoneUsers+  PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_15<-plm(logemigrationpercap ~ CellphoneUsers+ employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_16<-plm(logemigrationpercap ~ CellphoneUsers, data = Merged, index = c("country", "year"), model = "within")
+
+#Table
+labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
+
+table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_12, Within_11, type = "latex", header = FALSE, title = "Panel Regression of emigration rate", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+
+```
+
+#Table 2 Panel Regression internet usrer
+<center>
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#Panel regression by years and interaction
+#Cellphones and Within
+
+Within_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_22 <- plm(logemigrationpercap ~ InternetUsers + logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_23<- plm(logemigrationpercap ~ InternetUsers+  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_24<- plm(logemigrationpercap ~ InternetUsers+  PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_25<-plm(logemigrationpercap ~ InternetUsers+ employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Within_26<-plm(logemigrationpercap ~ InternetUsers, data = Merged, index = c("country", "year"), model = "within")
+
+#Table
+labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'InternetUsersXlogGDPpp-1')
+
+table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_22, Within_21, type = "latex", header = FALSE, title = "Panel Regression of emigration rate", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+
+```
+
+
+#Table 3. Yearly regressions
+<center>
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #OLS Regression by years and interaction
 #Cellphones
@@ -212,26 +146,56 @@ OLS10_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityR
 
 OLS13_2 <- lm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
 
-#Table
-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, 
-          type = "latex", 
-          header = FALSE, title = "Table 1. Regression analysis of emigration stocks around the world 2000-2013",
-          digits = 4,
-          omit.stat = c("f", "ser"),
-          notes = "OLS regression")
+#Table 3
+
+labels3 <-c('CellphoneUsers', 'InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob','CellphoneUsersXlogGDPpp-1', 'InternetUsersXlogGDPpp-1')
+table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, column.labels = c("2000", "2010", "2013", "2000", "2010", "2013"), type = "latex", header = FALSE, title = "OLS Regression of emigration stocks around the world 2000-2013", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels3)
 ```
-{landscape}
 
 #Limitations and Further Research
-
-The next step to this analysis will be to estimate our dependent variable using a *Poisson* distribution. 
-We intend to combine combine panel data techniques with count data. 
-
-
-One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the resarch because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
 
 #**References**
 
 
+# Appendix
+Table X Panel Regression - All model- Cellphone Users
 
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+#Panel regression by years and interaction
+#Cellphones
 
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+
+#Within
+Within_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Between_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+
+Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+
+# Table XXPanel Regression - All model- Internet USers
+labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
+
+table10<-stargazer::stargazer(pooling_1, Within_11, Between_11, Random_11, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regression of emigration stocks around the world 2000-2013", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+
+```
+
+#Panel regression - All Models- Internet users
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+# Pooling
+
+pooling_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+
+#Within
+Within_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Between_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+
+Random_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+
+#Table
+labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
+
+table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regression of emigration stocks around the world 2000-2013", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+
+```

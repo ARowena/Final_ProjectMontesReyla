@@ -345,33 +345,42 @@ ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
 
 ##Cellphone users - using log
 # Pool OLS
-pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_1)
+#Without interaction
+pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 
-pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_1)
+# With interaction
+pooling_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+summary(pooling_12)
 
-Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
-summary(Within_1)
+#Within
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+summary(Within_12)
 
-Between_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
-summary(Between_1)
+#Between
+Between_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+summary(Between_12)
 
-Random_12 <- plm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
-summary(Random_1)
+#Random
+Random_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+summary(Random_12)
+
+#################################################################################################
+######################################## TESTS ##################################################
+#################################################################################################
+# LM test for fixed verus pooling
+pFtest (Within_12, pooling_1)
+# reject the null hypothesis that the country fixed effects are equal to zero.
 
 # LM test for pooling versus random effects
-plmtest(pooling_1)
-
-# LM test for fixed verus pooling
-pFtest (Within_12, pooling_12)
+plmtest(pooling_1, type="bp")
+#The test suggest that we should dismiss  POOL OLS
 
 # LM test for Random verus fixed
 phtest (Within_12, Random_12 )
+# Since we reject the Null the best model is the fixed effects
 
-
-pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
-
+#################################################################################################
+# All with logsn
 pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_13)
 
@@ -384,23 +393,9 @@ summary(pooling_15)
 pooling_16 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_16)
 
-
-##Internet Users
-# Poisson Regression
-#Poisson_2 <- glm(emigration2 ~ InternetUsers + TotalPopulation + GDPPerCapita + year + FertilityRate, data = Merged, family = 'poisson')
-#summary(Poisson_2)
-
-# Panel regression, within estimator 
-Within_2 <- plm(emigration2 ~ InternetUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "within")
-summary(Within_2)
-
-# Panel regression, between estimator 
-Between_2 <- plm(emigration2 ~ InternetUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "between")
-summary(Between_2)
-
-# Panel regression, random effects
-#Random_2 <- plm(emigration2 ~ InternetUsers + TotalPopulation + GDPPerCapita + FertilityRate, data = Merged, index = c("country", "year"), model = "random")
-#summary(Random_2)
+#################################################################################################
+##################################### Internet Users ############################################
+#################################################################################################
 
 # using log
 pooling_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
@@ -424,15 +419,16 @@ pFtest (Within_22, pooling_22)
 # LM test for Random verus fixed
 phtest (Within_22, Random_22 )
 
-#Model by years
-#CEllphones
-OLS00_1 <- lm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob + logGDPPerCapita.l, data = merged00)
+#################################################################################################
+################################ Yearly Cross sections###########################################
+#################################################################################################
+#Cellphones
+OLS00_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged00)
+OLS10_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged10)
+OLS13_1 <- lm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, data = merged13)
+
 summary(OLS00_1)
-
-OLS10_1 <- lm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob + logGDPPerCapita.l, data = merged10)
 summary(OLS10_1)
-
-OLS13_1 <- lm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob +logGDPPerCapita.l, data = merged13)
 summary(OLS13_1)
 
 
