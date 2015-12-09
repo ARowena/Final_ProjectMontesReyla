@@ -3,9 +3,8 @@ title: "Have ICT changed the game for mobility and migration?"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
-bibliography: 
-- referencesreylamontes.bib
-- RPackages.bib
+bibliography: referencesreylamontes.bib, Rpackages.bib
+
 highlight: tango
 geometry: margin=3cm
 theme: united
@@ -69,13 +68,20 @@ Another relevant theory associated with the focus of this analysis is _Globaliza
 
 # 5 Method
 ## 5.1 Data Selection
+To capture the movement and flow of peopla data was gathered from  The International Migrant Stock produced from the United Nations, which provides estimate for the years 1990, 2000, 2010, and 2013. This data will measure emigration between countries. Two proxy variables collected from World Bank Indicators were used to measure the impact of ICT. First, Internet users (per 100 people) captures individuals who have used the Internet (from any location) in the last 12 months, the Internet can be used through a number of mediums via computer, mobile phone, personal tablet, game consoles, digital TV etc. Mobile cellular subscriptions (per 100 people) data represent the number of subscriptions to a public mobile telephone service that provides acces to public switched telephone network (PSTN) technology. This proxy indicator applies to all mobile cellular subscriptions that offers voice communications.  
 
-In order to examine the flows of migration, this analysis uses data from the _International Migrant Stock_ produced by the United Nations. The data contains information from 232 countries and provides the number of migrants by destination and country of origin for four periods of time; 1990, 2000, 2010, and 2013. Moreover, to account for technology diffusion we will use _World Bank indicators_ on the number of Internet users and the number of cellular mobile subscriptions for each country. 
 
-The _International Migrant Stock Total_ indicates the number of people born in a country other than the country in which they currently reside in, this includes refugees as well. The data set estimates the international migrant stock at a particular time and are mainly collect from population censuses. 
-Also, the data set presents the estimates of : (1) international migrant stock at mid-year; (2) total population at mid-year (thousands); (3) international migrant stock as a percentage of the total population; (4) annual rate of change of migrant stock (percentage); and (5) estimated number of refugees. The estimates are based on official statistics on the foreign-born or the foreign population. 
+Additionally, we gather aggregate data from the World Bank Indicators as there are other determinates of migration that needed to be accounted for. These indicators are used to measure push factors. Fertilitay rate captures demographic push factors and represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates. Employment Probabily 
 
-This analysis will focus on the estimates for the years 1990, 2000, 2010 and 2013. 
+- **Employment Probability:** Using the Employment Rate indicator from the world bank, we calculated the employment probability by using the following equation [@Mayda2005].
+$$ 1-frac{UnemploymentRate}{100} $$. 
+
+
+- **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism.
+
+This analysis will focus on the estimates for the years 2000, 2010 and 2013. 
+
+
 
 Additionally, in order to conduct a more thorough analysis we will include a number of aggregate data collected from _The World Bank indicators_. There are many other determinants of migration, that is why this analysis chooses to include a wide variety of World Bank indicators. The chosen indicators are used to measure certain push factors. 
 
@@ -89,7 +95,11 @@ In order to examine the flows of migration, we intend to use data on trends in _
 
 ******** rewrite To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes panel data regression, fixed effects and random effects. 
 
+**Model 1: Cellphone Users**
+$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Cell + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
 
+**Model 2: Internet Users**
+$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Net + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
 
 ##5.2 Emperical Strategy
 
@@ -197,6 +207,10 @@ Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle
 #Independent Variables
 
 
+# Emperical Results 
+
+
+
 #Results
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
@@ -270,6 +284,8 @@ table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13
 ```
 
 
+
+
 #  Limitations
 
 One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the resarch because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
@@ -317,5 +333,5 @@ table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, colu
 ```
 
 
-
+# References 
 
