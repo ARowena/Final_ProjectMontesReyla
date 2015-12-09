@@ -20,6 +20,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Thank you for showing interest in our research project! 
 
-We are Ayra Rowena and Ana Cecilia  and we are both interested in the study of migration and the factors that influences it. Particularly this research, explores whether or not Internet, Communication and Technology have impacted the flow of migration.  
+Our names are Ana M. and Ayra R. and together we are conducting a brief study on the the factors that influence migration. Particularly, this research explores how changes in the 20th century have  changed the flows of migration. We are trying to answer the following question: **Has Information, communication and technology impact the flow of migration?**
+
+Internet, communication and technologiy have had on migration. 
+
 
 # **THANK YOU**
