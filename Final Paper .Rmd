@@ -1,7 +1,7 @@
 ---
 title: "CSSR_Final_Paper[interesting title?]"
-author: "REYLAMONTES"
-date: "7 December 2015"
+author: "A. Montes and A.Reyla"
+date: "11 December 2015"
 output: pdf_document
 ---
 
