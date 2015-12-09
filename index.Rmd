@@ -1,14 +1,15 @@
 ---
-title: "please work!! "
-author: "REYLAMONTES"
+authors: "REYLAMONTES"
 date: "9 December 2015"
-output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
-Merry Christmas! 
 
 
-just tessting now if this works! please work!!? 
+
+##**WELCOME**
+
+##**HOW ARE YOU??**
