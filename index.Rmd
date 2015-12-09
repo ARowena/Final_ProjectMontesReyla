@@ -37,7 +37,7 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 
 
-#**THE DATA**
+#**THE DATA and METHOD **
 
 1. **International Migrant Stock** from the United Nations from 2000, 2010 and 2013
 
@@ -53,7 +53,10 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 #**OUR METHOD**
 
-The best model for our research is a panel regression with fixed effects 
+The best model for our research is a panel regression with fixed effects.
+
+For more information please refer to our paper: 
+If you're more curious about statistical models, here are a few useful links: http://www.indiana.edu/~wim/docs/10_7_2011_slides.pdf or http://gauss.stat.su.se/gu/e/slides/F17.pdf
 
 #**WHAT DID WE LEARN?**
 
