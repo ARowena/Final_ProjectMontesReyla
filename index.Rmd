@@ -1,5 +1,5 @@
 --- 
-title: "#**WELCOME**#"
+title: "#**WELCOME**"
 output: html_document 
 theme: journal
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
@@ -22,7 +22,20 @@ Thank you for showing interest in our research project!
 
 Our names are Ana M. and Ayra R. and together we are conducting a brief study on the the factors that influence migration. Particularly, this research explores how changes in the 20th century have  changed the flows of migration. We are trying to answer the following question: **Has Information, communication and technology impact the flow of migration?**
 
-Internet, communication and technologiy have had on migration. 
+#**WHY ARE WE STUDYING ICT AND MIGRATION?**
+
+
+
+##**THE DATA
+
+
+##OUR METHOD
+
+
+#WHAT DID WE LEARN?
+
+
+##... WHAT ARE THE NEXT STEPS? 
 
 
 # **THANK YOU**
