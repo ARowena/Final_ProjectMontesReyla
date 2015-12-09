@@ -335,6 +335,9 @@ plot(Merged$InternetUsers)
 plot(Merged$logemigrationpercap, Merged$CellphoneUsers)
 plot(Merged$logemigrationpercap, Merged$InternetUsers)
 
+
+plot(Merged$logemigrationpercap, Merged$InternetUsers)
+
 ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
   geom_point() + geom_smooth() + theme_bw()
 
@@ -345,22 +348,22 @@ ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
 ##Cellphone users - using log
 # Pool OLS
 #Without interaction
-pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita.l +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 
 # With interaction
-pooling_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_12)
 
 #Within
-Within_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 summary(Within_12)
 
 #Between
-Between_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+Between_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 summary(Between_12)
 
 #Random
-Random_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+Random_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 summary(Random_12)
 
 #################################################################################################
