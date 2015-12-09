@@ -1,10 +1,15 @@
 ---
-authors: "REYLAMONTES"
-date: "9 December 2015"
+output: 
+  html_document: 
+    theme: flatly
+authors: nibji
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+
+library('shinythemes')
 
 ```
 
