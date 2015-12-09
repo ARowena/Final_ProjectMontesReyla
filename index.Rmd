@@ -1,20 +1,25 @@
+--- 
+title: "#**WELCOME**#"
+output: html_document 
+theme: journal
+authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
 ---
-output: 
-  html_document: 
-    theme: flatly
-authors: nibji
----
+
+<style>
+  body {background-color:#F2F2F2}
+</style>
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 
-library('shinythemes')
+#library('shinythemes')
 
 ```
 
+Thank you for showing interest in our research project! 
 
+We are Ayra Rowena and Ana Cecilia  and we are both interested in the study of migration and the factors that influences it. Particularly this research, explores whether or not Internet, Communication and Technology have impacted the flow of migration.  
 
-##**WELCOME**
-
-##**HOW ARE YOU??**
+# **THANK YOU**
