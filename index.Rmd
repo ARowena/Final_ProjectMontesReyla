@@ -39,13 +39,13 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 #**THE DATA**
 
-1. International Migrant Stock from the United Nationsfrom 2000, 2010 and 2013
+1. International Migrant Stock from the United Nations from 2000, 2010 and 2013
 
 2. Internet Users and the number of cellphone subscriptions for each country collected from the World Bank as proxy variables for ICT 
 
 3. World Bank Indicators to control for social, economic and political factors. 
         - Fertility Rate: Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates.
-        - Employment Probability: 
+        - Employment Probability: We calculated employment probability by using Total Population. $$ I_\frac{UnemploymentRate}{100} $$
         - Political Stability 
 
 
