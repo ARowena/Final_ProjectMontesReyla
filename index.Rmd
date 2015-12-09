@@ -6,6 +6,7 @@ authors: ANA CECILIA MONTES and AYRA ROWENA REYLA
 bibliography: referencesreylamontes.bib
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -25,7 +26,7 @@ Migration is broadly defined as a permanent or semi-permanent relocation of resi
 ICT and the emergence of globalisation has impacted every facet of our daily lives, we want to observe if it has affected the why people move and why people stay. 
 
 
-#**PUSH AND PULLC**
+#**PUSH AND PULL**
 
 ![Figure1](http://i63.tinypic.com/2u7ul1k.jpg) 
 
@@ -37,7 +38,7 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 
 
-#**THE DATA and METHOD **
+#**THE DATA**
 
 1. **International Migrant Stock** from the United Nations from 2000, 2010 and 2013
 
