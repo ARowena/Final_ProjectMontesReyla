@@ -74,7 +74,7 @@ To capture the movement and flow of peopla data was gathered from  The Internati
 Additionally, we gather aggregate data from the World Bank Indicators as there are other determinates of migration that needed to be accounted for. These indicators are used to measure push factors. Fertilitay rate captures demographic push factors and represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates. Employment Probabily 
 
 - **Employment Probability:** Using the Employment Rate indicator from the world bank, we calculated the employment probability by using the following equation [@Mayda2005].
-$$ 1-frac{UnemploymentRate}{100} $$. 
+$$ 1-frac{employmentRate}{100} $$. 
 
 
 - **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism.

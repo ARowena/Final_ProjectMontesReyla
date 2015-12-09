@@ -64,8 +64,8 @@ library("DataCombine")
 
 
 # Setting directory
-setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
-#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
+#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla')
 
 #loading data set
 Merged <- read.csv(file="MontesandReyla")
@@ -127,9 +127,9 @@ Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle
 #Panel regression by years and interaction
 #Cellphones and Within
 
-Within_11<- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_11<- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-Within_12 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
 Within_13<- plm(logemigrationpercap ~ CellphoneUsers+  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
@@ -151,9 +151,9 @@ table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_
 #Panel regression by years and interaction
 #Cellphones and Within
 
-Within_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-Within_22 <- plm(logemigrationpercap ~ InternetUsers + logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_22 <- plm(logemigrationpercap ~ InternetUsers + logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
 Within_23<- plm(logemigrationpercap ~ InternetUsers+  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
@@ -204,14 +204,14 @@ table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13
 #Panel regression by years and interaction
 #Cellphones
 
-pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 
 #Within
-Within_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-Between_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+Between_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 
-Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 
 # Table XXPanel Regression - All model- Internet USers
 labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
@@ -223,14 +223,14 @@ table10<-stargazer::stargazer(pooling_1, Within_11, Between_11, Random_11, colum
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 # Pooling
 
-pooling_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_21<- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 
 #Within
-Within_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 
-Between_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+Between_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 
-Random_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+Random_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 
 #Table
 labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
