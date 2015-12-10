@@ -194,6 +194,9 @@ write.csv(Merged, file="MontesandReyla")
 
 # Dataframe with final variables
 Merged2 <- Merged[c("iso2c","country","year", "logemigrationpercap", "CellphoneUsers", "InternetUsers" ,"FertilityRate", "PoliticalStability", "employmentprob", "logGDPPerCapita.l")]
+summary(Merged2)
+Merged2 <- Merged2[!is.na(Merged2$iso2c),]
+Merged2 <- Merged2[!is.na(Merged2$logGDPPerCapita.l),]
 write.csv(Merged2, file="MontesandReylaFinalVars")
 
 # sub dataframes by year
@@ -265,7 +268,6 @@ jarque.bera.test(Merged$logemigrationpercap)
 jarque.bera.test(Merged$logemigration)
 
 ## Summary
-summary(Merged$logemigrationpercap, na.rm = TRUE)
 
 #Range
 range(Merged$logemigrationpercap)
@@ -286,11 +288,6 @@ var(Merged$InternetUsers)
 sd(Merged$logemigrationpercap)
 sd(Merged$CellphoneUsers)
 sd(Merged$InternetUsers)
-
-#Standar Error function
-sd_error <- function(x) {
-  sd(x)/sqrt(length(x))
-}
 
 sd_error(Merged$emigration)
 
@@ -327,7 +324,9 @@ cor.test(Merged$logInternetUsers, Merged$logCellphoneUsers, na.rm = TRUE)
 cor.test(Merged$employmentprob, Merged$InternetUsers)
 cor.test(Merged$employmentprob, Merged$GDPPerCapita.l)
 
-car::scatterplotMatrix(Merged2)
+car::scatterplotMatrix(Stats)
+library('corrplot')
+corrplot(Stats, method = "circle")
 
 # Figure
 plot(Merged$InternetUsers)
