@@ -325,9 +325,10 @@ cor.test(Merged$employmentprob, Merged$InternetUsers)
 cor.test(Merged$employmentprob, Merged$GDPPerCapita.l)
 
 car::scatterplotMatrix(Stats)
-library('corrplot')
-corrplot(Stats, method = "circle")
+summary(Stats)
 
+mcor <- cor(Stats[,c(1:6)])
+corrplot(mcor)
 # Figure
 plot(Merged$InternetUsers)
 
@@ -380,39 +381,35 @@ plmtest(pooling_1, type="bp")
 phtest (Within_12, Random_12 )
 # Since we reject the Null the best model is the fixed effects
 
+# Predicted values
 #################################################################################################
-# All with logsn
-pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_13)
 
-pooling_14 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_14)
+predicted <-Merged[,c(1)]
+predicted <- as.data.frame(predicted)
+predicted$Fixedcell <-pmodel.response(Within_12)
 
-pooling_15 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_15)
-
-pooling_16 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
-summary(pooling_16)
 
 #################################################################################################
 ##################################### Internet Users ############################################
 #################################################################################################
 
 # using log
-pooling_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_22 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+
+Within_22 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+
+Between_22 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+
+Random_22 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+
 summary(pooling_22)
-
-Within_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 summary(Within_22)
-
-Between_22 <- plm(logemigrationpercap ~ InternetUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 summary(Between_22)
-
-Random_22 <- plm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 summary(Random_22)
 
+
 # LM test for pooling versus random effects
-plmtest(pooling_22)
+LM2 <- plmtest(pooling_22)
 
 # LM test for fixed verus pooling
 pFtest (Within_22, pooling_22)
@@ -432,6 +429,9 @@ summary(OLS00_1)
 summary(OLS10_1)
 summary(OLS13_1)
 
+beta_hat <- coef(OLS00_1)
+
+fiitedval <-predict(OLS00_1, Merged2, se.fit = TRUE)
 
 # Internet
 OLS00_2 <- lm(logemigrationpercap ~ InternetUsers + FertilityRate + PoliticalStability +employmentprob+ logGDPPerCapita.l, data = merged00)
@@ -466,23 +466,6 @@ summary(OLS13_2)
 
 
 
-# Creating table output 
-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, 
-          type = "latex", 
-          header = FALSE, title = "Table 1. Regression analysis of emigration stocks around the world 2000-2013",
-          digits = 4,
-          omit.stat = c("f", "ser"),
-          notes = "This regression output shows the results using cellphone users and Internet as a proxy of 
-          comunication technology")
-
-stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2,
-          type = "latex",
-          header = FALSE, 
-          title = "Table 2. Regression analysis of emigration stocks around the world 1990-2013",
-          digits = 2,
-          omit.stat = c("f", "ser"),
-          notes = "This regression output shows the results using Internet users as a proxy of 
-          comunication technology")
 
 
 
