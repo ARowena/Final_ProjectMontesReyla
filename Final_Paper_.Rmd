@@ -3,8 +3,7 @@ title: "Have ICT changed the game for mobility and migration?"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
-bibliography: 
-- referencesreylamontes2.bib 
+bibliography: referencesreylamontes.bib 
 highlight: tango
 geometry: margin=3cm
 theme: united
@@ -203,7 +202,7 @@ Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle
 
 # Emperical Results 
 
-Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09;Roller01;@Roller96; @Hardy80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
+Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09;Roller01;@Roller96; @80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
 
 Moreover, fertility rates does not explain international emigration flows, while political stability has a negative relationship with emigration rates. This means unstable political environments is a push determinant of emigration rates. On the other hand, employment probabilities in the country of origin incentivize individuals to stay in their home country.
 
@@ -331,9 +330,9 @@ table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, colu
 
 # References 
 
-@R-sp @R-countrycode @R-DataCombine @R-forumla
-@R-ggplot2@R-Hmisc@R-knitr@Rmaptools@Table1@CiteR@R-Hmisc@R-rio@R-RJSONIO@R-rworldmap@R-stargazer@R-tidyr@R-tseries@R-WDI @R-repmis
 
+@R-sp @R-countrycode @R-DataCombine @R-forumla
+@R-ggplot2@ R-Hmisc @R-knitr @Rmaptools @Table1 @CiteR@R-Hmisc @R-rio@R-RJSONIO @R-rworldmap @R-stargazer @R-tidyr @R-tseries @R-WDI @R-repmis
 
 
 
