@@ -1,0 +1,70 @@
+--- 
+title: "#**WELCOME**"
+output: html_document 
+theme: journal
+authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
+bibliography: referencesreylamontes.bib
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+#library('shinythemes')
+
+```
+
+Thank you for showing interest in our research project! 
+
+Our names are Ana M. and Ayra R. and together we are conducting a brief study on the the factors that influence migration. Particularly, this research explores how changes in the 20th century have  changed the flows of migration. We are trying to answer the following question: **Has Information, communication and technology (ICT) impact the flow of migration?**
+
+#**WHY ARE WE STUDYING ICT AND MIGRATION?**
+
+Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. 
+
+ICT and the emergence of globalisation has impacted every facet of our daily lives, we want to observe if it has affected the why people move and why people stay. 
+
+
+#**PUSH AND PULL**
+
+![Figure1](http://i63.tinypic.com/2u7ul1k.jpg) 
+
+- Push factors are reasons that are generally forced and negative, these factors are associated with the country of origin. People are 'pushed' to leave their homeland for a number of varying reasons.  
+
+![Figure2](http://i67.tinypic.com/5vmwrm.jpg) 
+
+- Pull factors on the other hand are the positive traits that positively affect the movement of people. Often people are drawn to move to places to escape the negative factors pushing them out.
+
+
+
+#**THE DATA**
+
+1. **International Migrant Stock** from the United Nations from 2000, 2010 and 2013
+
+2. **Internet Users** and the number of **cellphone subscriptions** for each country collected from the World Bank as proxy variables for ICT 
+
+3. World Bank Indicators to control for social, economic and political factors:
+
+- **Fertility Rate:** Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates.
+
+- **Employment Probability:** Calculated using the 1- the employment rate [@Mayda2005].
+
+- **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism.
+
+#**OUR METHOD**
+
+The best model for our research is a panel regression with fixed effects.
+
+For more information please refer to our paper: 
+If you're more curious about statistical models, here are a few useful links: http://www.indiana.edu/~wim/docs/10_7_2011_slides.pdf or http://gauss.stat.su.se/gu/e/slides/F17.pdf
+
+#**WHAT DID WE LEARN?**
+
+
+#**... WHAT ARE THE NEXT STEPS?** 
+
+
+# **THANK YOU**
+
+#**REFERENCES**

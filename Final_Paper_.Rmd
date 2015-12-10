@@ -3,8 +3,7 @@ title: "Have ICT changed the game for mobility and migration?"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
-bibliography: referencesreylamontes.bib, Rpackages.bib
-
+bibliography: referencesreylamontes.bib 
 highlight: tango
 geometry: margin=3cm
 theme: united
@@ -54,56 +53,48 @@ Another theory common among the literature is the _Neo-classical theory_, which 
 |                            | on ethnicity, gender,              | Ethnic (diaspora migration) homeland     |
 |                            | religion                           | Freedom from discrimination              |
 
-***Source:*** The World Bank retrived from @Table1
+***Source:*** The World Bank retrieved from @Table1
 
 
 # 4. ICT as a Determinant 
 
-ICT plays an important role in many stages of the migration process. Wood also argues that different modes of communicating information such as news, films and advertisments are important sources of information for people considering miration @Wood2001. Moreover, new ICT may have created the image of wealth and prosperity of more developed countries in those living in developing regions [@Hamel2009]. Information is crucial in the final decision making process of migration. However, this information flows both ways. Simultaneously, accessability to ICT have fostered a negative perception of migrants [@Wood2001]. Castells argues that being interconnected through a 'network society' has changed the nature of international migration, ICT has increased the rate at which people gather information and communication transnationally [@Castells2010].Additionally,[@Vetrovec2004] argued that the reduction of the cost of communication has drastically changed how information is collected and percieved. Similarly, mobile phone technologies have made information and knowledge more readily accessoble, thus creating realistic and more informed expectations for potential migrants [@PanagakosandHorst2006]. 
+ICT plays an important role in many stages of the migration process. Wood also argues that different modes of communicating information such as news, films and advertisements are important sources of information for people considering migration @Wood2001. Moreover, new ICT may have created the image of wealth and prosperity of more developed countries in those living in developing regions [@Hamel2009]. Information is crucial in the final decision making process of migration. However, this information flows both ways. Simultaneously, accessibility to ICT have fostered a negative perception of migrants [@Wood2001]. Castells argues that being interconnected through a 'network society' has changed the nature of international migration, ICT has increased the rate at which people gather information and communication trans-nationally [@Castells2010].Additionally,[@Vetrovec2004] argued that the reduction of the cost of communication has drastically changed how information is collected and perceived. Similarly, mobile phone technologies have made information and knowledge more readily accessible, thus creating realistic and more informed expectations for potential migrants [@PanagakosandHorst2006]. 
 
 @Castells2009 argues of a new 'network society' where information is made a valuable resource through ICT. Technology allows for information to flow quickly and efficiently, providing opportunities for people to interact with one another [@Barney2004]. Migration is increasing in spite of more restricted boarder controls because of the development of "networks of connectivity" between societies through channels like the Internet, which offer opportunities for the an expansion of information [@Castells2010]. Being connected online offers perpetual connectivity and allows individuals to foster a 'network' outside and within the borders of their origin country. Information constitutes a core of the social process associated with migration. The circulation of information through networks creates 'strong ties' [@Granovetter1983]. 
 
-Another relevant theory associated with the focus of this analysis is _Globalization theory_. According to @Castles2014, Globalization can be defined as as the process in which world wide interconnections have not only expanded but have deepened the speed of connectivity, and time of all aspects of social life. This theory suggest that globalization has very inconclusive effects on migration flows. On one hand, globalization has strengthened migration since it has fostered new developments in transport and comunications. However, on the other hand, it is argued that  these new developments have also changed the way in which people work and interact with each other. For example, it has increased outsourcing, commuting and teleworking. Although it sounds like a positive innovation, this has also made migration to another location less attractive, as all the resources are so readily available. 
+Another relevant theory associated with the focus of this analysis is _Globalization theory_. According to @Castles2014, Globalization can be defined as as the process in which world wide interconnections have not only expanded but have deepened the speed of connectivity, and time of all aspects of social life. This theory suggest that globalization has very inconclusive effects on migration flows. On one hand, globalization has strengthened migration since it has fostered new developments in transport and communications. However, on the other hand, it is argued that  these new developments have also changed the way in which people work and interact with each other. For example, it has increased outsourcing, commuting and teleworking. Although it sounds like a positive innovation, this has also made migration to another location less attractive, as all the resources are so readily available. 
 
 
 # 5 Method
 ## 5.1 Data Selection
-To capture the movement and flow of peopla data was gathered from  The International Migrant Stock produced from the United Nations, which provides estimate for the years 1990, 2000, 2010, and 2013. This data will measure emigration between countries. Two proxy variables collected from World Bank Indicators were used to measure the impact of ICT. First, Internet users (per 100 people) captures individuals who have used the Internet (from any location) in the last 12 months, the Internet can be used through a number of mediums via computer, mobile phone, personal tablet, game consoles, digital TV etc. Mobile cellular subscriptions (per 100 people) data represent the number of subscriptions to a public mobile telephone service that provides acces to public switched telephone network (PSTN) technology. This proxy indicator applies to all mobile cellular subscriptions that offers voice communications.  
+To capture the movement and flow of people data was gathered from  The International Migrant Stock produced from the United Nations, which provides estimate for the years 1990, 2000, 2010, and 2013. This data will measure emigration between countries. Two proxy variables collected from World Bank Indicators were used to measure the impact of ICT. First, Internet users (per 100 people) captures individuals who have used the Internet (from any location) in the last 12 months, the Internet can be used through a number of mediums via computer, mobile phone, personal tablet, game consoles, digital TV etc. Mobile cellular subscriptions (per 100 people) data represent the number of subscriptions to a public mobile telephone service that provides access to public switched telephone network (PSTN) technology. This proxy indicator applies to all mobile cellular subscriptions that offers voice communications.  
 
 
-Additionally, we gather aggregate data from the World Bank Indicators as there are other determinates of migration that needed to be accounted for. These indicators are used to measure push factors. Fertilitay rate captures demographic push factors and represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates. Employment Probabily 
+Additionally, we gather aggregate data from the World Bank Indicators as there are other determinate of migration that needed to be accounted for. These indicators are used to measure push factors. Fertility rate captures demographic push factors and represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates. Employment Probability 
 
-- **Employment Probability:** Using the Employment Rate indicator from the world bank, we calculated the employment probability by using the following equation [@Mayda2005].
-$$ 1-frac{employmentRate}{100} $$. 
+- **Employment Probability:** Using the Employment Rate indicator from the world bank, we calculated the employment probability by using the following equation.
+$$ 1-\frac{EmployementRate}{100} $$ Higher unemployment employment opportunities should motivate individuals to stay in their country of origin, this equation is controlling.
 
+- **Gross Domestic Product Per Capita:** To avoid reverse causality that is likely to bias the estimates towards zero. Outflow of the population are likely to increase wages in the origin country and immigrant flows are likely to decrease the wages of the destination country. To address the reverse causality and homogeneity we _lagged_ the values of GDP and expressed them in a _log_. 
 
-- **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism.
+- **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism. This variable interprets the political push factors that influence migration flows. 
 
-This analysis will focus on the estimates for the years 2000, 2010 and 2013. 
-
-
-
-Additionally, in order to conduct a more thorough analysis we will include a number of aggregate data collected from _The World Bank indicators_. There are many other determinants of migration, that is why this analysis chooses to include a wide variety of World Bank indicators. The chosen indicators are used to measure certain push factors. 
-
-To measure economic and demographic determinants this analysis includes the _fertility rate_ indicator. Indicators such as _poverty_ and _unemployment_ have been removed from the analysis, as there are many missing values in the data set. 
+Furthermore, we focus on the years 2000, 2010 and 2013. We committed the year 1990 as a whole since was a lack of information available in the control variables. 
 
 
-## 5.1 Data Selection
-In order to examine the flows of migration, we intend to use data on trends in _International Migrant Stock_ produced by the United Nations. The data contains information from 232 countries and provides the number of migrants by destination and country of origin for four periods of time; 1990, 2000, 2010, and 2013. Moreover, to account for technology diffusion we will use _World Bank indicators_ on the number of Internet users and the number of cellular mobile subscriptions for each country. 
 
 ##5.2 Emperical Strategy
 
-******** rewrite To examine the hypothesized effect of technology, cross country panel data analysis will be conducted. Our dependent variable of interest is the total number of immigrants by country, this will be our Y and the independent variable (X) we will be stuyding are number of internet users, and the number of mobile users per country. The countrol variables we plan on using include, wage differentials, economic growth, unemployment, criminal death rate, conflict and political freedoms. This research will use panel data methods to address the research question, this includes panel data regression, fixed effects and random effects. 
+We conducted a cross panel analysis to examine the hypothesized effect of technology. Our dependent variable of interest (Y) is the total number of immigrants by country. The independent variable (X) is captured by Internet and mobile cellular subscriptions per country. We used panel data methods to address the research question, this includes panel data regression, fixed effects and random effects. 
 
 **Model 1: Cellphone Users**
-$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Cell + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
+$$ I_\frac{Migration_it}{Pop{total}} = {\beta}_i +{\beta}_1 Cell_it + {\beta}_2 FertRate_it  + {\beta}_3 PoliStab_it  + {\beta}_4 EmployProb_it  + {\epsilon}_{it}$$
 
 **Model 2: Internet Users**
-$$ I_\frac{Migration}{Pop{total}} = {\beta}_0 +{\beta}_1 Net + {\beta}_2 FertRate + {\beta}_3 PoliStab + {\beta}_4 EmployProb + {\epsilon}_{it}$$
+$$ I_\frac{Migration_it }{Pop{total}} = {\beta}_i +{\beta}_1 Net_it  + {\beta}_2 FertRate_it  + {\beta}_3 PoliStab_it  + {\beta}_4 EmployProb_it  + {\epsilon}_{it}$$
 
-##5.2 Emperical Strategy
 
-#Emperical Methods
+#Emperical Results 
 
 
 #Descriptive Statistics
@@ -170,6 +161,7 @@ merged13 <- read.csv(file="merged13")
 
 # Patterns of Emmigration
 
+<center>
 ```{r maps1, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
 Map1 <-{sPDFII <- joinCountryData2Map(merged00, joinCode = "ISO2", nameJoinColumn = "iso2c")
 mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
@@ -203,15 +195,18 @@ png(filename= "migration13.png", width=640,height=480)
 ```{r maps31, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
 Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 ```
+</center>
 
 #Independent Variables
 
 
 # Emperical Results 
 
+Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09;Roller01;@Roller96; @80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
 
+Moreover, fertility rates does not explain international emigration flows, while political stability has a negative relationship with emigration rates. This means unstable political environments is a push determinant of emigration rates. On the other hand, employment probabilities in the country of origin incentivize individuals to stay in their home country.
 
-#Results
+Similar results are found when the number of Internet Users per 100 habitants, are used as a proxy of communication technology. Model 1 in Table 2 presents the results using only Internet users as independent  variables. Similarly as in table 1, further control variables are added in models (2), (3), (4), (5). When GDP per capita is added, internet user is not significant, however, when the interaction between these variables is included, the number of Internet user has a positive relationship with emigration rates. The interaction, though, has a negative coefficient, meaning that countries with higher and high Internet penetration has less emigration rates compared to countries with low GDP and low Internet penetration
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #Panel regression by years and interaction
@@ -261,8 +256,7 @@ table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_
 ```
 
 
-#Table 3. Yearly regressions
-<center>
+In Table 3, cross sectional regressions are performed by estimating a OLS model for 2000, 20190, 2013 (similarly as the Between model in appendix 1). Models (1), (2) and (3) show that  Cellphone penetration explain within country variation in emigration inside  and not between country. Contrary, The number of internet Users also explain the differences in emigration between countries for the latest years 2010 and 2013 (See columns (6), (7), (8)). The effect of Internet on emigration is not significant in the 2000's.  
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #OLS Regression by years and interaction
 #Cellphones
@@ -288,7 +282,7 @@ table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13
 
 #  Limitations
 
-One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the resarch because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
+One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the research because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
 
 
 # Appendix
@@ -332,6 +326,13 @@ table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, colu
 
 ```
 
+\newpage
 
 # References 
+
+
+@R-sp @R-countrycode @R-DataCombine @R-forumla
+@R-ggplot2@ R-Hmisc @R-knitr @Rmaptools @Table1 @CiteR@R-Hmisc @R-rio@R-RJSONIO @R-rworldmap @R-stargazer @R-tidyr @R-tseries @R-WDI @R-repmis
+
+
 
