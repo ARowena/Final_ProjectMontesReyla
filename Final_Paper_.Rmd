@@ -68,7 +68,7 @@ Another relevant theory associated with the focus of this analysis is _Globaliza
 
 This paper intends to analyse the following question using emperical methods: 
 
-_Have ICTs affected the flows of migration?_
+_Have ICTs, more specifically Internet and mobile cellphone usage affected the flows of emigration?_
 
 ## 4.1 Data Selection
 To capture the movement and flow of people data was gathered from  The International Migrant Stock produced from the United Nations, which provides estimate for the years 1990, 2000, 2010, and 2013. This data will measure emigration between countries. Two proxy variables collected from World Bank Indicators were used to measure the impact of ICT. First, Internet users (per 100 people) captures individuals who have used the Internet (from any location) in the last 12 months, the Internet can be used through a number of mediums via computer, mobile phone, personal tablet, game consoles, digital TV etc. Mobile cellular subscriptions (per 100 people) data represent the number of subscriptions to a public mobile telephone service that provides access to public switched telephone network (PSTN) technology. This proxy indicator applies to all mobile cellular subscriptions that offers voice communications.  
@@ -149,56 +149,75 @@ merged13 <- read.csv(file="merged13")
 ## Dependent Variable
 
 Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count variable. In order to account for population differences between countries, emigration is expressed in per capita terms. The shape of the distribution is very rightly skewed, which means that emigration is quite low in a large number of countries. 
-
+```{r, echo=FALSE, warning=FALSE, comment=NA, include=FALSE}
+JB <- jarque.bera.test(Merged$logemigrationpercap)
+JB_stat <- (JB$statistic)
+JB_Pval <-(JB$p.value)
+```
+Figure 2 shows the logaritm of emigration per capita. A jarque-bera test is used in order to evaluate whether the transformed variable follows a normal distribution. The chi-squared is equal to `r list(JB_stat)` with a p-value equal to `r list(JB_Pval)` which means that the null hypothesis of "normality" can not be rejected. 
 ```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold", fig.align = 'center'}
-hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
+hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Figure 1. Histogram for Emigrants per capita")
 
 hist(Merged$logemigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
 
 ```
 
+
+\newpage 
 Among all the years, the country with the largest emigration per capita is the West Bank and Gaza. One can infer that the conflict in this region over time has affected the population movements drastically. The country with the lowest emigration per capita is Western Sahara. Even though there is a strong conflict in the region, free mobility in and out of the country is heavily guarded and limited by a 2,700 kilometer sand wall, also known as the Moroccan Wall. This can account for the lack of emigration throughout the region.
 
 
 ### Patterns of Emmigration
 
-<center>
+The following figures illustrate the evolution of the per capita emigration stock totals for each country in the years 1990, 2000, 2010 and 2013. 
+
+Figures 1, 2 and 3 shows  important population movements, particularly in Africa. For example, between the years of 2000-2010, Mozambique  and Burkina Faso has reduced the number of people exiting the country. Also, Chad has experienced similar pasterns, but not the the extent to which the previous examples faced. When comparing 2010 and 2013, there is not a visually observable difference. This can possibly be attributed to the stabilization of migration patterns. 
+
+While Africa has experienced a decrease in emigration, Latin America has the opposite pattern. For example, countries such as Mexico, Colombia, Educator, Peru, Bolivia, and Guatemala have experience a large increase in total emigration during the last decade. 
+
+In Europe, the situation is quite mixed since many factors, such as the creation of European Union (EU) and the enlargement of EU over the years could have played a large role the heterogeneity of the migration patterns in the past decade. There is migration movement, but there is no overall pattern of movements within the EU region.
+
+
+
+
 ```{r maps1, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
 Map1 <-{sPDFII <- joinCountryData2Map(merged00, joinCode = "ISO2", nameJoinColumn = "iso2c")
-mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 3. Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 png(filename= "migration00.png", width=640,height=480)}
 ```
 
 ```{r maps11, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
-Emi2000<-mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 4 Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+Emi2000<-mapCountryData(sPDFII, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 3. Emigrantion per capita 2000',  colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 
 ```
 
 
 ```{r maps2, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
 Map2 <-{sPDFIII <- joinCountryData2Map( merged10,joinCode = "ISO2", nameJoinColumn = "iso2c")
-mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 5. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 4. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 png(filename= "migration10.png", width=640,height=480)
 }
 ```
 
 ```{r maps21, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
-Emi2010<-mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 5. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+Emi2010<-mapCountryData(sPDFIII, nameColumnToPlot='logemigrationpercap', mapTitle='Figure 4. Emigrantion per capita 2010', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 ```
 
 ```{r maps3, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
 Map3<-{sPDFIV <- joinCountryData2Map( merged13,joinCode = "ISO2", nameJoinColumn = "iso2c")
-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 5. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 png(filename= "migration13.png", width=640,height=480)
 }
 ```
 
 ```{r maps31, tidy=TRUE, warning=FALSE, error=FALSE, echo=FALSE, cache=FALSE}
-Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 6. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
+Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle= 'Figure 5. Emigrantion per capita 2013', colourPalette = c("heat"), borderCol='black', missingCountryCol="beige")
 ```
-</center>
 
-## Independent Variables
+\newpage
+
+##Independent Variables
+
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, fig.align = 'center'}
 stargazer(Merged2[,c(6:11)], title = "Summary Statistics", header = FALSE,
@@ -227,16 +246,17 @@ $$ I_\frac{Migration_it }{Pop{total}} = {\beta}_i +{\beta}_1 Net_it  + {\beta}_2
 
 
 
+\newpage
 
 # 6. Emperical Results 
 
-Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09;Roller01;@Roller96; @80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
+Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09; @Roller01; @Roller96; @80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
 
 Moreover, fertility rates does not explain international emigration flows, while political stability has a negative relationship with emigration rates. This means unstable political environments is a push determinant of emigration rates. On the other hand, employment probabilities in the country of origin provides incentives for  individuals to stay in their home country.
 
 Similar results are found when the number of Internet Users per 100 inhabitants, are used as a proxy of communication technology. Model 1 in Table 2 presents the results using only Internet users as independent  variables. Similarly as in table 1, further control variables are added in models (2), (3), (4), (5). When GDP per capita is added, internet user is not significant, however, when the interaction between these variables is included, the number of Internet user has a positive relationship with emigration rates. The interaction, though, has a negative coefficient, meaning that countries with higher and high Internet penetration has less emigration rates compared to countries with low GDP and low Internet penetration
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny", caption="Landscape table"}
 #Panel regression by years and interaction
 #Cellphones and Within
 
@@ -255,7 +275,7 @@ Within_16<-plm(logemigrationpercap ~ CellphoneUsers, data = Merged, index = c("c
 #Table
 labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
 
-table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_12, Within_11, type = "latex", header = FALSE, title = "Table 1 Panel Regression of emigration rate using Cellphone Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+table1<-stargazer::stargazer(Within_16, Within_15, Within_14, Within_13, Within_12, Within_11, type = "latex", header = FALSE, title = "Panel Regression of emigration rate using Cellphone Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
 
 ```
 
@@ -279,7 +299,7 @@ Within_26<-plm(logemigrationpercap ~ InternetUsers, data = Merged, index = c("co
 #Table
 labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'InternetUsersXlogGDPpp-1')
 
-table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_22, Within_21, type = "latex", header = FALSE, title = "Table 2 Panel Regression of emigration rate using Internet Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_22, Within_21, type = "latex", header = FALSE, title = "Panel Regression of emigration rate using Internet Users", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
 
 ```
 
@@ -287,7 +307,7 @@ table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_
 In Table 3, cross sectional regressions are performed by estimating a OLS model for 2000, 20190, 2013 (similarly as the Between model in appendix 1). Models (1), (2) and (3) show that  Cellphone penetration explain within country variation in emigration inside  and not between country. Contrary, The number of internet Users also explain the differences in emigration between countries for the latest years 2010 and 2013 (See columns (6), (7), (8)). The effect of Internet on emigration is not significant in the 2000's.  
 
 \newpage
-{blandscape}
+
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #OLS Regression by years and interaction
@@ -309,7 +329,7 @@ labels3 <-c('CellphoneUsers', 'InternetUsers', 'logGDPpp-1', 'Fertility Rate', '
 table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, column.labels = c("2000", "2010", "2013", "2000", "2010", "2013"), type = "latex", header = FALSE, title = "Yearly OLS Regression of emigration", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels3)
 ```
 
-{elandscape}
+
 \newpage
 
 #  7. Limitations
@@ -318,6 +338,7 @@ One of the major limitations on migration studies is the difficulty of accessing
 
 # 8. Conclusions 
 
+\newpage 
 
 # Appendix
 
@@ -365,8 +386,7 @@ table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, colu
 # References 
 
 
-@R-sp @R-countrycode @R-DataCombine @R-forumla
-@R-ggplot2@ R-Hmisc @R-knitr @Rmaptools @Table1 @CiteR@R-Hmisc @R-rio@R-RJSONIO @R-rworldmap @R-stargazer @R-tidyr @R-tseries @R-WDI @R-repmis
+@R-sp @R-countrycode @R-DataCombine @R-forumla @R-ggplot2@ R-Hmisc @R-knitr @Rmaptools @Table1 @CiteR@R-Hmisc @R-rio@R-RJSONIO @R-rworldmap @R-stargazer @R-tidyr @R-tseries @R-WDI @R-repmis
 
 
 
