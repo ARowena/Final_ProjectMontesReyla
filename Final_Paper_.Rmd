@@ -157,6 +157,18 @@ merged13 <- read.csv(file="merged13")
 
 ## Dependent Variables
 
+Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count variable. In order to account for population differences between countries, emigration is expressed in per capita terms. The shape of the distribution is very rightly skewed, which means that emigration is quite low in a large number of countries. 
+
+```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold", fig.align = 'center'}
+hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
+
+hist(Merged$logemigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
+
+```
+
+Among all the years, the country with the largest emigration per capita is the West Bank and Gaza. One can infer that the conflict in this region over time has affected the population movements drastically. The country with the lowest emigration per capita is Western Sahara. Even though there is a strong conflict in the region, free mobility in and out of the country is heavily guarded and limited by a 2,700 kilometer sand wall, also known as the Moroccan Wall. This can account for the lack of emigration throughout the region.
+
+
 ## Summary Statistics 
 
 # Patterns of Emmigration
@@ -199,6 +211,16 @@ Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle
 
 #Independent Variables
 
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, fig.align = 'center'}
+stargazer(Merged2[,c(6:11)], title = "Summary Statistics", header = FALSE,
+                     covariate.labels = c("Cellphone Subscriptions (per 100 ha)", 
+                                          "Internet Users (per 100 ha)", 
+                                          "Fertility Rate (percentage)",
+                                          "Political Stability", 
+                                          "Employment probability", 
+                                          "GDP percapita t-1 (log)"),
+                     digits = 2)
+```
 
 # Emperical Results 
 
@@ -257,6 +279,10 @@ table2<-stargazer::stargazer(Within_26, Within_25, Within_24, Within_23, Within_
 
 
 In Table 3, cross sectional regressions are performed by estimating a OLS model for 2000, 20190, 2013 (similarly as the Between model in appendix 1). Models (1), (2) and (3) show that  Cellphone penetration explain within country variation in emigration inside  and not between country. Contrary, The number of internet Users also explain the differences in emigration between countries for the latest years 2010 and 2013 (See columns (6), (7), (8)). The effect of Internet on emigration is not significant in the 2000's.  
+
+\newpage
+{blandscape}
+
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #OLS Regression by years and interaction
 #Cellphones
@@ -277,8 +303,8 @@ labels3 <-c('CellphoneUsers', 'InternetUsers', 'logGDPpp-1', 'Fertility Rate', '
 table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13_2, column.labels = c("2000", "2010", "2013", "2000", "2010", "2013"), type = "latex", header = FALSE, title = "Yearly OLS Regression of emigration", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels3)
 ```
 
-
-
+{elandscape}
+\newpage
 
 #  Limitations
 
