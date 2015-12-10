@@ -228,7 +228,7 @@ $$ I_\frac{Migration_it }{Pop{total}} = {\beta}_i +{\beta}_1 Net_it  + {\beta}_2
 
 
 
-# 6.Emperical Results 
+# 6. Emperical Results 
 
 Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09;Roller01;@Roller96; @80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
 
@@ -312,11 +312,11 @@ table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13
 {elandscape}
 \newpage
 
-#  7.Limitations
+#  7. Limitations
 
 One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the research because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
 
-# 8.Conclusions 
+# 8. Conclusions 
 
 
 # Appendix
