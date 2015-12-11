@@ -56,9 +56,7 @@ plot(Bubble)
 
 
 <table>
-
 #**WHY ARE WE STUDYING ICT AND MIGRATION?**
-
 
 Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. 
 
