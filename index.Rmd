@@ -6,7 +6,7 @@ authors: ANA CECILIA MONTES and AYRA ROWENA REYLA
 
 ---
  <br>
-
+ <br>
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
