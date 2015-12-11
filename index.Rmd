@@ -49,9 +49,9 @@ Our names are Ana M. and Ayra R. and together we are conducting a brief study on
 
 
 ```{r, results='asis', echo=FALSE, error=FALSE, warning=FALSE}
-Bubble <- gvisBubbleChart(forbuble, idvar = "country", xvar="Internet Users", yvar="Emigration per capita")
-plot(Bubble)
+Bubble <- gvisBubbleChart(forbuble, idvar = "country", xvar="Internet Users", yvar="Emigration per capita", sizevar="Fertility Rate", options = list(width=500, height=1300))
 
+plot(Bubble)
 ```
 
 
