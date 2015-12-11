@@ -345,19 +345,19 @@ ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
 
 ##Cellphone users - using log
 # Pool OLS
-pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_1)
 
-pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_1)
 
-Within_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 summary(Within_1)
 
-Between_12 <- plm(logemigrationpercap ~ CellphoneUsers +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+Between_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 summary(Between_1)
 
-Random_12 <- plm(logemigrationpercap ~ CellphoneUsers + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+Random_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 summary(Random_1)
 
 # LM test for pooling versus random effects
@@ -372,7 +372,7 @@ phtest (Within_12, Random_12 )
 
 pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 
-pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers*+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_13)
 
 pooling_14 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita+  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
