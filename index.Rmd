@@ -1,5 +1,5 @@
 --- 
-title: "#**PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS**"
+title: <center> **PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS** </center>
 output: html_document 
 theme: celurean
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
@@ -10,22 +10,33 @@ authors: ANA CECILIA MONTES and AYRA ROWENA REYLA
 knitr::opts_chunk$set(echo = TRUE)
 
 #install.packages("shinythemes")
-library('shinythemes')
+#install.packages("googleVis")
 
-```{r, include=FALSE}
+library('shinythemes')
+library('googleVis')
 
 ### 1. Setting Working Directory & Loading the data
 # Setting the Working Directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
 #setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
 
+#Loading data file
+Merged <- read.csv(file="MontesandReyla")
+Merged2 <- read.csv(file="MontesandReylaFinalVars")
 
+
+#subdataframes
+merged00 <- read.csv(file="merged00")
+merged10 <- read.csv(file="merged10")
+merged13 <- read.csv(file="merged13")
 ```
-#**WELCOME**
+
+#**WELCOME TO OUR WEBPAGE** 
 
 Thank you for showing interest in our research project! 
 
 Our names are Ana M. and Ayra R. and together we are conducting a brief study on the the factors that influence migration. Particularly, this research explores how changes in the 20th century have  changed the flows of migration. We are trying to answer the following question: **Has Information, communication and technology (ICT) impact the flow of migration?**
+
 
 #**WHY ARE WE STUDYING ICT AND MIGRATION?**
 
@@ -33,14 +44,15 @@ Migration is broadly defined as a permanent or semi-permanent relocation of resi
 
 ICT and the emergence of globalisation has impacted every facet of our daily lives, we want to observe if it has affected the why people move and why people stay. 
 
-IncidenceMap <- gvisGeoChart(Merged, locationvar = 'country',
-                        colorvar = 'Incidence',
+```{r, results='asis', echo=FALSE, error=FALSE}
+IncidenceMap <- gvisGeoChart(merged00, locationvar = 'country',
+                        colorvar = 'logemigrationpercap',
                         options = list(
-                          colors = "['#fff7bc', '#d95f0e']"
+                          colors = "['#531CCA', '#97EDD9']"
                         ))
 
 print(IncidenceMap, tag = 'chart')
-
+````
 
 #**PUSH AND PULL**
 
@@ -93,7 +105,7 @@ The United Nations (UN) have complied a large amount of statistical evidence on 
 # **THANK YOU**
 
 
-#** Interested in learning more?**
+#**Interested in learning more?**
 
 This topic has grown increasing relevance as awareness and data of people's movements are more easily captured. There are a lot resources online, but here are a few links we though were interesting. Have a look, learn and enjoy!
 
