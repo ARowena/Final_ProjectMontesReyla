@@ -24,14 +24,18 @@ This paper aims to answer the following question using emperical methods: <i> Ha
 ###Data 
 #####International Migration Stock, Total
 
-The original data was obtained through the United Nations Population Division, and downloaded through our repository as a Microsoft Excel file. The Excel datasheet had a matrix that described the population outflows and inflows for each country and for several time periods. This analysis focuses four time series; 1990. 2000, 2010 and 2013. 
+The original data was obtained through the United Nations Population Division, and downloaded through our repository as a Microsoft Excel file. The Excel datasheet had a matrix that described the population outflows and inflows for each country and for several time periods. This analysis focuses four time series; 1990. 2000, 2010 and 2013.
 
-Gather the data using the *import* command, afterwards we used a loop to import the file to R Studio. Since this analysis is only interested in migration, we only extracted the Migration column from all the countries in the data set, and created a vector. From each matrix, we only selected the years of interest for this analysis. Afterwards we transposed the data to transform it into a more usable and readable format, and then we declared it as a data frame. Using the command *callnames*, we renamed each column appropriately. We ended the loop by assigned each year to a specific data frame. Using the command *cbind* we combined all the extracted data from above, thus creating combined year in a singular data frame. In order to reshape the new data frame, we used the command *gather*. This takes multiple columns and collapses them into key value pairs, this created two new variables called _emmigration_ and _year_. Finally, we included the corresponding year names to the specific year variables. 
+  Gather the data using the `import` command from the package `rio` , afterwards we used a loop to import the file to R Studio. Since this analysis is only interested in emigration, we extracted the migration column from all origin countries in the data set, and created a vector. From each matrix, we selected the years of interest for this analysis. Afterwards we transposed the data to transform it into a more usable and readable format, and then we declared it as a data frame. Using the command `callnames`, we renamed each column appropriately. We ended the loop by assigned each year to a specific data frame. Using the command cbind we combined all the extracted data from above, thus creating combined year in a singular data frame. In order to reshape the new data frame, we used the function  `gather`  from the package `tidyr`. This takes multiple columns and collapses them into key value pairs, this created two new variables called emmigration and year. Finally, we included the corresponding year names to the specific year variables.
+  
+ Moreover, we create a  an unique identifier for each country using the `countrycode` function in the package `countrycode`  
 
-#####World Bank Indicators
+###World Bank Indicators
 
-To import the indicators we used *install.packages ('WDI)*, afterwards we imported it into our library using *library("WDI")*. Then, we specified which indicators we wanted to include in our analysis by using the specific codes available on the metadata set of the World Bank. We then properly renamed the variables using the *rename* command. Once the data was loaded, we used *Merged <- merge(emigrationtotal, WDI_indi, by = c('iso2c','year'))* to combine the WDI indicators with the International Migration Stock.
-Structure of our paper
+To import the indicators we used `WDI` and `RJSONIO`. Then, we specified which indicators we wanted to include in our analysis by using the specific codes available on the metadata set of the World Bank. We then properly renamed the variables using the `plyr::rename` function. Once the data was loaded, we used Merged <- merge(emigrationtotal, WDI_indi, by = c('iso2c','year')) to combine the WDI indicators with the International Migration Stock. 
+
+
+
 
 Our final paper follows the following strucutre:
 
@@ -43,6 +47,25 @@ Our final paper follows the following strucutre:
 6. Conclusion
 Annex Bibliography
 
+# Folder Structure
+- Visual Maps:                                        Folder that contains all world maps on migration
+- Final_Paper_.Rmd:                                   The Rmd to create the Final document
+- Final_Paper_.pdf:                                   A PDF file with th efinal paper
+- MontesReylaEmigration.R:                            The Rmd in which data collection is explained and the inferencial analysis was performed
+- Montes_and_Reyla__2015_Presentation.Rmd:            The Rmd for a short presentation of the project
+- Montes_and_Reyla__2015_Presentation.pdf:            A PDF file containing a short presentation of the project
+- MontesandReyla:                                     The Final Data Base
+- MontesandReylaFinalVars:                            Database that only the relevant variables for all the years
+- merged00:                                           Sub-Database for the year 2000
+- merged10:                                           Sub-Database for the year 2010
+- merged13:                                           Sub-Database for the year 2013
+- merged90:                                           Sub-Database for the year 1990
+- RPackages.bib:                                      A bibtex file with the references for the R packages
+- referencesreylamontes2.bib:                         A bibtex file with the references for the literature on migration
+- UN_MigrantStockByOriginAndDestination_2013T1.xls:	  Original database
+- header.tex:                                         A function that allows to cange the PDF header
+- index.Rmd:                                        	The Rmd of the Web Page for Final Paper	
+- index.html:	                                        A html of the Web Page for Final Paper	
 
 Deadline for submission: 11th December 2015
 
