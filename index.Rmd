@@ -72,10 +72,10 @@ If you're more curious about statistical models, here are a few useful links: ht
 
 
 
-# **THANK YOU**
+## **THANK YOU**
 
 
-#** Interested in learning more?**
+##**Interested in learning more?**
 
 This topic has grown increasing relevance as awareness and data of people's movements are more easily captured. There are a lot resources online, but here are a few links we though were interesting. Have a look, learn and enjoy!
 
