@@ -45,6 +45,7 @@ library('stargazer')
 library("corrplot")
 library("repmis")
 library("Hmisc")
+library("tseries")
 #2. Setting directory
 setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
 #setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
@@ -213,9 +214,9 @@ write.csv(merged13, file="merged13")
 ############################### DESCRIPTIVE STATISTICS ########################################
 ###############################################################################################
 
-#```{r, echo=FALSE, message=FALSE, warning=FALSE, header=FALSE, results="asis"}
-#labels1 <- c("Cellphone Users","Internet User","PoliticalStability","FertilityRate", #"logGDPPerCapita","employmentprob")
-#stargazer::stargazer(Merged2, type = "latex", title="Descriptive statistics", labels1, digits=2)
+labels1 <- c("Cellphone Users","Internet User","PoliticalStability","FertilityRate", #"logGDPPerCapita","employmentprob")
+stargazer::stargazer(Merged2, type = "latex", title="Descriptive statistics", labels1, digits=2)
+
 ##Set data as panel data
 
 Merged <- plm.data(Merged, index=c("iso2c", "year"))
@@ -264,7 +265,11 @@ qplot(logemigrationpercap, data=Merged, geom="histogram") + geom_histogram(aes(f
 hist(Merged$CellphoneUsers, xlab = "Number of Cellphone users", main = "Histogram")
 
 ## Normality
-jarque.bera.test(Merged$logemigrationpercap)
+JB <- jarque.bera.test(Merged$logemigrationpercap)
+JB_stat <- (JB$statistic)
+JB_Pval <-(JB$p.value)
+
+
 jarque.bera.test(Merged$logemigration)
 
 ## Summary
