@@ -1,7 +1,7 @@
 --- 
 title: "#**PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS**"
 output: html_document 
-theme: journal
+theme: celurean
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
 ---
 
@@ -9,8 +9,16 @@ authors: ANA CECILIA MONTES and AYRA ROWENA REYLA
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+#install.packages("shinythemes")
+library('shinythemes')
 
-#library('shinythemes')
+```{r, include=FALSE}
+
+### 1. Setting Working Directory & Loading the data
+# Setting the Working Directory
+setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+#setwd('/Users/ayrarowenareyla/Desktop/The Hertie School of Governance/Collaborative Social Sciences/Final_ProjectMontesReyla')
+
 
 ```
 #**WELCOME**
@@ -24,6 +32,14 @@ Our names are Ana M. and Ayra R. and together we are conducting a brief study on
 Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. 
 
 ICT and the emergence of globalisation has impacted every facet of our daily lives, we want to observe if it has affected the why people move and why people stay. 
+
+IncidenceMap <- gvisGeoChart(Merged, locationvar = 'country',
+                        colorvar = 'Incidence',
+                        options = list(
+                          colors = "['#fff7bc', '#d95f0e']"
+                        ))
+
+print(IncidenceMap, tag = 'chart')
 
 
 #**PUSH AND PULL**
