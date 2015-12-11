@@ -3,7 +3,6 @@ title: "#**PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS**"
 output: html_document 
 theme: journal
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
-bibliography: referencesreylamontes2.bib
 ---
 
 
