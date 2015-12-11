@@ -3,7 +3,7 @@ title: "#**WELCOME**"
 output: html_document 
 theme: journal
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
-bibliography: referencesreylamontes.bib
+bibliography: referencesreylamontes2.bib
 ---
 
 
@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #library('shinythemes')
 
 ```
+#**Push or Pull? The Influence of ICT on Emigration Flows**
 
 Thank you for showing interest in our research project! 
 
