@@ -10,11 +10,10 @@ by Ana Ceclia Montes and Ayra Reyla
 
 ####Useful links 
 
-Final paper Rmd.: https://github.com/ARowena/Final_ProjectMontesReyla/blob/master/Final_Paper_.Rmd
-Final paper pdf: https://github.com/ARowena/Final_ProjectMontesReyla/blob/master/Final_Paper_.pdf
+- Final paper Rmd.: https://github.com/ARowena/Final_ProjectMontesReyla/blob/master/Final_Paper_.Rmd
+- Final paper pdf: https://github.com/ARowena/Final_ProjectMontesReyla/blob/master/Final_Paper_.pdf
 
-Link to our website: http://arowena.github.io/Final_ProjectMontesReyla/ 
-
+- Link to our website: http://arowena.github.io/Final_ProjectMontesReyla/ 
 
 ####Intoduction
 
@@ -34,12 +33,12 @@ Structure of our paper
 
 Our final paper follows the following strucutre:
 
-Introduction
-Theory, Literature Review
-Description of Data Sources
-Emperical Results 
-Limitations
-Conclusion
+1. Introduction
+2. Theory, Literature Review
+3. Description of Data Sources
+4. Emperical Results 
+5. Limitations
+6. Conclusion
 Annex Bibliography
 
 
