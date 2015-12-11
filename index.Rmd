@@ -4,7 +4,7 @@ output: html_document
 theme: celurean
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
 ---
-
+ <br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -29,6 +29,16 @@ Merged2 <- read.csv(file="MontesandReylaFinalVars")
 merged00 <- read.csv(file="merged00")
 merged10 <- read.csv(file="merged10")
 merged13 <- read.csv(file="merged13")
+
+forbuble <-merged13[,c(3:11)]
+forbuble <- plyr::rename(forbuble, c("logGDPPerCapita.l" = "GDP per capita")) 
+forbuble <- plyr::rename(forbuble, c("country" = "country")) 
+forbuble <- plyr::rename(forbuble, c("CellphoneUsers" = "Cellphone Users")) 
+forbuble <- plyr::rename(forbuble, c("InternetUsers" = "Internet Users")) 
+forbuble <- plyr::rename(forbuble, c("FertilityRate" = "Fertility Rate")) 
+forbuble <- plyr::rename(forbuble, c("PoliticalStability" = "Political Stability")) 
+forbuble <- plyr::rename(forbuble, c("employmentprob" = "Employment Probability")) 
+forbuble <- plyr::rename(forbuble, c("logemigrationpercap" = "Emigration per capita")) 
 ```
 
 #**WELCOME TO OUR WEBPAGE** 
@@ -38,12 +48,23 @@ Thank you for showing interest in our research project!
 Our names are Ana M. and Ayra R. and together we are conducting a brief study on the the factors that influence migration. Particularly, this research explores how changes in the 20th century have  changed the flows of migration. We are trying to answer the following question: **Has Information, communication and technology (ICT) impact the flow of migration?**
 
 
+```{r, results='asis', echo=FALSE, error=FALSE, warning=FALSE}
+Bubble <- gvisBubbleChart(forbuble, idvar = "country", xvar="Internet Users", yvar="Emigration per capita")
+plot(Bubble)
+
+```
+
+
+<table>
+
 #**WHY ARE WE STUDYING ICT AND MIGRATION?**
+
 
 Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. 
 
 ICT and the emergence of globalisation has impacted every facet of our daily lives, we want to observe if it has affected the why people move and why people stay. 
 
+<center>
 ```{r, results='asis', echo=FALSE, error=FALSE}
 IncidenceMap <- gvisGeoChart(merged00, locationvar = 'country',
                         colorvar = 'logemigrationpercap',
@@ -53,6 +74,8 @@ IncidenceMap <- gvisGeoChart(merged00, locationvar = 'country',
 
 print(IncidenceMap, tag = 'chart')
 ````
+</center> 
+
 
 #**PUSH AND PULL**
 
@@ -126,3 +149,5 @@ Starting point books:
 
 
 #**REFERENCES**
+
+</table>
