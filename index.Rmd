@@ -21,7 +21,7 @@ Our names are Ana M. and Ayra R. and together we are conducting a brief study on
 
 #**WHY ARE WE STUDYING ICT AND MIGRATION?**
 
-Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology 2(ICT) has radically changed the speed and nature of interactions between people worldwide. 
+Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. 
 
 ICT and the emergence of globalisation has impacted every facet of our daily lives, we want to observe if it has affected the why people move and why people stay. 
 
@@ -48,7 +48,7 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 - **Fertility Rate:** Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates.
 
-- **Employment Probability:** Calculated using the 1- the unemployment rate [@Mayda2005].
+- **Employment Probability:** Calculated using the 1- the employment rate [@Mayda2005].
 
 - **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism.
 
@@ -62,9 +62,42 @@ If you're more curious about statistical models, here are a few useful links: ht
 #**WHAT DID WE LEARN?**
 
 
+
+
+
 #**... WHAT ARE THE NEXT STEPS?** 
 
 
+
+
+
+
 # **THANK YOU**
+
+
+#** Interested in learning more?**
+
+This topic has grown increasing relevance as awareness and data of people's movements are more easily captured. There are a lot resources online, but here are a few links we though were interesting. Have a look, learn and enjoy!
+
+Interactive website that visually displays migration flows: http://peoplemov.in/
+
+Interested in policy?: http://www.migrationpolicy.org/programs/data-hub/maps-immigrants-and-emigrants-around-world or http://www.mipex.eu
+
+Academic articles and relevant books: 
+
+- World Catalogue: http://tinyurl.com/okosesf
+
+- Webinars: http://www.migrationpolicy.org/
+
+Starting point books: 
+
+1. The Age of Migration: http://tinyurl.com/or4mkg8 (very comprehensive book)
+
+2. International Migration: A very short introduction: http://tinyurl.com/o4qutw8 (with good suggestions of list of further readings)
+
+3. Tyranny of Experts: Chapter on Migration
+
+
+
 
 #**REFERENCES**
