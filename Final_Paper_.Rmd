@@ -3,7 +3,10 @@ title: "Have ICT changed the game for mobility and migration?"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
-bibliography: referencesreylamontes.bib 
+bibliography: 
+- referencesreylamontes2.bib 
+- RPackages.bib
+
 highlight: tango
 geometry: margin=3cm
 theme: united
@@ -17,13 +20,12 @@ toc_depth: 3
 
 
 # 1. Introduction
-Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. In fact, few countries today are not affected by international migration [@Martin2014]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. New ICT such as mobile phones have facilitated instant communication by phone calls, text messages, e-mail, and other social platforms. Cheap international telephone calls function as the 'social glue' binding migrants to their friends and families in their home country by creating constant involvement and engagement in their life [@Vetrovec2004]. @Castells2009 argues that the digital age has drastically changed the speed of communication within transnational populations. Since the introduction of the Internet to the masses, it has developed into a globally diverse web of opportunities for gathering information, interacting globally and effectively producing new forms of media and content for consumption. 
-
+  Migration is broadly defined as a permanent or semi-permanent relocation of residence, there are no restrictions placed upon the distance or voluntary or involuntary nature of moving [@Lee1966]. In fact, few countries today are not affected by international migration [@Martin2014]. For many years, the idea of international migration meant disconnecting with one's homeland. This meant the process of communication with friends and family left behind was a slow process, often via hand written letters. However, since the dawn the digital age at the start of the 20th century information and communication technology (ICT) has radically changed the speed and nature of interactions between people worldwide. New ICT such as mobile phones have facilitated instant communication by phone calls, text messages, e-mail, and other social platforms. Cheap international telephone calls function as the 'social glue' binding migrants to their friends and families in their home country by creating constant involvement and engagement in their life [@Vetrovec2004]. @Castells2009 argues that the digital age has drastically changed the speed of communication within transnational populations. Since the introduction of the Internet to the masses, it has developed into a globally diverse web of opportunities for gathering information, interacting globally and effectively producing new forms of media and content for consumption. 
 Presently, the digital era has transformed how people live their lives, how they interact with one another and how they learn and gather new information. There is no doubt that ICT have had a monumental impact on the world in which we live, fundamentally changing the way individuals communicate, entertain and learn. With the increase accessibility to ICTs and the existing state of mobility between people around the world, it is easy to envision an existing relationship between increased access to communication and information and the results of migration. Social media developed on the Internet has become one of the most popular channels of communication. These new communication devices created by the Internet and mobile phones are important for migrants who frequently remain in contact with friends of family members in their original locations and might positively affect their decision to migrate. New innovation in digital technologies allows people to thing beyond borders and it is reinforced by both digital and societal developments [@Castells2010]. 
 
-Furthermore, with the advent of ICT in all components of everyday life, it is important and yet interesting to observe the how the relationship between ICT and migration has developed. This empirical analysis seeks to observe if the increase use of technologies such as the Internet and mobile phones impacted the flow of emigration? With the beginning of globalization, we aim to observe the changes in the context of migration around the world. One driving factor increasingly put forward in recent years is the use of technology. According to @Hiller2004, computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations. Not only has new technology improved and heightened communication, it has also bridged cultural gap between countries as it allows people to easily gathering new information and knowledge about other cultures. This of course has made a large impact on people's perception on other cultures and their worldviews. Overall, technology has changed the landscape for communicating, and gathering knowledge and information. These revolutions that have transformed society are making travel and telecommunications cheaper and easier than ever. Moreover, Technology has enhanced the aspects of interaction as it is transforming the way individuals communicate.  
+Furthermore, with the advent of ICT in all components of everyday life, it is important and yet interesting to observe the how the relationship between ICT and migration has developed. However, as @Hamel09 points out there is little evidence on the effect of ICT on international migration. In this sense, this empirical research seeks to contribute to the literature by analysing if the increase use of technologies such as the Internet and mobile phones impacted the flow of emigration? With the beginning of globalization, we aim to observe the changes in the context of migration around the world. One driving factor increasingly put forward in recent years is the use of technology. According to @Hiller2004, computer mediated communication has created new possibilities for migrants to maintain strong linkages and ties with their home nations. Not only has new technology improved and heightened communication, it has also bridged cultural gap between countries as it allows people to easily gathering new information and knowledge about other cultures. This of course has made a large impact on people's perception on other cultures and their worldviews. Overall, technology has changed the landscape for communicating, and gathering knowledge and information. These revolutions that have transformed society are making travel and telecommunications cheaper and easier than ever. Moreover, Technology has enhanced the aspects of interaction as it is transforming the way individuals communicate.  
 
-As such, this paper will be organized as follows. Section 2 will provide a theoretical foundation for the analysis, as to set the scene for subsequent discussion. Section 3 will be a literature review to identify the converging ideas and understand contemporary studies on the topic. Section 4 will provide the basis for our empirical analysis, by explaining the data and methodology. Section 5 will provide the results of the analysis, followed by a discussion. 
+As such, this paper  will be organized as follows. Section 2 will provide a theoretical foundation for the analysis, as to set the scene for subsequent discussion. Section 3 will be a literature review to identify the converging ideas and understand contemporary studies on the topic. Section 4 will provide the basis for our empirical analysis, by explaining the data and methodology. Section 5 will provide the results of the analysis, followed by a discussion. 
 
 
 
@@ -71,10 +73,9 @@ This paper intends to analyse the following question using emperical methods:
 _Have ICTs, more specifically Internet and mobile cellphone usage affected the flows of emigration?_
 
 ## 4.1 Data Selection
-To capture the movement and flow of people data was gathered from  The International Migrant Stock produced from the United Nations, which provides estimate for the years 1990, 2000, 2010, and 2013. This data will measure emigration between countries. Two proxy variables collected from World Bank Indicators were used to measure the impact of ICT. First, Internet users (per 100 people) captures individuals who have used the Internet (from any location) in the last 12 months, the Internet can be used through a number of mediums via computer, mobile phone, personal tablet, game consoles, digital TV etc. Mobile cellular subscriptions (per 100 people) data represent the number of subscriptions to a public mobile telephone service that provides access to public switched telephone network (PSTN) technology. This proxy indicator applies to all mobile cellular subscriptions that offers voice communications.  
+To capture the movement and flow of people data was gathered from  The International Migrant Stock produced from the United Nations, which provides estimate for the years 1990, 2000, 2010, and 2013. This data will measure emigration between countries. Two proxy variables collected from World Bank Indicators were used to measure the impact of ICT. First, **Internet users** (per 100 people) captures individuals who have used the Internet (from any location) in the last 12 months, the Internet can be used through a number of mediums via computer, mobile phone, personal tablet, game consoles, digital TV etc.**Mobile cellular subscriptions** (per 100 people) data represent the number of subscriptions mobile telephone service that has been active in the last 3 months. This proxy indicator applies to all mobile cellular subscriptions that offers voice communications.  
 
-
-Additionally, we gather aggregate data from the World Bank Indicators as there are other determinate of migration that needed to be accounted for. These indicators are used to measure push factors. 
+Additionally, we gather aggregate data from the World Bank Indicators as there are other determinate of migration that needed to be accounted for. These indicators are used to measure push factors. However, due to the  lack of information available in the control variables, we ommitted the year 1990, and we focus on the years 2000, 2010 and 2013. 
 
 **Fertility rate** captures demographic push factors and represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with current age-specific fertility rates. 
 
@@ -84,8 +85,6 @@ $$ 1-\frac{EmployementRate}{100} $$ Higher unemployment employment opportunities
 - **Gross Domestic Product (GDP) Per Capita:** Controls for the level of wellness of a country.Simultaneously, the outflow of the population are likely to increase wages in the origin country and immigrant flows are likely to decrease the wages of the destination country. To address the reverse causality and homogeneity, we _lagged_ the values of GDP. 
 
 - **Political Stability:** Political Stability and Absence of Violence/Terrorism measures perceptions of the likelihood of political instability and/or politically-motivated violence, including terrorism. This variable interprets the political push factors that influence migration flows. 
-
-Furthermore, we focus on the years 2000, 2010 and 2013. We ommitted the year 1990 as a whole since was a lack of information available in the control variables. 
 
 
 # 4. Descriptive Statistics
@@ -131,8 +130,8 @@ library("DataCombine")
 
 
 # Setting directory
-#setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
-setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla')
+setwd('/Users/AnaCe/Desktop/Final_ProjectMontesReyla')
+#setwd('/Users/ayrarowenareyla/Desktop/Collaborative Social Sciences/Final_ProjectMontesReyla')
 
 
 #loading data set
@@ -143,27 +142,26 @@ Merged2 <- read.csv(file="MontesandReylaFinalVars")
 merged00 <- read.csv(file="merged00")
 merged10 <- read.csv(file="merged10")
 merged13 <- read.csv(file="merged13")
-
 ```
-
 ## Dependent Variable
 
 Figure 1 below shows the distribution of the dependent variable. Since the statistics accounts for the number of emigrants, it can be considered as count variable. In order to account for population differences between countries, emigration is expressed in per capita terms. The shape of the distribution is very rightly skewed, which means that emigration is quite low in a large number of countries. 
+
 ```{r, echo=FALSE, warning=FALSE, comment=NA, include=FALSE}
 JB <- jarque.bera.test(Merged$logemigrationpercap)
 JB_stat <- (JB$statistic)
 JB_Pval <-(JB$p.value)
 ```
-Figure 2 shows the logaritm of emigration per capita. A jarque-bera test is used in order to evaluate whether the transformed variable follows a normal distribution. The chi-squared is equal to `r list(JB_stat)` with a p-value equal to `r list(JB_Pval)` which means that the null hypothesis of "normality" can not be rejected. 
-```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold", fig.align = 'center'}
+Figure 2 shows the logaritm of emigration per capita. A jarque-bera test is used in order to evaluate whether the transformed variable follows a normal distribution. The chi-squared is equal to `r list(JB_stat)` with a p-value equal to `r list(JB_Pval)` which means that the null hypothesis of "normality" can not be rejected. [^F1] 
+
+\newpage 
+```{r, echo=FALSE, warning=FALSE, comment=NA, results="hold", fig.width=4, fig.height=4,  fig.align = 'center', font.size="tiny"}
 hist(Merged$emigrationpercap, xlab = "Emigrants per capita", main = "Figure 1. Histogram for Emigrants per capita")
 
 hist(Merged$logemigrationpercap, xlab = "Emigrants per capita", main = "Figure 2. Histogram for Emigrants per capita")
-
 ```
-
-
 \newpage 
+
 Among all the years, the country with the largest emigration per capita is the West Bank and Gaza. One can infer that the conflict in this region over time has affected the population movements drastically. The country with the lowest emigration per capita is Western Sahara. Even though there is a strong conflict in the region, free mobility in and out of the country is heavily guarded and limited by a 2,700 kilometer sand wall, also known as the Moroccan Wall. This can account for the lack of emigration throughout the region.
 
 
@@ -176,8 +174,6 @@ Figures 1, 2 and 3 shows  important population movements, particularly in Africa
 While Africa has experienced a decrease in emigration, Latin America has the opposite pattern. For example, countries such as Mexico, Colombia, Educator, Peru, Bolivia, and Guatemala have experience a large increase in total emigration during the last decade. 
 
 In Europe, the situation is quite mixed since many factors, such as the creation of European Union (EU) and the enlargement of EU over the years could have played a large role the heterogeneity of the migration patterns in the past decade. There is migration movement, but there is no overall pattern of movements within the EU region.
-
-
 
 
 ```{r maps1, tidy=TRUE, warning=FALSE, include=FALSE , error=FALSE, echo=FALSE, cache=FALSE}
@@ -218,6 +214,7 @@ Emi2013<-mapCountryData(sPDFIV, nameColumnToPlot='logemigrationpercap', mapTitle
 
 ##Independent Variables
 
+The following table display relevant descriptive estatistics of the independent variables used in this study.
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, fig.align = 'center'}
 stargazer(Merged2[,c(6:11)], title = "Summary Statistics", header = FALSE,
@@ -239,10 +236,10 @@ We conducted a cross panel analysis to examine the hypothesized effect of techno
 The following equations show the final estimated models. 
 
 **Model 1: Cellphone Users**
-$$ I_\frac{Migration_it}{Pop{total}} = {\beta}_i +{\beta}_1 Cell_it + {\beta}_2 FertRate_it  + {\beta}_3 PoliStab_it  + {\beta}_4 EmployProb_it  + {\epsilon}_{it}$$
+(1) $$ I_\frac{Migration_it}{Pop{total}} = {\beta}_i +{\beta}_1 Cell_it + {\beta}_2 FertRate_it  + {\beta}_3 PoliStab_it  + {\beta}_4 EmployProb_it  + {\epsilon}_{it}$$
 
 **Model 2: Internet Users**
-$$ I_\frac{Migration_it }{Pop{total}} = {\beta}_i +{\beta}_1 Net_it  + {\beta}_2 FertRate_it  + {\beta}_3 PoliStab_it  + {\beta}_4 EmployProb_it  + {\epsilon}_{it}$$
+(2) $$ I_\frac{Migration_it }{Pop{total}} = {\beta}_i +{\beta}_1 Net_it  + {\beta}_2 FertRate_it  + {\beta}_3 PoliStab_it  + {\beta}_4 EmployProb_it  + {\epsilon}_{it}$$ 
 
 
 
@@ -250,7 +247,7 @@ $$ I_\frac{Migration_it }{Pop{total}} = {\beta}_i +{\beta}_1 Net_it  + {\beta}_2
 
 # 6. Emperical Results 
 
-Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09; @Roller01; @Roller96; @80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
+Table 1. displays the estimation results using a panel regression with fixed effects (Further specifications are shown in the Appendix). Model 1 presents the results using Cellphone subscriptions per 100 inhabitants as an independent variable. Control variables are added in Models (2), (3) and (4). From these estimations we can observe a positive effect of cellphone use in emigration rates. However, the magnitude of these effect is minimal, in which an increase in 100 cellphone subscription increases the number of migrants by 0,11% (per 100,000 individuals). Model 5 includes the logarithm of lagged GDP per capital (PPP-Adjusted) since it has been widely discussed in the literature. However, there is a strong positive relationship between telecommunication penetration and GDP growth (@Kathuria09; @Roller01; @Roller96; @Hardy80) since it not only increments information flows, but also reduces transaction costs. In this sense, In order to the identify whether GDP per capita is confounds the relationship between the use of telecommunication on emigration rates, Model 5 display the results when GDP is accounted for. The results show that  the share of Cellphone user are still positively related to Emigration but the effect is slightly significant (10% significance level), while GDP is not statistically significant. Model 6 presents the interaction term between these two variables. When GDP is interacted with cellphone users, the effect of cellphone user remain to be positive and significant, while the effect of GDP is non-significant. The interaction negative and barely significant, meaning that countries with higher and high mobile penetration has less emigration rates compared to countries with low GDP and low mobile penetration. 
 
 Moreover, fertility rates does not explain international emigration flows, while political stability has a negative relationship with emigration rates. This means unstable political environments is a push determinant of emigration rates. On the other hand, employment probabilities in the country of origin provides incentives for  individuals to stay in their home country.
 
@@ -332,21 +329,45 @@ table3 <-stargazer::stargazer(OLS00_1, OLS10_1, OLS13_1, OLS00_2, OLS10_2, OLS13
 
 \newpage
 
-#  7. Limitations
+#  7. Conclusions 
+The increase in the use of technology has had important effect on how people communicate now a days. AS Castles (2009) points out social transformations are tighly related with ICT development. This paper intents to explore the relationship between migration flows and ICT's using the number of cellphone subscription and Internet users as proxies for Information and  Communication Technology. We take advantage of both the itme series and cross-country variation in our data set. Our results show that countries with higer Internet Users has on overage higher emigration rates and that this relationship is stronger as Internet use deepens in the latest decade when compared to the 2000's. Moreover, as the use of Cellphone penetrates in the country's inside markets, emigration rates tends to be higher. The diferences in emigration rates between countries, however, are not explained by the number of Cellophone users.   
 
-One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. This will limit the research because the results will not yield year to year analysis, which of course will rely mostly on between country effects. 
+This research had of course many caveats. One of the major limitations on migration studies is the difficulty of accessing good and reliable datasets. The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. Moreover, this analysis must be interpretated  with percussion since it can not identidy how how ICTs had influence people's opinion and experience of migration at the individual level since we use country agregates. For this purpose survey data must be deleveoped. 
 
-# 8. Conclusions 
+Nevertheless, as there are many reasons why individuals choose to migration, and communication technologies could make this process much more easy and attractive. It is benificial for countries or governments to undestand the causes and the drivers for migration so that they can futher learn and develop strategies to either retain or atract population in their borders, depending on trends currently happening around the globe. Mobile and internet technology are also resources that governments can exploitto communicate policies and information for people interesting in migrating, making integration process more easy for them.
+
 
 \newpage 
 
 # Appendix
 
+## 1. Data Collection and analysis process
+
+###International Migration Stock, Total
+
+The original data was obtained through the United Nations Population Division, and downloaded through our repository as a Microsoft Excel file. The Excel datasheet had a matrix that described the population outflows and inflows for each country and for several time periods. This analysis focuses four time series; 1990. 2000, 2010 and 2013.
+
+  Gather the data using the `import` command from the package `rio` [@R-rio], afterwards we used a loop to import the file to R Studio. Since this analysis is only interested in emigration, we extracted the migration column from all origin countries in the data set, and created a vector. From each matrix, we selected the years of interest for this analysis. Afterwards we transposed the data to transform it into a more usable and readable format, and then we declared it as a data frame. Using the command `callnames`, we renamed each column appropriately. We ended the loop by assigned each year to a specific data frame. Using the command cbind we combined all the extracted data from above, thus creating combined year in a singular data frame. In order to reshape the new data frame, we used the function  `gather`  from the package `tidyr` [@R-tidyr]. This takes multiple columns and collapses them into key value pairs, this created two new variables called emmigration and year. Finally, we included the corresponding year names to the specific year variables.
+  
+  Moreover, we create a  an unique identifier for each country using the `countrycode` function in the package `countrycode` [@R-countrycode]. 
+
+###World Bank Indicators
+
+To import the indicators we used `WDI` [@R-WDI] and `RJSONIO`packages [@R-RJSONIO]. Then, we specified which indicators we wanted to include in our analysis by using the specific codes available on the metadata set of the World Bank. We then properly renamed the variables using the `plyr::rename` function. Once the data was loaded, we used Merged <- merge(emigrationtotal, WDI_indi, by = c('iso2c','year')) to combine the WDI indicators with the International Migration Stock. 
+
+The following packages were relevant for our analysis:`CiteR` [@CiteR], `DtaCombine` [@R-DataCombine], `Formula` [@R-Formula], `ggplot2` [@R-ggplot2@], `Hmisc` [@R-Hmisc], `knitr` [@R-knitr], `maptools` [@Rmaptools], `plm` [@R-plm], `Hmisc` [@R-Hmisc], `rwoldmap` [@R-rworldmap], `stargazer` [@R-stargazer], `repmis` [@R-repmis].
+
+## 2. Model selection
+
+To estimate equations (1) and (2) , several models were evaluated since the database has repeated observations for  3 periods of time: 2000, 2010, 2013.  Table 6 shows the results of both pooled OLS, the Within and between estimaor and random effects models. Column 1 shows the results from the Pooled OLS regression.
+
+In order to estimate the emigration rate, we must consider time invariant unobservable characteristics such as social cohesion, trust, attidutes toward foreigners and so on. Hence a fixed effect panel model is estimated as shown in Table 6. To test for the existence of this fixed country effects, a join F test is calculated (see Table 6.2 and Table 7.2). According to this test, we reject the null hypothesis that the country fixed effects are equal to zero. This means that Pooled OLS is inefficient and we should continue with a fixed (or random) effect models. Nonetheless, the fixed effect model only accounts for time invariant effects and as we analyze 3 periods, it is plausible that this unobserved determinants could vary over time. Therefore, a Random Effect Model is also estimated (see Table 6.2 and Table 7.2). In summary,we use the within-estimator for the Fixed Effects Model to estimate equation (1) and (2). The results are presented in Table 6 and 7. And will be used as the baseline for the rest of the paper.
+
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 #Panel regression by years and interaction
 #Cellphones
 
-pooling_1 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 
 #Within
 Within_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
@@ -358,10 +379,35 @@ Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita + Fertilit
 # Table XXPanel Regression - All model- Internet USers
 labels1<-c('CellphoneUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
 
-table10<-stargazer::stargazer(pooling_1, Within_11, Between_11, Random_11, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regressions fro cellphoneUsers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
+table10<-stargazer::stargazer(pooling_11, Within_11, Between_11, Random_11, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "1.Panel Regressions fro cellphoneUsers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels1)
 
+# LM test for fixed verus pooling
+LM1 <-pFtest (Within_11, pooling_11)
+LM1_stat <- (LM1$statistic)
+LM1_Pval <-(LM1$p.value)
+# reject the null hypothesis that the country fixed effects are equal to zero.
+
+# LM test for pooling versus random effects
+LM12 <-plmtest(pooling_11, type="bp")
+LM12_stat <- (LM12$statistic)
+LM12_Pval <-(LM12$p.value)
+#The test suggest that we should dismiss  POOL OLS
+
+# LM test for Random verus fixed
+LM13 <-phtest (Within_11, Random_11 )
+LM13_stat <- (LM13$statistic)
+LM13_Pval <-(LM13$p.value)
 ```
 
+                   Table 6.2. Test results when Cellphone USers is used as a proxy of ICT
+
+|                | Testing for Fixed Effects  |  Testing for Random Effects | Hausman Test       |
+| ---------------|--------------------------- | ----------------------------|--------------------|
+|                |          F test            |           Chi-squared       |     Chi-squared    |  
+| ---------------|--------------------------- | ----------------------------|--------------------|
+| Test-Stadistic |`r list(LM1_stat)`          | `r list(LM12_stat)`         | `r list(LM13_stat)`|
+
+\newpage
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, results="asis", header=FALSE, font.size="tiny"}
 # Pooling
 
@@ -377,16 +423,40 @@ Random_21 <- plm(logemigrationpercap ~ InternetUsers*logGDPPerCapita + Fertility
 #Table
 labels2<-c('InternetUsers', 'logGDPpp-1', 'Fertility Rate', 'Political Stability', 'Employment prob', 'CellphoneUsersXlogGDPpp-1')
 
-table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "Panel Regressions for InternetUSers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+table10<-stargazer::stargazer(pooling_21, Within_21, Between_21, Random_21, column.labels = c("Pool OLS", "Within", "Between", "Random"), type = "latex", header = FALSE, title = "1. Panel Regressions for InternetUSers using all models", digits = 4, single.row=FALSE, omit.stat = c("f", "ser"), dep.var.caption="Emigration rate per cap (log)", covariate.labels = labels2)
+
+# LM test for fixed verus pooling
+LM2 <-pFtest (Within_21, pooling_21)
+LM2_stat <- (LM2$statistic)
+LM2_Pval <-(LM2$p.value)
+# reject the null hypothesis that the country fixed effects are equal to zero.
+
+# LM test for pooling versus random effects
+LM22 <-plmtest(pooling_21, type="bp")
+LM22_stat <- (LM22$statistic)
+LM22_Pval <-(LM22$p.value)
+#The test suggest that we should dismiss  POOL OLS
+
+# LM test for Random verus fixed
+LM23 <-phtest (Within_21, Random_21 )
+LM23_stat <- (LM23$statistic)
+LM23_Pval <-(LM23$p.value)
 
 ```
+
+  Table 7.2. Test results when Cellphone USers is used as a proxy of ICT
+
+|                | Testing for Fixed Effects  |  Testing for Random Effects | Hausman Test       |
+| ---------------|--------------------------- | ----------------------------|--------------------|
+|                |          F test            |           Chi-squared       |     Chi-squared    |  
+| ---------------|--------------------------- | ----------------------------|--------------------|
+| Test-Stadistic |`r list(LM2_stat)`          | `r list(LM22_stat)`         | `r list(LM23_stat)`|
+
+
 
 \newpage
 
 # References 
 
-
-@R-sp @R-countrycode @R-DataCombine @R-forumla @R-ggplot2@ R-Hmisc @R-knitr @Rmaptools @Table1 @CiteR@R-Hmisc @R-rio@R-RJSONIO @R-rworldmap @R-stargazer @R-tidyr @R-tseries @R-WDI @R-repmis
-
-
+[^F1]:We use the command `jarque.bera.test` in the package R `tseries` [@R-tseries]
 

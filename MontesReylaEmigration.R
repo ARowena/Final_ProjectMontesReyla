@@ -16,10 +16,8 @@ rm(list = ls(all=TRUE))
 #install.packages("rworldmap")
 #install.packages("sp")
 #install.packages("joinCountryData2Map")
-#install.packages("kable")
 #install.packages("plm")
 #install.packages("Formula")
-#install.packages("pglm")
 #install.packages("stargazer")
 #install.packages("migest")
 #install.packages("tseries")
@@ -28,19 +26,18 @@ rm(list = ls(all=TRUE))
 #install.packages("repmis")
 #install.packages("Hmisc")
 
-library("ggmap")
-library("maptools")
-library("countrycode")
-library("RJSONIO")
-library("WDI")
 library("tidyr")
 library("rio")
+library("RJSONIO")
+library("WDI")
+library("countrycode")
+
+library("ggmap")
+library("maptools")
 library("ggplot2")
 library("rworldmap")
-library("sp")
 library('Formula')
 library('plm')
-library('pglm')
 library('stargazer')
 library("corrplot")
 library("repmis")
@@ -356,35 +353,41 @@ ggplot2::ggplot(Merged, aes(logemigrationpercap, InternetUsers)) +
 pooling_13 <- plm(logemigrationpercap ~ CellphoneUsers + logGDPPerCapita.l +  FertilityRate + PoliticalStability, data = Merged, index = c("country", "year"), model = "pooling")
 
 # With interaction
-pooling_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
+pooling_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "pooling")
 summary(pooling_12)
 
 #Within
-Within_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
+Within_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "within")
 summary(Within_12)
 
 #Between
-Between_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
+Between_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l +  FertilityRate + PoliticalStability + employmentprob, data = Merged, index = c("country", "year"), model = "between")
 summary(Between_12)
 
 #Random
-Random_12 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
+Random_11 <- plm(logemigrationpercap ~ CellphoneUsers*logGDPPerCapita.l + FertilityRate + PoliticalStability + employmentprob, , data = Merged, index = c("country", "year"), model = "random")
 summary(Random_12)
 
 #################################################################################################
 ######################################## TESTS ##################################################
 #################################################################################################
 # LM test for fixed verus pooling
-pFtest (Within_12, pooling_1)
+LM1 <-pFtest (Within_11, pooling_11)
+LM1_stat <- (LM1$statistic)
+LM1_Pval <-(LM1$p.value)
 # reject the null hypothesis that the country fixed effects are equal to zero.
 
 # LM test for pooling versus random effects
-plmtest(pooling_1, type="bp")
+LM12 <-plmtest(pooling_11, type="bp")
+LM12_stat <- (LM12$statistic)
+LM12_Pval <-(LM12$p.value)
 #The test suggest that we should dismiss  POOL OLS
 
 # LM test for Random verus fixed
-phtest (Within_12, Random_12 )
-# Since we reject the Null the best model is the fixed effects
+LM13 <-phtest (Within_11, Random_11 )
+LM13_stat <- (LM13$statistic)
+LM13_Pval <-(LM13$p.value)
+
 
 # Predicted values
 #################################################################################################
@@ -526,6 +529,6 @@ WDI_indi2 <- WDI_indi[which(rowSums(!is.na(WDI_indi[, wbdata])) > 0), ]
 
 
 # Create list of packages and BibTex file for packages
-PackagesUsed <- c("repmis", "ggplot2", "knitr", "plm", "Hmisc", "Formula", "rworldmap", "RColorBrewer", "maptools", "countrycode","RJSONIO", "pglm", "WDI", "tidyr", "rio", "sp", "stargazer", "tseries", "DataCombine")
+PackagesUsed <- c("repmis", "ggplot2", "knitr", "plm", "Hmisc", "Formula", "rworldmap", "RColorBrewer", "maptools", "countrycode","RJSONIO", "pglm", "WDI", "tidyr", "rio", "stargazer", "tseries", "DataCombine")
 repmis::LoadandCite(PackagesUsed, file = "RPackages.bib", install = FALSE)
 
