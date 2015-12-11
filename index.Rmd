@@ -1,8 +1,9 @@
 --- 
-title: <center> **PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS** </center>
+title: <table> <tr> <th bgcolor="#BC9FFF"> **PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS** </th> </tr> <td bgcolor=#BC9FFF> </table>
 output: html_document 
 theme: celurean
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
+
 ---
  <br>
 
