@@ -92,7 +92,16 @@ hist(Merged$logemigrationpercap, xlab = "Emigrants per capita", main = "Figure 2
 
 Among all the years, the country with the largest emigration per capita is the West Bank and Gaza. One can infer that the conflict in this region over time has affected the population movements drastically. The country with the lowest emigration per capita is Western Sahara. Even though there is a strong conflict in the region, free mobility in and out of the country is heavily guarded and limited by a 2,700 kilometer sand wall, also known as the Moroccan Wall. This can account for the lack of emigration throughout the region. 
 
-Moreover, in oder to 
+# Jarque
+
+```{r, echo=FALSE, warning=FALSE, comment=NA, include=FALSE}
+JB <- jarque.bera.test(Merged$logemigrationpercap)
+JB_stat <- (JB$statistic)
+JB_Pval <-(JB$p.value)
+```
+
+`r list(JB_stat)`
+`r list(JB_Pval)`
 
 ## Summary
 
