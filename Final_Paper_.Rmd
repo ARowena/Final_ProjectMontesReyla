@@ -1,5 +1,5 @@
 ---
-title: "Have ICT changed the game for mobility and migration?"
+title: "Push or Pull? The Influence of ICT on Emigration Flows"
 author: "Ana Cecila Montes and Ayra Rowena Reyla "
 date: "11 December 2015"
 output: pdf_document
