@@ -1,7 +1,7 @@
 ﻿
 [<img src="https://www.hertie-school.org/uploads/pics/HSG_Logo_rgb_33c6f5.jpg" align="right" height="135" width ="200"/>](http://www.hertie-school.org/)
 <i>
-#Have innovations in ICT changed the game for international migration?
+#Push or Pull? The Influence of ICT on Emigration Flows
 </i>
 
 This repository is created for our final research project produced for MPP_1180: Collaborative Social Science Data Analysis at Hertie School of Govermance, taught by Prof. Dr. Christopher Gandrud. 
