@@ -1,5 +1,5 @@
 --- 
-title: "#**WELCOME**"
+title: "#**PUSH OR PULL? THE INFLUENCE OF ICT ON EMIGRATION FLOWS**"
 output: html_document 
 theme: journal
 authors: ANA CECILIA MONTES and AYRA ROWENA REYLA 
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #library('shinythemes')
 
 ```
-#**Push or Pull? The Influence of ICT on Emigration Flows**
+#**WELCOME**
 
 Thank you for showing interest in our research project! 
 
@@ -57,17 +57,19 @@ ICT and the emergence of globalisation has impacted every facet of our daily liv
 
 The best model for our research is a panel regression with fixed effects.
 
-For more information please refer to our paper: 
-If you're more curious about statistical models, here are a few useful links: http://www.indiana.edu/~wim/docs/10_7_2011_slides.pdf or http://gauss.stat.su.se/gu/e/slides/F17.pdf
+For more information please refer to our paper: https://github.com/ARowena/Final_ProjectMontesReyla/blob/master/Final_Paper_.pdf
+
+If you're more curious about statistical models, here are also few useful links: http://www.indiana.edu/~wim/docs/10_7_2011_slides.pdf or http://gauss.stat.su.se/gu/e/slides/F17.pdf
 
 #**WHAT DID WE LEARN?**
 
+The increase in the use of technology has had important effect on how people communicate now a days. AS Castles (2009) points out social transformations are tighly related with ICT development. This paper intents to explore the relationship between migration flows and ICT's using the number of cellphone subscription and Internet users as proxies for Information and  Communication Technology. We take advantage of both the time series and cross-country variation in our data set. Our results show that countries with higher Internet Users has on overage higher emigration rates and that this relationship is stronger as Internet use deepens in the latest decade when compared to the 2000's. Moreover, as the use of Cellphone penetrates in the country's inside markets, emigration rates tends to be higher. The diferences in emigration rates between countries, however, are not explained by the number of Cellophone users. 
 
-
-
+Nevertheless, as there are many reasons why individuals choose to migration, and communication technologies could make this process much more easy and attractive. It is benificial for countries or governments to undestand the causes and the drivers for migration so that they can futher learn and develop strategies to either retain or atract population in their borders, depending on trends currently happening around the globe. Mobile and internet technology are also resources that governments can exploitto communicate policies and information for people interesting in migrating, making integration process more easy for them.
 
 #**... WHAT ARE THE NEXT STEPS?** 
 
+The United Nations (UN) have complied a large amount of statistical evidence on the topic of migration, however, the database does not have a large number of year observations. One of the major next steps is to select a longer year frame database. Moreover, we wouldlike to  access and explore good and reliable datasets in order to study if the use of ICT influence people's opinion and experience of migration at the individual level. 
 
 
 
